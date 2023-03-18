@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class Borc:IEntity
+    public class MyBorc:IEntity
     {
         [Key]
         public int Id { get; set; }
-        public int MusteriId { get; set; }
+        public int FirmaId { get; set; }
         public decimal Tutar { get; set; }
         public decimal KacOdendi { get; set; }
         public decimal KacOdenecek { get; set; }
