@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface INotPersonel:IEntityRepository<Not>
+    public interface INotDal:IEntityRepository<Not>
     {
     }
 }
