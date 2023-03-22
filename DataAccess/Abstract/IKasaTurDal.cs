@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IIpDal:IEntityRepository<Ip>
+    public interface IKasaTurDal:IEntityRepository<KasaTur>
     {
     }
 }

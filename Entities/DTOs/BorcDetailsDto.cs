@@ -1,18 +1,17 @@
 ﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concrete
+namespace Entities.DTOs
 {
-    public class MyBorc:IEntity
+    public class BorcDetailsDto:IDto
     {
-        [Key]
         public int Id { get; set; }
-        public int FirmaId { get; set; }
+        public string Cari { get; set; }
+        public string Tur { get; set; }
         public decimal Tutar { get; set; }
         public decimal KacOdendi { get; set; }
         public decimal KacOdenecek { get; set; }

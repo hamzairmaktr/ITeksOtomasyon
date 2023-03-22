@@ -18,14 +18,13 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Borc> Borclar { get; set; }
         public DbSet<FaturaBilgi> FaturaBilgiler { get; set; }
         public DbSet<FaturaDetay> FaturaDetaylar { get; set; }
-        public DbSet<Firma> Firmalar { get; set; }
+        public DbSet<Cari> Cariler { get; set; }
         public DbSet<Gider> Giderler { get; set; }
-        public DbSet<Ip> Ipler { get; set; }
-        public DbSet<Musteri> Musteriler { get; set; }
-        public DbSet<MyBorc> MyBorclar { get; set; }
         public DbSet<Not> Notlar { get; set; }
         public DbSet<Personel> Personeller { get; set; }
         public DbSet<Stok> Stoklar { get; set; }
         public DbSet<Urun> Urunler { get; set; }
+        public DbSet<Haraket> Haraketler { get; set; }
+        public DbSet<HaraketTur> HaraketTurler { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IMusteriDal:IEntityRepository<Musteri>
+    public interface IHaraketDal:IEntityRepository<Haraket>
     {
     }
 }
