@@ -135,6 +135,7 @@
             // 
             gridView2.GridControl = gridControl2;
             gridView2.Name = "gridView2";
+            gridView2.FocusedRowChanged += gridView2_FocusedRowChanged;
             // 
             // gridControl2
             // 
@@ -269,6 +270,7 @@
             Name = "FrmBorcEksi";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "FrmBorcEksi";
+            Load += FrmBorcEksi_Load;
             ((System.ComponentModel.ISupportInitialize)gridView3).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridControl3).EndInit();
             ((System.ComponentModel.ISupportInitialize)groupControl4).EndInit();

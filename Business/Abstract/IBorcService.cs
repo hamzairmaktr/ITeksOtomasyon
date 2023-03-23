@@ -15,5 +15,6 @@ namespace Business.Abstract
         IResult Delete(Borc borc);
         IResult Update(Borc borc);
         IDataResult<List<BorcDetailsDto>> GetBorcDetailAll();
+        IDataResult<List<BorcOzetDto>> GetBorcOzetDTOs();
     }
 }

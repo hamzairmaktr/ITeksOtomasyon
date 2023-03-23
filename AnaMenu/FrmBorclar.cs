@@ -20,22 +20,24 @@ namespace UIWinForm
             InitializeComponent();
         }
 
+        public static int secilenCari=0;
+
+        public FrmBorclar(int result)
+        {
+            secilenCari = result;
+        }
+
+        void Geciktimi()
+        {
+            BorcManager borcManager = new BorcManager(new EfBorcDal());
+        }
+
         //Listele
         void GetAll()
         {
             BorcManager borcManager = new BorcManager(new EfBorcDal());
             var result = borcManager.GetBorcDetailAll();
             gridControl1.DataSource = result.Data;
-        }
-
-        //Ekle
-        void Add()
-        {
-            BorcManager borcManager = new BorcManager(new EfBorcDal());
-            Borc borc = new Borc()
-            {
-
-            };
         }
 
         private void btnCari_Click(object sender, EventArgs e)
@@ -51,7 +53,29 @@ namespace UIWinForm
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-
+            BorcManager borcManager=new BorcManager(new EfBorcDal());
+            Borc borc = new Borc
+            {
+                Geciktimi = false,
+                VerilisTarih = DateTime.Now,
+                TeslimTarih = DateTime.Now.AddDays(14),
+                CariId = secilenCari,
+                KacOdendi = 0,
+                KacOdenecek=decimal.Parse(txtTutar.Text),
+                Odendimi=false,
+                Tur=cmbTur.Text,
+                Tutar=decimal.Parse(txtTutar.Text)
+            };
+            var result=borcManager.Add(borc);
+            if (result.Success == true)
+            {
+                MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(result.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            GetAll();
         }
 
         private void simpleButton4_Click(object sender, EventArgs e)
@@ -62,7 +86,7 @@ namespace UIWinForm
 
         private void simpleButton5_Click(object sender, EventArgs e)
         {
-            FrmBorcEksi frm=new FrmBorcEksi();
+            FrmBorcEksi frm = new FrmBorcEksi();
             frm.ShowDialog();
         }
     }

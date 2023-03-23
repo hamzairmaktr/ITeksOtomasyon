@@ -29,39 +29,39 @@
         private void InitializeComponent()
         {
             groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            gridControl1 = new DevExpress.XtraGrid.GridControl();
-            gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            gridControl2 = new DevExpress.XtraGrid.GridControl();
-            gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            label1 = new System.Windows.Forms.Label();
-            txtId = new DevExpress.XtraEditors.TextEdit();
-            txtKasaId = new DevExpress.XtraEditors.TextEdit();
-            label2 = new System.Windows.Forms.Label();
-            txtCariId = new DevExpress.XtraEditors.TextEdit();
-            label3 = new System.Windows.Forms.Label();
+            btnTemizle = new System.Windows.Forms.Button();
+            btnEkle = new System.Windows.Forms.Button();
             txtTutar = new DevExpress.XtraEditors.TextEdit();
             label4 = new System.Windows.Forms.Label();
+            txtCariId = new DevExpress.XtraEditors.TextEdit();
+            label3 = new System.Windows.Forms.Label();
+            txtKasaId = new DevExpress.XtraEditors.TextEdit();
+            label2 = new System.Windows.Forms.Label();
+            txtId = new DevExpress.XtraEditors.TextEdit();
+            label1 = new System.Windows.Forms.Label();
+            groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            gridControl1 = new DevExpress.XtraGrid.GridControl();
+            gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            gridControl2 = new DevExpress.XtraGrid.GridControl();
+            gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             groupControl4 = new DevExpress.XtraEditors.GroupControl();
             gridControl3 = new DevExpress.XtraGrid.GridControl();
             gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            btnEkle = new System.Windows.Forms.Button();
-            btnTemizle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)groupControl1).BeginInit();
             groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtTutar.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtCariId.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtKasaId.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtId.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl2).BeginInit();
             groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)groupControl3).BeginInit();
-            groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)groupControl3).BeginInit();
+            groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControl2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtId.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtKasaId.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtCariId.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtTutar.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl4).BeginInit();
             groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControl3).BeginInit();
@@ -86,91 +86,44 @@
             groupControl1.TabIndex = 0;
             groupControl1.Text = "İşlem";
             // 
-            // groupControl2
+            // btnTemizle
             // 
-            groupControl2.Controls.Add(gridControl1);
-            groupControl2.Location = new System.Drawing.Point(470, 0);
-            groupControl2.Name = "groupControl2";
-            groupControl2.Size = new System.Drawing.Size(758, 303);
-            groupControl2.TabIndex = 1;
-            groupControl2.Text = "Borç";
+            btnTemizle.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnTemizle.Location = new System.Drawing.Point(314, 186);
+            btnTemizle.Name = "btnTemizle";
+            btnTemizle.Size = new System.Drawing.Size(126, 48);
+            btnTemizle.TabIndex = 9;
+            btnTemizle.Text = "Temizle";
+            btnTemizle.UseVisualStyleBackColor = true;
             // 
-            // groupControl3
+            // btnEkle
             // 
-            groupControl3.Controls.Add(gridControl2);
-            groupControl3.Location = new System.Drawing.Point(470, 312);
-            groupControl3.Name = "groupControl3";
-            groupControl3.Size = new System.Drawing.Size(758, 312);
-            groupControl3.TabIndex = 2;
-            groupControl3.Text = "Cari";
+            btnEkle.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btnEkle.Location = new System.Drawing.Point(114, 186);
+            btnEkle.Name = "btnEkle";
+            btnEkle.Size = new System.Drawing.Size(126, 48);
+            btnEkle.TabIndex = 8;
+            btnEkle.Text = "Tutar Ekle";
+            btnEkle.UseVisualStyleBackColor = true;
             // 
-            // gridControl1
+            // txtTutar
             // 
-            gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridControl1.Location = new System.Drawing.Point(2, 23);
-            gridControl1.MainView = gridView1;
-            gridControl1.Name = "gridControl1";
-            gridControl1.Size = new System.Drawing.Size(754, 278);
-            gridControl1.TabIndex = 0;
-            gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
+            txtTutar.Location = new System.Drawing.Point(114, 143);
+            txtTutar.Name = "txtTutar";
+            txtTutar.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtTutar.Properties.Appearance.Options.UseFont = true;
+            txtTutar.Size = new System.Drawing.Size(326, 24);
+            txtTutar.TabIndex = 7;
             // 
-            // gridView1
+            // label4
             // 
-            gridView1.GridControl = gridControl1;
-            gridView1.Name = "gridView1";
-            // 
-            // gridControl2
-            // 
-            gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridControl2.Location = new System.Drawing.Point(2, 23);
-            gridControl2.MainView = gridView2;
-            gridControl2.Name = "gridControl2";
-            gridControl2.Size = new System.Drawing.Size(754, 287);
-            gridControl2.TabIndex = 0;
-            gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView2 });
-            // 
-            // gridView2
-            // 
-            gridView2.GridControl = gridControl2;
-            gridView2.Name = "gridView2";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(76, 56);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(32, 18);
-            label1.TabIndex = 0;
-            label1.Text = "Id :";
-            // 
-            // txtId
-            // 
-            txtId.Location = new System.Drawing.Point(114, 53);
-            txtId.Name = "txtId";
-            txtId.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txtId.Properties.Appearance.Options.UseFont = true;
-            txtId.Size = new System.Drawing.Size(326, 24);
-            txtId.TabIndex = 1;
-            // 
-            // txtKasaId
-            // 
-            txtKasaId.Location = new System.Drawing.Point(114, 83);
-            txtKasaId.Name = "txtKasaId";
-            txtKasaId.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txtKasaId.Properties.Appearance.Options.UseFont = true;
-            txtKasaId.Size = new System.Drawing.Size(326, 24);
-            txtKasaId.TabIndex = 3;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label2.Location = new System.Drawing.Point(39, 86);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(69, 18);
-            label2.TabIndex = 2;
-            label2.Text = "Kasa Id :";
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label4.Location = new System.Drawing.Point(54, 146);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(54, 18);
+            label4.TabIndex = 6;
+            label4.Text = "Tutar :";
             // 
             // txtCariId
             // 
@@ -191,24 +144,93 @@
             label3.TabIndex = 4;
             label3.Text = "Cari Id :";
             // 
-            // txtTutar
+            // txtKasaId
             // 
-            txtTutar.Location = new System.Drawing.Point(114, 143);
-            txtTutar.Name = "txtTutar";
-            txtTutar.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txtTutar.Properties.Appearance.Options.UseFont = true;
-            txtTutar.Size = new System.Drawing.Size(326, 24);
-            txtTutar.TabIndex = 7;
+            txtKasaId.Location = new System.Drawing.Point(114, 83);
+            txtKasaId.Name = "txtKasaId";
+            txtKasaId.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtKasaId.Properties.Appearance.Options.UseFont = true;
+            txtKasaId.Size = new System.Drawing.Size(326, 24);
+            txtKasaId.TabIndex = 3;
             // 
-            // label4
+            // label2
             // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(54, 146);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(54, 18);
-            label4.TabIndex = 6;
-            label4.Text = "Tutar :";
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label2.Location = new System.Drawing.Point(39, 86);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(69, 18);
+            label2.TabIndex = 2;
+            label2.Text = "Kasa Id :";
+            // 
+            // txtId
+            // 
+            txtId.Location = new System.Drawing.Point(114, 53);
+            txtId.Name = "txtId";
+            txtId.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtId.Properties.Appearance.Options.UseFont = true;
+            txtId.Size = new System.Drawing.Size(326, 24);
+            txtId.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(76, 56);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(32, 18);
+            label1.TabIndex = 0;
+            label1.Text = "Id :";
+            // 
+            // groupControl2
+            // 
+            groupControl2.Controls.Add(gridControl1);
+            groupControl2.Location = new System.Drawing.Point(470, 0);
+            groupControl2.Name = "groupControl2";
+            groupControl2.Size = new System.Drawing.Size(758, 303);
+            groupControl2.TabIndex = 1;
+            groupControl2.Text = "Borç";
+            // 
+            // gridControl1
+            // 
+            gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridControl1.Location = new System.Drawing.Point(2, 23);
+            gridControl1.MainView = gridView1;
+            gridControl1.Name = "gridControl1";
+            gridControl1.Size = new System.Drawing.Size(754, 278);
+            gridControl1.TabIndex = 0;
+            gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
+            // 
+            // gridView1
+            // 
+            gridView1.GridControl = gridControl1;
+            gridView1.Name = "gridView1";
+            // 
+            // groupControl3
+            // 
+            groupControl3.Controls.Add(gridControl2);
+            groupControl3.Location = new System.Drawing.Point(470, 312);
+            groupControl3.Name = "groupControl3";
+            groupControl3.Size = new System.Drawing.Size(758, 312);
+            groupControl3.TabIndex = 2;
+            groupControl3.Text = "Cari";
+            // 
+            // gridControl2
+            // 
+            gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridControl2.Location = new System.Drawing.Point(2, 23);
+            gridControl2.MainView = gridView2;
+            gridControl2.Name = "gridControl2";
+            gridControl2.Size = new System.Drawing.Size(754, 287);
+            gridControl2.TabIndex = 0;
+            gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView2 });
+            // 
+            // gridView2
+            // 
+            gridView2.GridControl = gridControl2;
+            gridView2.Name = "gridView2";
+            gridView2.FocusedRowChanged += gridView2_FocusedRowChanged;
+            gridView2.DoubleClick += gridView2_DoubleClick;
             // 
             // groupControl4
             // 
@@ -234,26 +256,6 @@
             gridView3.GridControl = gridControl3;
             gridView3.Name = "gridView3";
             // 
-            // btnEkle
-            // 
-            btnEkle.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnEkle.Location = new System.Drawing.Point(114, 186);
-            btnEkle.Name = "btnEkle";
-            btnEkle.Size = new System.Drawing.Size(126, 48);
-            btnEkle.TabIndex = 8;
-            btnEkle.Text = "Tutar Ekle";
-            btnEkle.UseVisualStyleBackColor = true;
-            // 
-            // btnTemizle
-            // 
-            btnTemizle.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnTemizle.Location = new System.Drawing.Point(314, 186);
-            btnTemizle.Name = "btnTemizle";
-            btnTemizle.Size = new System.Drawing.Size(126, 48);
-            btnTemizle.TabIndex = 9;
-            btnTemizle.Text = "Temizle";
-            btnTemizle.UseVisualStyleBackColor = true;
-            // 
             // FrmBorcArti
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -271,21 +273,22 @@
             Name = "FrmBorcArti";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "FrmBorcArti";
+            Load += FrmBorcArti_Load;
             ((System.ComponentModel.ISupportInitialize)groupControl1).EndInit();
             groupControl1.ResumeLayout(false);
             groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtTutar.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtCariId.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtKasaId.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtId.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)groupControl2).EndInit();
             groupControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)groupControl3).EndInit();
-            groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)groupControl3).EndInit();
+            groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridControl2).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtId.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtKasaId.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtCariId.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtTutar.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)groupControl4).EndInit();
             groupControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridControl3).EndInit();

@@ -13,6 +13,25 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfBorcDal : EfEntityRepositoryBase<Borc, Context>, IBorcDal
     {
+        public List<BorcOzetDto> GetBorcOzetDtos(Expression<Func<Borc, bool>>? filter = null)
+        {
+            using (var context = new Context())
+            {
+                var result = from b in context.Borclar
+                             join c in context.Cariler
+                             on b.CariId equals c.Id
+                             select new BorcOzetDto
+                             {
+                                 Id = b.Id,
+                                 Cari = c.Ismi,
+                                 KacOdenecek = b.KacOdenecek,
+                                 Tutar = b.Tutar,
+                                 Tur = b.Tur
+                             };
+                return result.ToList();
+            }
+        }
+
         public List<BorcDetailsDto> GetProductDetailsAll(Expression<Func<Borc, bool>>? filter = null)
         {
             using(var context = new Context())

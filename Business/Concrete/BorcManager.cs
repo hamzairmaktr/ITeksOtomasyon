@@ -50,6 +50,11 @@ namespace Business.Concrete
             return new SucessDataResult<List<BorcDetailsDto>>(_borcDal.GetProductDetailsAll(p=>p.Odendimi==false));
         }
 
+        public IDataResult<List<BorcOzetDto>> GetBorcOzetDTOs()
+        {
+            return new SucessDataResult<List<BorcOzetDto>>(_borcDal.GetBorcOzetDtos(p => p.Odendimi==false));
+        }
+
         public IResult Update(Borc borc)
         {
             if (borc.Tutar == 0)

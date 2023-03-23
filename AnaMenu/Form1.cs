@@ -27,7 +27,7 @@ namespace AnaMenu
         {
             if (frmBankalar == null)
             {
-                frmBankalar=new FrmBankalar();
+                frmBankalar = new FrmBankalar();
                 frmBankalar.MdiParent = this;
                 frmBankalar.Show();
             }
@@ -46,11 +46,22 @@ namespace AnaMenu
         FrmBorclar frmBorclar;
         private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (frmBorclar==null)
+            if (frmBorclar == null)
             {
                 frmBorclar = new FrmBorclar();
                 frmBorclar.MdiParent = this;
                 frmBorclar.Show();
+            }
+        }
+
+        FrmCariler frmCariler;
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (frmCariler == null)
+            {
+                frmCariler = new FrmCariler();
+                frmCariler.MdiParent = this;
+                frmCariler.Show();
             }
         }
     }
