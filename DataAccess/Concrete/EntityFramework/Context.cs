@@ -26,5 +26,7 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Urun> Urunler { get; set; }
         public DbSet<Haraket> Haraketler { get; set; }
         public DbSet<HaraketTur> HaraketTurler { get; set; }
+        public DbSet<Kasa> Kasalar { get; set; }
+        public DbSet<KasaTur> KasalarTurler { get; set; }
     }
 }

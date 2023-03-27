@@ -22,19 +22,17 @@ namespace UIWinForm
 
         private void FrmBorcArti_Load(object sender, EventArgs e)
         {
-            CariManager cariManager = new CariManager(new EfCariDal());
-            gridControl2.DataSource = cariManager.GetCariOzetDtos().Data;
+
+            BorcManager borcManager = new BorcManager(new EfBorcDal());
+            gridControl1.DataSource = borcManager.GetBorcOzetDTOs().Data;
         }
 
-        private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            var selectedRow = gridView2.GetFocusedRow() as CariOzetDtos;
-            txtCariId.Text = selectedRow.Id.ToString();
-        }
 
-        private void gridView2_DoubleClick(object sender, EventArgs e)
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            
+            var selectedRow = gridView1.GetFocusedRow() as BorcOzetDto;
+            txtId.Text = selectedRow.Id.ToString();
+            txtCariId.Text = selectedRow.CariId.ToString();
         }
     }
 }

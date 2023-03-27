@@ -1,7 +1,9 @@
 ﻿using Core.DataAccess.EntityFramework;
+using Core.Entities;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,7 @@ namespace DataAccess.Concrete.EntityFramework
                              {
                                  Id = b.Id,
                                  Cari = c.Ismi,
+                                 CariId=c.Id,
                                  KacOdenecek = b.KacOdenecek,
                                  Tutar = b.Tutar,
                                  Tur = b.Tur

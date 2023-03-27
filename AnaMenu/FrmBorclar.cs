@@ -1,6 +1,9 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
+using DevExpress.Mvvm.Native;
 using Entities.Concrete;
+using Entities.DTOs;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +23,7 @@ namespace UIWinForm
             InitializeComponent();
         }
 
-        public static int secilenCari=0;
+        public static int secilenCari = 0;
 
         public FrmBorclar(int result)
         {
@@ -29,7 +32,20 @@ namespace UIWinForm
 
         void Geciktimi()
         {
-            BorcManager borcManager = new BorcManager(new EfBorcDal());
+            SqlConnection con = new SqlConnection("Server=.\\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("update Borclar set Geciktimi=1 where DateDiff(day,TeslimTarih,GetDate())>0", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        void BorcBitis()
+        {
+            SqlConnection con = new SqlConnection("Server=.\\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("update Borclar set Odendimi=1 where KacOdenecek=0", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         //Listele
@@ -48,25 +64,27 @@ namespace UIWinForm
 
         private void FrmBorclar_Load(object sender, EventArgs e)
         {
+            BorcBitis();
+            Geciktimi();
             GetAll();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            BorcManager borcManager=new BorcManager(new EfBorcDal());
+            BorcManager borcManager = new BorcManager(new EfBorcDal());
             Borc borc = new Borc
             {
                 Geciktimi = false,
                 VerilisTarih = DateTime.Now,
-                TeslimTarih = DateTime.Now.AddDays(14),
+                TeslimTarih = DateTime.Parse(dateTeslimTarih.Text),
                 CariId = secilenCari,
                 KacOdendi = 0,
-                KacOdenecek=decimal.Parse(txtTutar.Text),
-                Odendimi=false,
-                Tur=cmbTur.Text,
-                Tutar=decimal.Parse(txtTutar.Text)
+                KacOdenecek = decimal.Parse(txtTutar.Text),
+                Odendimi = false,
+                Tur = cmbTur.Text,
+                Tutar = decimal.Parse(txtTutar.Text)
             };
-            var result=borcManager.Add(borc);
+            var result = borcManager.Add(borc);
             if (result.Success == true)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -76,6 +94,7 @@ namespace UIWinForm
                 MessageBox.Show(result.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             GetAll();
+            Temizle();
         }
 
         private void simpleButton4_Click(object sender, EventArgs e)
@@ -88,6 +107,35 @@ namespace UIWinForm
         {
             FrmBorcEksi frm = new FrmBorcEksi();
             frm.ShowDialog();
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            var selected = gridView1.GetFocusedRow() as BorcDetailsDto;
+            txtId.Text = selected.Id.ToString();
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            BorcManager borcManager = new BorcManager(new EfBorcDal());
+            Borc borc = new Borc() { Id = int.Parse(txtId.Text) };
+            borcManager.Delete(borc);
+            GetAll();
+            Temizle();
+            
+        }
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+            Temizle();
+        }
+
+        private void Temizle()
+        {
+            txtId.Text = null;
+            cmbTur.Text = null;
+            secilenCari = 0;
+            txtTutar.Text = null;
+            dateTeslimTarih.Text = null;
         }
     }
 }

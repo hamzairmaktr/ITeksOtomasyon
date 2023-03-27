@@ -11,6 +11,7 @@ namespace Entities.DTOs
     {
         public int Id { get; set; }
         public string Cari { get; set; }
+        public int CariId { get; set; }
         public string Tur { get; set; }
         public decimal Tutar { get; set; }
         public decimal KacOdenecek { get; set; }

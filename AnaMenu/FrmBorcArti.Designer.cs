@@ -42,9 +42,6 @@
             groupControl2 = new DevExpress.XtraEditors.GroupControl();
             gridControl1 = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            gridControl2 = new DevExpress.XtraGrid.GridControl();
-            gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             groupControl4 = new DevExpress.XtraEditors.GroupControl();
             gridControl3 = new DevExpress.XtraGrid.GridControl();
             gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -58,10 +55,6 @@
             groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)groupControl3).BeginInit();
-            groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gridControl2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)gridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)groupControl4).BeginInit();
             groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControl3).BeginInit();
@@ -187,7 +180,7 @@
             groupControl2.Controls.Add(gridControl1);
             groupControl2.Location = new System.Drawing.Point(470, 0);
             groupControl2.Name = "groupControl2";
-            groupControl2.Size = new System.Drawing.Size(758, 303);
+            groupControl2.Size = new System.Drawing.Size(758, 624);
             groupControl2.TabIndex = 1;
             groupControl2.Text = "Borç";
             // 
@@ -197,7 +190,7 @@
             gridControl1.Location = new System.Drawing.Point(2, 23);
             gridControl1.MainView = gridView1;
             gridControl1.Name = "gridControl1";
-            gridControl1.Size = new System.Drawing.Size(754, 278);
+            gridControl1.Size = new System.Drawing.Size(754, 599);
             gridControl1.TabIndex = 0;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -205,32 +198,7 @@
             // 
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
-            // 
-            // groupControl3
-            // 
-            groupControl3.Controls.Add(gridControl2);
-            groupControl3.Location = new System.Drawing.Point(470, 312);
-            groupControl3.Name = "groupControl3";
-            groupControl3.Size = new System.Drawing.Size(758, 312);
-            groupControl3.TabIndex = 2;
-            groupControl3.Text = "Cari";
-            // 
-            // gridControl2
-            // 
-            gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridControl2.Location = new System.Drawing.Point(2, 23);
-            gridControl2.MainView = gridView2;
-            gridControl2.Name = "gridControl2";
-            gridControl2.Size = new System.Drawing.Size(754, 287);
-            gridControl2.TabIndex = 0;
-            gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView2 });
-            // 
-            // gridView2
-            // 
-            gridView2.GridControl = gridControl2;
-            gridView2.Name = "gridView2";
-            gridView2.FocusedRowChanged += gridView2_FocusedRowChanged;
-            gridView2.DoubleClick += gridView2_DoubleClick;
+            gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
             // groupControl4
             // 
@@ -263,7 +231,6 @@
             AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             ClientSize = new System.Drawing.Size(1229, 627);
             Controls.Add(groupControl4);
-            Controls.Add(groupControl3);
             Controls.Add(groupControl2);
             Controls.Add(groupControl1);
             Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -285,10 +252,6 @@
             groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)groupControl3).EndInit();
-            groupControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)gridControl2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)gridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)groupControl4).EndInit();
             groupControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)gridControl3).EndInit();
@@ -312,9 +275,6 @@
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraEditors.GroupControl groupControl3;
-        private DevExpress.XtraGrid.GridControl gridControl2;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraEditors.GroupControl groupControl4;
         private DevExpress.XtraGrid.GridControl gridControl3;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
