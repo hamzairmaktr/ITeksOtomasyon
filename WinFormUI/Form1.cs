@@ -64,5 +64,16 @@ namespace AnaMenu
                 frmCariler.Show();
             }
         }
+
+        FrmKasa frmKasa;
+        private void barButtonItem17_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (frmKasa==null)
+            {
+                frmKasa = new FrmKasa();
+                frmKasa.MdiParent = this;
+                frmKasa.Show();
+            }
+        }
     }
 }

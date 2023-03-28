@@ -249,6 +249,7 @@
             barButtonItem17.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             barButtonItem17.ItemAppearance.Normal.Options.UseFont = true;
             barButtonItem17.Name = "barButtonItem17";
+            barButtonItem17.ItemClick += barButtonItem17_ItemClick;
             // 
             // ribbonPage1
             // 

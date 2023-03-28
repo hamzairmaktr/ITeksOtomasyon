@@ -14,6 +14,6 @@ namespace Business.Abstract
         IResult Add(Kasa kasa);
         IResult Update(Kasa kasa);
         IResult Delete(Kasa kasa);
-        IDataResult<List<KasaDetailsDto>> GetDetailsDto(Kasa kasa);
+        IDataResult<List<KasaDetailsDto>> GetDetailsDto();
     }
 }

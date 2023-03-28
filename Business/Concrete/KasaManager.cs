@@ -43,7 +43,7 @@ namespace Business.Concrete
             return new SuccessResult("Kasa başarı ile silindi");
         }
 
-        public IDataResult<List<KasaDetailsDto>> GetDetailsDto(Kasa kasa)
+        public IDataResult<List<KasaDetailsDto>> GetDetailsDto()
         {
             return new SucessDataResult<List<KasaDetailsDto>>(_kasaDal.GetAllDetailsDto());
         }
@@ -61,7 +61,7 @@ namespace Business.Concrete
             else
             {
                 _kasaDal.Update(kasa);
-                return new SuccessResult("Kasa başarı ile kaydedildi");
+                return new SuccessResult("Kasa başarı ile güncellendi");
             }
         }
     }

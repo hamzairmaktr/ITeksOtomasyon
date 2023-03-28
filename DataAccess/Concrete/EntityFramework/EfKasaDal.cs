@@ -21,7 +21,7 @@ namespace DataAccess.Concrete.EntityFramework
                              on k.KasaTur equals kt.Id
                              join b in context.Bankalar
                              on kt.BankaId equals b.Id
-                             select new KasaDetailsDto
+                             select new KasaDetailsDto()
                              {
                                  Id = k.Id,
                                  Name = kt.Name,
