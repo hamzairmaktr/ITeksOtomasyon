@@ -18,5 +18,7 @@ namespace Entities.DTOs
         public DateTime VerilisTarih { get; set; }
         public DateTime TeslimTarih { get; set; }
         public bool Geciktimi { get; set; }
+        public bool Odendimi { get; set; }
+
     }
 }

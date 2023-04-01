@@ -99,5 +99,11 @@ namespace UIWinForm
             }
             Listele();
         }
+
+        private void btnKasaTur_Click(object sender, EventArgs e)
+        {
+            FrmKasaTur frmKasaTur = new FrmKasaTur();
+            frmKasaTur.ShowDialog();
+        }
     }
 }

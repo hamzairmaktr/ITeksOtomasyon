@@ -1,6 +1,6 @@
 ﻿namespace UIWinForm
 {
-    partial class FrmBorcEksi
+    partial class FrmBorcTahsil
     {
         /// <summary>
         /// Required designer variable.
@@ -65,6 +65,7 @@
             // 
             gridView3.GridControl = gridControl3;
             gridView3.Name = "gridView3";
+            gridView3.FocusedRowChanged += gridView3_FocusedRowChanged;
             // 
             // gridControl3
             // 
@@ -72,23 +73,23 @@
             gridControl3.Location = new System.Drawing.Point(2, 23);
             gridControl3.MainView = gridView3;
             gridControl3.Name = "gridControl3";
-            gridControl3.Size = new System.Drawing.Size(461, 287);
+            gridControl3.Size = new System.Drawing.Size(754, 287);
             gridControl3.TabIndex = 0;
             gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView3 });
             // 
             // groupControl4
             // 
             groupControl4.Controls.Add(gridControl3);
-            groupControl4.Location = new System.Drawing.Point(1, 313);
+            groupControl4.Location = new System.Drawing.Point(470, 310);
             groupControl4.Name = "groupControl4";
-            groupControl4.Size = new System.Drawing.Size(465, 312);
+            groupControl4.Size = new System.Drawing.Size(758, 312);
             groupControl4.TabIndex = 7;
             groupControl4.Text = "Kasa";
             // 
             // btnTemizle
             // 
             btnTemizle.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnTemizle.Location = new System.Drawing.Point(314, 186);
+            btnTemizle.Location = new System.Drawing.Point(301, 255);
             btnTemizle.Name = "btnTemizle";
             btnTemizle.Size = new System.Drawing.Size(126, 48);
             btnTemizle.TabIndex = 9;
@@ -98,16 +99,17 @@
             // btnEkle
             // 
             btnEkle.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btnEkle.Location = new System.Drawing.Point(114, 186);
+            btnEkle.Location = new System.Drawing.Point(101, 255);
             btnEkle.Name = "btnEkle";
             btnEkle.Size = new System.Drawing.Size(126, 48);
             btnEkle.TabIndex = 8;
-            btnEkle.Text = "Tutar Eksilt";
+            btnEkle.Text = "Tahsil Et";
             btnEkle.UseVisualStyleBackColor = true;
+            btnEkle.Click += btnEkle_Click;
             // 
             // txtTutar
             // 
-            txtTutar.Location = new System.Drawing.Point(114, 143);
+            txtTutar.Location = new System.Drawing.Point(101, 212);
             txtTutar.Name = "txtTutar";
             txtTutar.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtTutar.Properties.Appearance.Options.UseFont = true;
@@ -118,7 +120,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(54, 146);
+            label4.Location = new System.Drawing.Point(41, 215);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(54, 18);
             label4.TabIndex = 6;
@@ -136,13 +138,13 @@
             gridControl1.Location = new System.Drawing.Point(2, 23);
             gridControl1.MainView = gridView1;
             gridControl1.Name = "gridControl1";
-            gridControl1.Size = new System.Drawing.Size(754, 599);
+            gridControl1.Size = new System.Drawing.Size(754, 278);
             gridControl1.TabIndex = 0;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
             // txtCariId
             // 
-            txtCariId.Location = new System.Drawing.Point(114, 113);
+            txtCariId.Location = new System.Drawing.Point(101, 182);
             txtCariId.Name = "txtCariId";
             txtCariId.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtCariId.Properties.Appearance.Options.UseFont = true;
@@ -153,7 +155,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(76, 56);
+            label1.Location = new System.Drawing.Point(63, 125);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(32, 18);
             label1.TabIndex = 0;
@@ -163,7 +165,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label3.Location = new System.Drawing.Point(47, 116);
+            label3.Location = new System.Drawing.Point(34, 185);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(61, 18);
             label3.TabIndex = 4;
@@ -171,7 +173,7 @@
             // 
             // txtKasaId
             // 
-            txtKasaId.Location = new System.Drawing.Point(114, 83);
+            txtKasaId.Location = new System.Drawing.Point(101, 152);
             txtKasaId.Name = "txtKasaId";
             txtKasaId.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtKasaId.Properties.Appearance.Options.UseFont = true;
@@ -182,7 +184,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label2.Location = new System.Drawing.Point(39, 86);
+            label2.Location = new System.Drawing.Point(26, 155);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(69, 18);
             label2.TabIndex = 2;
@@ -193,7 +195,7 @@
             groupControl2.Controls.Add(gridControl1);
             groupControl2.Location = new System.Drawing.Point(470, 1);
             groupControl2.Name = "groupControl2";
-            groupControl2.Size = new System.Drawing.Size(758, 624);
+            groupControl2.Size = new System.Drawing.Size(758, 303);
             groupControl2.TabIndex = 5;
             groupControl2.Text = "Borç";
             // 
@@ -211,20 +213,20 @@
             groupControl1.Controls.Add(label1);
             groupControl1.Location = new System.Drawing.Point(1, 1);
             groupControl1.Name = "groupControl1";
-            groupControl1.Size = new System.Drawing.Size(465, 303);
+            groupControl1.Size = new System.Drawing.Size(465, 621);
             groupControl1.TabIndex = 4;
             groupControl1.Text = "İşlem";
             // 
             // txtId
             // 
-            txtId.Location = new System.Drawing.Point(114, 53);
+            txtId.Location = new System.Drawing.Point(101, 122);
             txtId.Name = "txtId";
             txtId.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtId.Properties.Appearance.Options.UseFont = true;
             txtId.Size = new System.Drawing.Size(326, 24);
             txtId.TabIndex = 1;
             // 
-            // FrmBorcEksi
+            // FrmBorcTahsil
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -235,7 +237,7 @@
             Controls.Add(groupControl1);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "FrmBorcEksi";
+            Name = "FrmBorcTahsil";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "FrmBorcEksi";
             Load += FrmBorcEksi_Load;

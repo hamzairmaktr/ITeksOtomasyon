@@ -15,5 +15,7 @@ namespace Entities.DTOs
         public string Tur { get; set; }
         public decimal Tutar { get; set; }
         public decimal KacOdenecek { get; set; }
+        public decimal KacOdendi { get; set; }
+        public bool Odendimi { get; set; }
     }
 }

@@ -1,22 +1,20 @@
 ﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities.Concrete
+namespace Entities.DTOs
 {
-    public class Not:IEntity
+    public class NotDetailsDto:IDto
     {
-        [Key]
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public DateTime Time { get; set; }
         public string Baslik { get; set; }
         public string Detay { get; set; }
-        public int PersonelID { get; set; }
+        public string PersonelName { get; set; }
         public bool Yapıldımı { get; set; }
     }
 }

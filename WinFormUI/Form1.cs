@@ -17,9 +17,15 @@ namespace AnaMenu
             InitializeComponent();
         }
 
+        FrmPersoneller frmPersoneller;
         private void barButtonItem13_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            if (frmPersoneller==null)
+            {
+                frmPersoneller = new FrmPersoneller();
+                frmPersoneller.MdiParent = this;
+                frmPersoneller.Show();
+            }
         }
 
         FrmBankalar frmBankalar;

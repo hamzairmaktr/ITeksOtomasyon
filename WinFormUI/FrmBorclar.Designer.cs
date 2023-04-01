@@ -39,6 +39,7 @@
             gridControl1 = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+            simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             dateTeslimTarih = new DevExpress.XtraEditors.DateEdit();
             label5 = new System.Windows.Forms.Label();
             cmbTur = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -68,10 +69,10 @@
             tablePanel1.SetColumn(simpleButton6, 1);
             simpleButton6.Dock = System.Windows.Forms.DockStyle.Fill;
             simpleButton6.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("simpleButton6.ImageOptions.Image");
-            simpleButton6.Location = new System.Drawing.Point(91, 474);
+            simpleButton6.Location = new System.Drawing.Point(91, 510);
             simpleButton6.Name = "simpleButton6";
-            tablePanel1.SetRow(simpleButton6, 11);
-            simpleButton6.Size = new System.Drawing.Size(159, 32);
+            tablePanel1.SetRow(simpleButton6, 12);
+            simpleButton6.Size = new System.Drawing.Size(159, 25);
             simpleButton6.TabIndex = 29;
             simpleButton6.Text = "Temizle";
             simpleButton6.Click += simpleButton6_Click;
@@ -88,7 +89,7 @@
             tablePanel1.SetRow(simpleButton5, 10);
             simpleButton5.Size = new System.Drawing.Size(159, 32);
             simpleButton5.TabIndex = 28;
-            simpleButton5.Text = "Borç Eksilti";
+            simpleButton5.Text = "Borç Tahsil";
             simpleButton5.Click += simpleButton5_Click;
             // 
             // simpleButton4
@@ -187,6 +188,7 @@
             // tablePanel1
             // 
             tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 32.48F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 67.52F) });
+            tablePanel1.Controls.Add(simpleButton2);
             tablePanel1.Controls.Add(dateTeslimTarih);
             tablePanel1.Controls.Add(label5);
             tablePanel1.Controls.Add(simpleButton6);
@@ -210,6 +212,21 @@
             tablePanel1.Size = new System.Drawing.Size(263, 781);
             tablePanel1.TabIndex = 1;
             tablePanel1.UseSkinIndents = true;
+            // 
+            // simpleButton2
+            // 
+            simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            simpleButton2.Appearance.Options.UseFont = true;
+            tablePanel1.SetColumn(simpleButton2, 1);
+            simpleButton2.Dock = System.Windows.Forms.DockStyle.Fill;
+            simpleButton2.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("simpleButton2.ImageOptions.Image");
+            simpleButton2.Location = new System.Drawing.Point(91, 474);
+            simpleButton2.Name = "simpleButton2";
+            tablePanel1.SetRow(simpleButton2, 11);
+            simpleButton2.Size = new System.Drawing.Size(159, 32);
+            simpleButton2.TabIndex = 33;
+            simpleButton2.Text = "Borç Öde";
+            simpleButton2.Click += simpleButton2_Click;
             // 
             // dateTeslimTarih
             // 
@@ -399,5 +416,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.DateEdit dateTeslimTarih;
         private System.Windows.Forms.Label label5;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }

@@ -12,7 +12,10 @@ namespace DataAccess.Abstract
 {
     public interface IBorcDal:IEntityRepository<Borc>
     {
-        List<BorcDetailsDto> GetProductDetailsAll(Expression<Func<Borc, bool>>? filter = null);
-        List<BorcOzetDto> GetBorcOzetDtos(Expression<Func<Borc, bool>>? filter = null);
+        List<BorcDetailsDto> GetProductDetailsAll();
+        List<BorcOzetDto> GetBorcOzetDtos();
+        List<BorcOzetDto> GetBorcOzetTahsilDtos();
+        List<BorcOzetDto> GetBorcOzetOdeDtos();
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Entities.DTOs;
 using System;
@@ -26,10 +27,6 @@ namespace Business.Concrete
             {
                 return new ErrorResult("Kasa türünü boş bırakmayınız");
             }
-            else if (kasa.Bakiye==0)
-            {
-                return new ErrorResult("Bakiye kısmını boş bırakmayınız");
-            }
             else
             {
                 _kasaDal.Add(kasa);
@@ -43,6 +40,11 @@ namespace Business.Concrete
             return new SuccessResult("Kasa başarı ile silindi");
         }
 
+        public IDataResult<Kasa> GetById(int id)
+        {
+            return new SucessDataResult<Kasa>(_kasaDal.Get(k => k.Id == id));
+        }
+
         public IDataResult<List<KasaDetailsDto>> GetDetailsDto()
         {
             return new SucessDataResult<List<KasaDetailsDto>>(_kasaDal.GetAllDetailsDto());
@@ -50,19 +52,21 @@ namespace Business.Concrete
 
         public IResult Update(Kasa kasa)
         {
-            if (kasa.KasaTur == 0)
+            
+            _kasaDal.Update(kasa);
+            return new SuccessResult("Kasa başarı ile güncellendi");
+            
+        }
+
+        public IResult UpdateMoney(decimal tutar, int id)
+        {
+            Kasa kasa1 = new Kasa
             {
-                return new ErrorResult("Kasa türünü boş bırakmayınız");
-            }
-            else if (kasa.Bakiye == 0)
-            {
-                return new ErrorResult("Bakiye kısmını boş bırakmayınız");
-            }
-            else
-            {
-                _kasaDal.Update(kasa);
-                return new SuccessResult("Kasa başarı ile güncellendi");
-            }
+                Id = id,
+                Bakiye = tutar
+            };
+            _kasaDal.Update(kasa1);
+            return new SuccessResult("Başarı ile bakiye eklendi");
         }
     }
 }

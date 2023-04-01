@@ -13,7 +13,9 @@ namespace Business.Abstract
     {
         IResult Add(Kasa kasa);
         IResult Update(Kasa kasa);
+        IResult UpdateMoney(decimal tutar, int id);
         IResult Delete(Kasa kasa);
         IDataResult<List<KasaDetailsDto>> GetDetailsDto();
+        IDataResult<Kasa> GetById(int id);
     }
 }

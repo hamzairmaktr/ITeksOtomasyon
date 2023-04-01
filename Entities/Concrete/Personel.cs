@@ -13,6 +13,7 @@ namespace Entities.Concrete
         [Key]
         public int Id { get; set; }
         public string AdSoyad { get; set; }
+        public decimal Maas { get; set; }
         public string Telefon { get; set; }
         public string Mail { get; set; }
         public string Il { get; set; }

@@ -180,6 +180,7 @@
             btnKasaTur.Size = new System.Drawing.Size(164, 28);
             btnKasaTur.TabIndex = 17;
             btnKasaTur.Text = "Kasa Tür";
+            btnKasaTur.Click += btnKasaTur_Click;
             // 
             // label9
             // 

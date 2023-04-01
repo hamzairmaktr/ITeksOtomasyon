@@ -105,7 +105,7 @@ namespace UIWinForm
 
         private void simpleButton5_Click(object sender, EventArgs e)
         {
-            FrmBorcEksi frm = new FrmBorcEksi();
+            FrmBorcTahsil frm = new FrmBorcTahsil();
             frm.ShowDialog();
         }
 
@@ -122,7 +122,7 @@ namespace UIWinForm
             borcManager.Delete(borc);
             GetAll();
             Temizle();
-            
+
         }
         private void simpleButton6_Click(object sender, EventArgs e)
         {
@@ -136,6 +136,12 @@ namespace UIWinForm
             secilenCari = 0;
             txtTutar.Text = null;
             dateTeslimTarih.Text = null;
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            FrmBorcOde frmBorcOde= new FrmBorcOde();
+            frmBorcOde.ShowDialog();
         }
     }
 }

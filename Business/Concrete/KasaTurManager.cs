@@ -2,6 +2,7 @@
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,12 +40,17 @@ namespace Business.Concrete
         public IResult Delete(KasaTur kasaTur)
         {
             _kasaTurDal.Delete(kasaTur);
-            return new SuccessResult();
+            return new SuccessResult("Kasa türü başarı ile silindi");
         }
 
         public IDataResult<List<KasaTur>> GetAll()
         {
             return new SucessDataResult<List<KasaTur>>(_kasaTurDal.GetAll());
+        }
+
+        public IDataResult<List<KasaTurDetails>> GetAllKasaTurDetails()
+        {
+            return new SucessDataResult<List<KasaTurDetails>>(_kasaTurDal.GetAllKasaTurDetails());
         }
 
         public IResult Update(KasaTur kasaTur)

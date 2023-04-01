@@ -47,29 +47,33 @@ namespace Business.Concrete
 
         public IDataResult<List<BorcDetailsDto>> GetBorcDetailAll()
         {
-            return new SucessDataResult<List<BorcDetailsDto>>(_borcDal.GetProductDetailsAll(p=>p.Odendimi==false));
+            return new SucessDataResult<List<BorcDetailsDto>>(_borcDal.GetProductDetailsAll());
         }
 
         public IDataResult<List<BorcOzetDto>> GetBorcOzetDTOs()
         {
-            return new SucessDataResult<List<BorcOzetDto>>(_borcDal.GetBorcOzetDtos(p => p.Odendimi==false));
+            return new SucessDataResult<List<BorcOzetDto>>(_borcDal.GetBorcOzetDtos());
+        }
+
+        public IDataResult<List<BorcOzetDto>> GetBorcOzetOdeDTOs()
+        {
+            return new SucessDataResult<List<BorcOzetDto>>(_borcDal.GetBorcOzetOdeDtos(),"başarılı");
+        }
+
+        public IDataResult<List<BorcOzetDto>> GetBorcOzetTahsilDTOs()
+        {
+            return new SucessDataResult<List<BorcOzetDto>>(_borcDal.GetBorcOzetTahsilDtos(),"başarılı");
+        }
+
+        public IDataResult<Borc> GetById(int id)
+        {
+            return new SucessDataResult<Borc>(_borcDal.Get(b=>b.Id==id));
         }
 
         public IResult Update(Borc borc)
         {
-            if (borc.Tutar == 0)
-            {
-                return new ErrorResult("Lütfen tutarı boş girmeyiniz");
-            }
-            else if (borc.VerilisTarih > borc.TeslimTarih)
-            {
-                return new ErrorResult("Lütfen veriliş tarihi teslim tarihinden daha sonra olmasın");
-            }
-            else
-            {
-                _borcDal.Update(borc);
-                return new SuccessResult("Borç bilgisi güncellendi");
-            }
+            _borcDal.Update(borc);
+            return new SuccessResult("Borç bilgisi güncellendi");        
         }
     }
 }

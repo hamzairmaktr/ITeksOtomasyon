@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace Business.Abstract
         IResult Add(KasaTur kasaTur);
         IResult Update(KasaTur kasaTur);
         IResult Delete(KasaTur kasaTur);
+        IDataResult<List<KasaTurDetails>> GetAllKasaTurDetails();
         IDataResult<List<KasaTur>> GetAll();
     }
 }
