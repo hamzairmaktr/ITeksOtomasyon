@@ -354,6 +354,7 @@
             simpleButton6.Size = new System.Drawing.Size(199, 29);
             simpleButton6.TabIndex = 16;
             simpleButton6.Text = "Temizle";
+            simpleButton6.Click += simpleButton6_Click;
             // 
             // btnGuncelle
             // 

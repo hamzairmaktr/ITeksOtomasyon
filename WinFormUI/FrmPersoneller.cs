@@ -128,5 +128,11 @@ namespace UIWinForm
             cmbGorev.Text = selectedRow.Gorev.ToString();
             txtAdres.Text = selectedRow.Adres.ToString();
         }
+
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+            Temizle();
+            Listele();
+        }
     }
 }

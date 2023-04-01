@@ -97,6 +97,7 @@ namespace UIWinForm
         private void btnTemizle_Click(object sender, EventArgs e)
         {
             Temizle();
+            Listele();
         }
 
         private void Temizle()

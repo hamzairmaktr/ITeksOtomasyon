@@ -20,7 +20,7 @@ namespace AnaMenu
         FrmPersoneller frmPersoneller;
         private void barButtonItem13_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (frmPersoneller==null)
+            if (frmPersoneller == null)
             {
                 frmPersoneller = new FrmPersoneller();
                 frmPersoneller.MdiParent = this;
@@ -74,11 +74,33 @@ namespace AnaMenu
         FrmKasa frmKasa;
         private void barButtonItem17_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (frmKasa==null)
+            if (frmKasa == null)
             {
                 frmKasa = new FrmKasa();
                 frmKasa.MdiParent = this;
                 frmKasa.Show();
+            }
+        }
+
+        FrmUrunler frmUrunler;
+        private void barButtonItem15_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (frmUrunler == null)
+            {
+                frmUrunler = new FrmUrunler();
+                frmUrunler.MdiParent = this;
+                frmUrunler.Show();
+            }
+        }
+
+        FrmNotlar frmNotlar;
+        private void barButtonItem12_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (frmNotlar==null)
+            {
+                frmNotlar = new FrmNotlar();
+                frmNotlar.MdiParent = this;
+                frmNotlar.Show();
             }
         }
     }

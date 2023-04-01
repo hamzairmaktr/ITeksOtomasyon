@@ -44,6 +44,7 @@
             label1 = new System.Windows.Forms.Label();
             txtBakiye = new DevExpress.XtraEditors.TextEdit();
             txtId = new DevExpress.XtraEditors.TextEdit();
+            simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
@@ -89,6 +90,7 @@
             // tablePanel1
             // 
             tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 32.48F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 67.52F) });
+            tablePanel1.Controls.Add(simpleButton2);
             tablePanel1.Controls.Add(lookUpEdit1);
             tablePanel1.Controls.Add(btnKaydet);
             tablePanel1.Controls.Add(btnGuncelle);
@@ -264,6 +266,21 @@
             txtId.Size = new System.Drawing.Size(164, 28);
             txtId.TabIndex = 0;
             // 
+            // simpleButton2
+            // 
+            simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            simpleButton2.Appearance.Options.UseFont = true;
+            tablePanel1.SetColumn(simpleButton2, 1);
+            simpleButton2.Dock = System.Windows.Forms.DockStyle.Fill;
+            simpleButton2.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("simpleButton2.ImageOptions.Image");
+            simpleButton2.Location = new System.Drawing.Point(94, 357);
+            simpleButton2.Name = "simpleButton2";
+            tablePanel1.SetRow(simpleButton2, 9);
+            simpleButton2.Size = new System.Drawing.Size(164, 28);
+            simpleButton2.TabIndex = 23;
+            simpleButton2.Text = "Listele";
+            simpleButton2.Click += simpleButton2_Click;
+            // 
             // FrmKasa
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -326,5 +343,6 @@
         private DevExpress.XtraEditors.SimpleButton btnGuncelle;
         private DevExpress.XtraEditors.SimpleButton btnSil;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }

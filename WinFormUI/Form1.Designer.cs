@@ -187,6 +187,7 @@
             barButtonItem12.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             barButtonItem12.ItemAppearance.Normal.Options.UseFont = true;
             barButtonItem12.Name = "barButtonItem12";
+            barButtonItem12.ItemClick += barButtonItem12_ItemClick;
             // 
             // barButtonItem13
             // 
@@ -224,6 +225,7 @@
             barButtonItem15.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             barButtonItem15.ItemAppearance.Normal.Options.UseFont = true;
             barButtonItem15.Name = "barButtonItem15";
+            barButtonItem15.ItemClick += barButtonItem15_ItemClick;
             // 
             // barButtonItem16
             // 
@@ -283,6 +285,7 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1082, 739);
             Controls.Add(ribbonControl1);
+            IconOptions.Image = (System.Drawing.Image)resources.GetObject("Form1.IconOptions.Image");
             IsMdiContainer = true;
             Name = "Form1";
             Ribbon = ribbonControl1;

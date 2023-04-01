@@ -128,6 +128,7 @@ namespace UIWinForm
         private void simpleButton6_Click(object sender, EventArgs e)
         {
             Temizle();
+            Listele();
         }
 
         private void Temizle()
