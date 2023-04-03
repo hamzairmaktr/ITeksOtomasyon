@@ -107,6 +107,7 @@
             barButtonItem4.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             barButtonItem4.ItemAppearance.Normal.Options.UseFont = true;
             barButtonItem4.Name = "barButtonItem4";
+            barButtonItem4.ItemClick += barButtonItem4_ItemClick;
             // 
             // barButtonItem5
             // 

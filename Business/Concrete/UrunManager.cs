@@ -42,6 +42,11 @@ namespace Business.Concrete
             return new SuccessResult("Ürün başarı ile silindi");
         }
 
+        public IDataResult<Urun> Get(int id)
+        {
+            return new SucessDataResult<Urun>(_urunDal.Get(p=>p.Id == id));
+        }
+
         public IDataResult<List<Urun>> GetAll()
         {
             return new SucessDataResult<List<Urun>>(_urunDal.GetAll());

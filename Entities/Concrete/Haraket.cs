@@ -10,11 +10,11 @@ namespace Entities.Concrete
     public class Haraket:IEntity
     {
         public int Id { get; set; }
-        public int FirmaId { get; set; }
+        public int CariId { get; set; }
         public int PersonelId { get; set; }
         public int HaraketTur { get; set; }
-        public string Description { get; set; }
+        public string Detay { get; set; }
         public decimal Tutar { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Tarih { get; set; }
     }
 }

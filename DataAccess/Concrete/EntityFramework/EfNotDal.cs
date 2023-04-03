@@ -19,7 +19,7 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from n in context.Notlar
                              join p in context.Personeller
                              on n.PersonelID equals p.Id
-                             orderby n.Yapıldımı==false
+                             orderby n.Yapildimi
                              select new NotDetailsDto
                              {
                                  Id = n.Id,
@@ -28,7 +28,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  Detay = n.Detay,
                                  PersonelName = p.AdSoyad,
                                  Time = n.Time,
-                                 Yapıldımı = n.Yapıldımı
+                                 Yapildimi = n.Yapildimi
                              };
                 return result.ToList();
             }

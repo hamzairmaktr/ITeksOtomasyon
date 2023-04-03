@@ -12,11 +12,12 @@ namespace Entities.Concrete
     {
         [Key]
         public int Id { get; set; }
+        public string SiraNo { get; set; }
         public DateTime Date { get; set; }
         public DateTime Time { get; set; }
-        public string VergiDaire { get; set; }
-        public int FirmaId { get; set; }
+        public int CariId { get; set; }
         public int PersonelId { get; set; }
         public string TeslimAlan { get; set; }
+        public decimal Tutar { get; set; }
     }
 }

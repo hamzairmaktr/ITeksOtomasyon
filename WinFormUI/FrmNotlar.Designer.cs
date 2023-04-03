@@ -32,7 +32,8 @@
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             gridControl1 = new DevExpress.XtraGrid.GridControl();
             tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
-            checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            chkYapildimi = new DevExpress.XtraEditors.CheckEdit();
             txtDetay = new System.Windows.Forms.RichTextBox();
             btnTemizle = new DevExpress.XtraEditors.SimpleButton();
             btnGuncelle = new DevExpress.XtraEditors.SimpleButton();
@@ -46,23 +47,22 @@
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
-            txtRenk = new DevExpress.XtraEditors.TextEdit();
-            txtUrunAd = new DevExpress.XtraEditors.TextEdit();
-            txtTur = new DevExpress.XtraEditors.TextEdit();
+            txtSaat = new DevExpress.XtraEditors.TextEdit();
+            txtBaslik = new DevExpress.XtraEditors.TextEdit();
+            txtTarih = new DevExpress.XtraEditors.TextEdit();
             txtId = new DevExpress.XtraEditors.TextEdit();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tablePanel1).BeginInit();
             tablePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)checkEdit1.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtRenk.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtUrunAd.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)txtTur.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chkYapildimi.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtSaat.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtBaslik.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtTarih.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtId.Properties).BeginInit();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
             SuspendLayout();
             // 
             // gridView1
@@ -71,6 +71,7 @@
             gridView1.AppearancePrint.Row.Options.UseFont = true;
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
+            gridView1.FocusedRowChanged += gridView1_FocusedRowChanged;
             // 
             // gridControl1
             // 
@@ -86,7 +87,7 @@
             // 
             tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 32.48F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 67.52F) });
             tablePanel1.Controls.Add(lookUpEdit1);
-            tablePanel1.Controls.Add(checkEdit1);
+            tablePanel1.Controls.Add(chkYapildimi);
             tablePanel1.Controls.Add(txtDetay);
             tablePanel1.Controls.Add(btnTemizle);
             tablePanel1.Controls.Add(btnGuncelle);
@@ -100,9 +101,9 @@
             tablePanel1.Controls.Add(label3);
             tablePanel1.Controls.Add(label2);
             tablePanel1.Controls.Add(label1);
-            tablePanel1.Controls.Add(txtRenk);
-            tablePanel1.Controls.Add(txtUrunAd);
-            tablePanel1.Controls.Add(txtTur);
+            tablePanel1.Controls.Add(txtSaat);
+            tablePanel1.Controls.Add(txtBaslik);
+            tablePanel1.Controls.Add(txtTarih);
             tablePanel1.Controls.Add(txtId);
             tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tablePanel1.Location = new System.Drawing.Point(3, 3);
@@ -112,18 +113,32 @@
             tablePanel1.TabIndex = 1;
             tablePanel1.UseSkinIndents = true;
             // 
-            // checkEdit1
+            // lookUpEdit1
             // 
-            tablePanel1.SetColumn(checkEdit1, 1);
-            checkEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            checkEdit1.Location = new System.Drawing.Point(109, 291);
-            checkEdit1.Name = "checkEdit1";
-            checkEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            checkEdit1.Properties.Appearance.Options.UseFont = true;
-            checkEdit1.Properties.Caption = "Yapıldı";
-            tablePanel1.SetRow(checkEdit1, 6);
-            checkEdit1.Size = new System.Drawing.Size(195, 31);
-            checkEdit1.TabIndex = 28;
+            tablePanel1.SetColumn(lookUpEdit1, 1);
+            lookUpEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            lookUpEdit1.Location = new System.Drawing.Point(109, 256);
+            lookUpEdit1.Name = "lookUpEdit1";
+            lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lookUpEdit1.Properties.Appearance.Options.UseFont = true;
+            lookUpEdit1.Properties.AutoHeight = false;
+            lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            tablePanel1.SetRow(lookUpEdit1, 5);
+            lookUpEdit1.Size = new System.Drawing.Size(195, 31);
+            lookUpEdit1.TabIndex = 29;
+            // 
+            // chkYapildimi
+            // 
+            tablePanel1.SetColumn(chkYapildimi, 1);
+            chkYapildimi.Dock = System.Windows.Forms.DockStyle.Fill;
+            chkYapildimi.Location = new System.Drawing.Point(109, 291);
+            chkYapildimi.Name = "chkYapildimi";
+            chkYapildimi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkYapildimi.Properties.Appearance.Options.UseFont = true;
+            chkYapildimi.Properties.Caption = "Yapıldı";
+            tablePanel1.SetRow(chkYapildimi, 6);
+            chkYapildimi.Size = new System.Drawing.Size(195, 31);
+            chkYapildimi.TabIndex = 28;
             // 
             // txtDetay
             // 
@@ -151,6 +166,7 @@
             btnTemizle.Size = new System.Drawing.Size(195, 31);
             btnTemizle.TabIndex = 20;
             btnTemizle.Text = "Temizle";
+            btnTemizle.Click += btnTemizle_Click;
             // 
             // btnGuncelle
             // 
@@ -165,6 +181,7 @@
             btnGuncelle.Size = new System.Drawing.Size(195, 31);
             btnGuncelle.TabIndex = 19;
             btnGuncelle.Text = "Güncelle";
+            btnGuncelle.Click += btnGuncelle_Click;
             // 
             // btnSil
             // 
@@ -179,6 +196,7 @@
             btnSil.Size = new System.Drawing.Size(195, 31);
             btnSil.TabIndex = 18;
             btnSil.Text = "Sil";
+            btnSil.Click += btnSil_Click;
             // 
             // btnKaydet
             // 
@@ -193,6 +211,7 @@
             btnKaydet.Size = new System.Drawing.Size(195, 31);
             btnKaydet.TabIndex = 17;
             btnKaydet.Text = "Kaydet";
+            btnKaydet.Click += btnKaydet_Click;
             // 
             // label9
             // 
@@ -304,50 +323,49 @@
             label1.Text = "Id :";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtRenk
+            // txtSaat
             // 
-            tablePanel1.SetColumn(txtRenk, 1);
-            txtRenk.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtRenk.Location = new System.Drawing.Point(109, 186);
-            txtRenk.Name = "txtRenk";
-            txtRenk.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txtRenk.Properties.Appearance.Options.UseFont = true;
-            txtRenk.Properties.AutoHeight = false;
-            tablePanel1.SetRow(txtRenk, 3);
-            txtRenk.Size = new System.Drawing.Size(195, 31);
-            txtRenk.TabIndex = 3;
+            tablePanel1.SetColumn(txtSaat, 1);
+            txtSaat.Dock = System.Windows.Forms.DockStyle.Fill;
+            txtSaat.Location = new System.Drawing.Point(109, 186);
+            txtSaat.Name = "txtSaat";
+            txtSaat.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtSaat.Properties.Appearance.Options.UseFont = true;
+            txtSaat.Properties.AutoHeight = false;
+            txtSaat.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.DateTimeMaskManager));
+            txtSaat.Properties.MaskSettings.Set("mask", "t");
+            tablePanel1.SetRow(txtSaat, 3);
+            txtSaat.Size = new System.Drawing.Size(195, 31);
+            txtSaat.TabIndex = 3;
             // 
-            // txtUrunAd
+            // txtBaslik
             // 
-            tablePanel1.SetColumn(txtUrunAd, 1);
-            txtUrunAd.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtUrunAd.Location = new System.Drawing.Point(109, 221);
-            txtUrunAd.Name = "txtUrunAd";
-            txtUrunAd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txtUrunAd.Properties.Appearance.Options.UseFont = true;
-            txtUrunAd.Properties.AutoHeight = false;
-            txtUrunAd.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.RegularMaskManager));
-            txtUrunAd.Properties.MaskSettings.Set("MaskManagerSignature", "ignoreMaskBlank=True");
-            txtUrunAd.Properties.MaskSettings.Set("mask", "\\d?\\d:\\d\\d");
-            tablePanel1.SetRow(txtUrunAd, 4);
-            txtUrunAd.Size = new System.Drawing.Size(195, 31);
-            txtUrunAd.TabIndex = 2;
+            tablePanel1.SetColumn(txtBaslik, 1);
+            txtBaslik.Dock = System.Windows.Forms.DockStyle.Fill;
+            txtBaslik.Location = new System.Drawing.Point(109, 221);
+            txtBaslik.Name = "txtBaslik";
+            txtBaslik.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtBaslik.Properties.Appearance.Options.UseFont = true;
+            txtBaslik.Properties.AutoHeight = false;
+            tablePanel1.SetRow(txtBaslik, 4);
+            txtBaslik.Size = new System.Drawing.Size(195, 31);
+            txtBaslik.TabIndex = 2;
             // 
-            // txtTur
+            // txtTarih
             // 
-            tablePanel1.SetColumn(txtTur, 1);
-            txtTur.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtTur.Location = new System.Drawing.Point(109, 151);
-            txtTur.Name = "txtTur";
-            txtTur.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txtTur.Properties.Appearance.Options.UseFont = true;
-            txtTur.Properties.AutoHeight = false;
-            txtTur.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.DateTimeOffsetMaskManager));
-            txtTur.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
-            txtTur.Properties.MaskSettings.Set("mask", "D");
-            tablePanel1.SetRow(txtTur, 2);
-            txtTur.Size = new System.Drawing.Size(195, 31);
-            txtTur.TabIndex = 1;
+            tablePanel1.SetColumn(txtTarih, 1);
+            txtTarih.Dock = System.Windows.Forms.DockStyle.Fill;
+            txtTarih.Location = new System.Drawing.Point(109, 151);
+            txtTarih.Name = "txtTarih";
+            txtTarih.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtTarih.Properties.Appearance.Options.UseFont = true;
+            txtTarih.Properties.AutoHeight = false;
+            txtTarih.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.DateTimeOffsetMaskManager));
+            txtTarih.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
+            txtTarih.Properties.MaskSettings.Set("mask", "D");
+            tablePanel1.SetRow(txtTarih, 2);
+            txtTarih.Size = new System.Drawing.Size(195, 31);
+            txtTarih.TabIndex = 1;
             // 
             // txtId
             // 
@@ -377,20 +395,6 @@
             tableLayoutPanel1.Size = new System.Drawing.Size(1583, 804);
             tableLayoutPanel1.TabIndex = 2;
             // 
-            // lookUpEdit1
-            // 
-            tablePanel1.SetColumn(lookUpEdit1, 1);
-            lookUpEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            lookUpEdit1.Location = new System.Drawing.Point(109, 256);
-            lookUpEdit1.Name = "lookUpEdit1";
-            lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lookUpEdit1.Properties.Appearance.Options.UseFont = true;
-            lookUpEdit1.Properties.AutoHeight = false;
-            lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            tablePanel1.SetRow(lookUpEdit1, 5);
-            lookUpEdit1.Size = new System.Drawing.Size(195, 31);
-            lookUpEdit1.TabIndex = 29;
-            // 
             // FrmNotlar
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -405,13 +409,13 @@
             ((System.ComponentModel.ISupportInitialize)tablePanel1).EndInit();
             tablePanel1.ResumeLayout(false);
             tablePanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)checkEdit1.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtRenk.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtUrunAd.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)txtTur.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chkYapildimi.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtSaat.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtBaslik.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtTarih.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtId.Properties).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -432,13 +436,13 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.TextEdit txtRenk;
+        private DevExpress.XtraEditors.TextEdit txtSaat;
         private DevExpress.XtraEditors.TextEdit txtId;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label2;
-        private DevExpress.XtraEditors.TextEdit txtUrunAd;
-        private DevExpress.XtraEditors.TextEdit txtTur;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.TextEdit txtBaslik;
+        private DevExpress.XtraEditors.TextEdit txtTarih;
+        private DevExpress.XtraEditors.CheckEdit chkYapildimi;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
     }
 }

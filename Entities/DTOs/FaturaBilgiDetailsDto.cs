@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Entities.DTOs
 {
-    public class NotDetailsDto:IDto
+    public class FaturaBilgiDetailsDto:IDto
     {
         public int Id { get; set; }
-        public DateTime Date { get; set; }
-        public DateTime Time { get; set; }
-        public string Baslik { get; set; }
-        public string Detay { get; set; }
+        public string SiraNo { get; set; }
+        public DateTime Tarih { get; set; }
+        public string CariName { get; set; }
         public string PersonelName { get; set; }
-        public bool Yapildimi { get; set; }
+        public string TeslimAlan { get; set; }
+        public decimal Tutar { get; set; }
     }
 }

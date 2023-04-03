@@ -96,11 +96,22 @@ namespace AnaMenu
         FrmNotlar frmNotlar;
         private void barButtonItem12_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (frmNotlar==null)
+            if (frmNotlar == null)
             {
                 frmNotlar = new FrmNotlar();
                 frmNotlar.MdiParent = this;
                 frmNotlar.Show();
+            }
+        }
+
+        FrmFaturalar frmFaturalar;
+        private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (frmFaturalar==null)
+            {
+                frmFaturalar = new FrmFaturalar();
+                frmFaturalar.MdiParent = this;
+                frmFaturalar.Show();
             }
         }
     }

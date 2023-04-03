@@ -17,6 +17,6 @@ namespace Entities.Concrete
         public string Baslik { get; set; }
         public string Detay { get; set; }
         public int PersonelID { get; set; }
-        public bool Yapıldımı { get; set; }
+        public bool Yapildimi { get; set; }
     }
 }
