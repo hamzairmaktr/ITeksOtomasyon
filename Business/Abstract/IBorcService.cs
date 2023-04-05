@@ -19,5 +19,6 @@ namespace Business.Abstract
         IDataResult<List<BorcOzetDto>> GetBorcOzetOdeDTOs();
         IDataResult<List<BorcOzetDto>> GetBorcOzetDTOs();
         IDataResult<Borc> GetById(int id);
+        IDataResult<Borc> GetByCariId(int id);
     }
 }

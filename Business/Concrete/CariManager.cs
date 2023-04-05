@@ -68,6 +68,11 @@ namespace Business.Concrete
             return new SucessDataResult<List<Cari>>(_cariDal.GetAll());
         }
 
+        public IDataResult<Cari> GetById(int id)
+        {
+            return new SucessDataResult<Cari>(_cariDal.Get(p => p.Id == id));
+        }
+
         public IDataResult<List<CariOzetDtos>> GetCariOzetDtos()
         {
             return new SucessDataResult<List<CariOzetDtos>>(_cariDal.GetCariOzetDtos());

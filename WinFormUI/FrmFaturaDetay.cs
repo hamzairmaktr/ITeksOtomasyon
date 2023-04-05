@@ -16,11 +16,13 @@ namespace UIWinForm
     {
         public static string secilenCari = "";
         public static int _cariId;
+        public static int _fbId;
 
-        public FrmFaturaDetay(string id, int cariId)
+        public FrmFaturaDetay(string id, int cariId,int fbId)
         {
             _cariId = cariId;
             secilenCari = id;
+            _fbId = fbId;
             InitializeComponent();
         }
 
@@ -57,7 +59,7 @@ namespace UIWinForm
 
         private void simpleButton4_Click(object sender, EventArgs e)
         {
-            FrmSatis2 nakitToptanSatis = new FrmSatis2(_cariId);
+            FrmSatis2 nakitToptanSatis = new FrmSatis2(_cariId,_fbId);
             nakitToptanSatis.ShowDialog();
         }
     }

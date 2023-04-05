@@ -43,7 +43,7 @@ namespace UIWinForm
         {
             SqlConnection con = new SqlConnection("Server=.\\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true");
             con.Open();
-            SqlCommand cmd = new SqlCommand("update Borclar set Odendimi=1 where KacOdenecek=0", con);
+            SqlCommand cmd = new SqlCommand("delete Borclar where KacOdenecek=0", con);
             cmd.ExecuteNonQuery();
             con.Close();
         }
@@ -111,8 +111,17 @@ namespace UIWinForm
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            var selected = gridView1.GetFocusedRow() as BorcDetailsDto;
-            txtId.Text = selected.Id.ToString();
+            try
+            {
+                var selected = gridView1.GetFocusedRow() as BorcDetailsDto;
+                txtId.Text = selected.Id.ToString();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
 
         private void simpleButton3_Click(object sender, EventArgs e)

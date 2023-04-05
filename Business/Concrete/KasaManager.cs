@@ -52,10 +52,15 @@ namespace Business.Concrete
 
         public IResult Update(Kasa kasa)
         {
-            
-            _kasaDal.Update(kasa);
-            return new SuccessResult("Kasa başarı ile güncellendi");
-            
+            if (kasa.KasaTur == 0)
+            {
+                return new ErrorResult("Lütfen kasa ismi giriniz");
+            }
+            else
+            {
+                _kasaDal.Update(kasa);
+                return new SuccessResult("Kasa başarı ile güncellendi");
+            }
         }
 
         public IResult UpdateMoney(decimal tutar, int id)

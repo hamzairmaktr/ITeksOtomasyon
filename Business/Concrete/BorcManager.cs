@@ -65,6 +65,11 @@ namespace Business.Concrete
             return new SucessDataResult<List<BorcOzetDto>>(_borcDal.GetBorcOzetTahsilDtos(),"başarılı");
         }
 
+        public IDataResult<Borc> GetByCariId(int id)
+        {
+            return new SucessDataResult<Borc>(_borcDal.Get(b => b.CariId == id));
+        }
+
         public IDataResult<Borc> GetById(int id)
         {
             return new SucessDataResult<Borc>(_borcDal.Get(b=>b.Id==id));

@@ -16,5 +16,6 @@ namespace Business.Abstract
         IResult Delete(Cari cari);
         IDataResult<List<Cari>> GetAll();
         IDataResult<List<CariOzetDtos>> GetCariOzetDtos();
+        IDataResult<Cari> GetById(int id);
     }
 }
