@@ -14,11 +14,13 @@ namespace Business.Abstract
         IResult Add(Borc borc);
         IResult Delete(Borc borc);
         IResult Update(Borc borc);
+
+
         IDataResult<List<BorcDetailsDto>> GetBorcDetailAll();
         IDataResult<List<BorcOzetDto>> GetBorcOzetTahsilDTOs();
         IDataResult<List<BorcOzetDto>> GetBorcOzetOdeDTOs();
         IDataResult<List<BorcOzetDto>> GetBorcOzetDTOs();
         IDataResult<Borc> GetById(int id);
-        IDataResult<Borc> GetByCariId(int id);
+        IDataResult<BorcOzetDto> GetByCariId(int id);
     }
 }

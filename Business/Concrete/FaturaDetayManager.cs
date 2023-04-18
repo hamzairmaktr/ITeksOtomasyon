@@ -41,6 +41,7 @@ namespace Business.Concrete
 
         public IResult Update(FaturaDetay faturaDetay)
         {
+            
             _faturaDetayDal.Update(faturaDetay);
             return new SuccessResult("Fatura detayı başarı ile güncellendi");
         }

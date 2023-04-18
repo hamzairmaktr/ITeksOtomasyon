@@ -16,6 +16,7 @@ namespace DataAccess.Abstract
         List<BorcOzetDto> GetBorcOzetDtos();
         List<BorcOzetDto> GetBorcOzetTahsilDtos();
         List<BorcOzetDto> GetBorcOzetOdeDtos();
+        BorcOzetDto GetByCariId(int id);
 
     }
 }

@@ -29,6 +29,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  SiraNo = fb.SiraNo,
                                  Tarih = fb.Date,
                                  TeslimAlan = fb.TeslimAlan,
+                                 KacOdendi = fb.KacOdendi,
+                                 KacOdenecek=fb.KacOdenecek,
                                  Tutar= fb.Tutar,
                              };
                 return result.ToList();

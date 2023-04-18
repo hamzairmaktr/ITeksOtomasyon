@@ -44,6 +44,10 @@ namespace Business.Concrete
 
         public IResult Update(FaturaBilgi faturaBilgi)
         {
+            if (faturaBilgi.KacOdenecek < 0 || faturaBilgi.Tutar < 0)
+            {
+                return new ErrorResult("Lütfen fazla para almayınız");
+            }
             _faturaBilgiDal.Update(faturaBilgi);
             return new SuccessResult("Fatura bilgisi başarı ile güncellendi");
         }

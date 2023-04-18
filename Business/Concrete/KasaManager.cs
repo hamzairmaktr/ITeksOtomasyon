@@ -15,10 +15,12 @@ namespace Business.Concrete
     public class KasaManager : IKasaService
     {
         IKasaDal _kasaDal;
+        
 
         public KasaManager(IKasaDal kasaDal)
         {
             _kasaDal = kasaDal;
+            
         }
 
         public IResult Add(Kasa kasa)
@@ -56,21 +58,23 @@ namespace Business.Concrete
             {
                 return new ErrorResult("Lütfen kasa ismi giriniz");
             }
-            else
-            {
-                _kasaDal.Update(kasa);
-                return new SuccessResult("Kasa başarı ile güncellendi");
-            }
+            
+            _kasaDal.Update(kasa);
+            return new SuccessResult("Kasa başarı ile güncellendi");
+            
         }
 
-        public IResult UpdateMoney(decimal tutar, int id)
+        public IResult UpdateMoney(Kasa kasa,FaturaBilgi faturaBilgi)
         {
-            Kasa kasa1 = new Kasa
+            if (kasa.KasaTur == 0)
             {
-                Id = id,
-                Bakiye = tutar
-            };
-            _kasaDal.Update(kasa1);
+                return new ErrorResult("Lütfen kasa ismi giriniz");
+            }
+            if (faturaBilgi.Tutar < 0 || faturaBilgi.KacOdenecek < 0)
+            {
+                return new ErrorResult();
+            }
+            _kasaDal.Update(kasa);
             return new SuccessResult("Başarı ile bakiye eklendi");
         }
     }

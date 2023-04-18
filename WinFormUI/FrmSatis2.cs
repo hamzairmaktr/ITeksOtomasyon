@@ -1,5 +1,6 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +17,71 @@ namespace UIWinForm
     {
         public static int _cariId, _fbId;
         public decimal kalanTutar, odenenTutar, borcaOdenen, nakitOdenen;
+        private bool borcVarmi = false;
 
+        void YeniBorcEkle()
+        {
+            BorcManager borcManager = new BorcManager(new EfBorcDal());
+            decimal kacOdenecek = decimal.Parse(txtTutar.Text);
+            var result = borcManager.Add(new Borc
+            {
+                CariId = _cariId,
+                Geciktimi = false,
+                KacOdendi = 0,
+                KacOdenecek = kacOdenecek,
+                Odendimi = false,
+                TeslimTarih = dateEdit2.DateTime,
+                Tur = "Alacak",
+                Tutar = kacOdenecek,
+                VerilisTarih = DateTime.Now,
+            });
+            if (result.Success)
+            {
+                MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                odenenTutar = odenenTutar + kacOdenecek;
+                borcaOdenen = nakitOdenen + kacOdenecek;
 
+                txtOdenen.Text = odenenTutar.ToString();
+                txtBorc.Text = borcaOdenen.ToString();
+            }
+            else
+            {
+                MessageBox.Show(result.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+        }
+        void BorcaEkle()
+        {
+            BorcManager borcManager = new BorcManager(new EfBorcDal());
+            var result = borcManager.GetByCariId(_cariId).Data;
+            decimal kacOdenecek = decimal.Parse(txtTutar.Text) + result.KacOdenecek;
+            var result2 = borcManager.Update(new Borc
+            {
+                Id = result.Id,
+                CariId = _cariId,
+                Geciktimi = false,
+                KacOdendi = result.KacOdendi,
+                KacOdenecek = kacOdenecek,
+                Odendimi = false,
+                TeslimTarih = dateEdit2.DateTime,
+                Tur = "Alacak",
+                Tutar = kacOdenecek,
+                VerilisTarih = DateTime.Now,
+            });
+            if (result2.Success)
+            {
+                MessageBox.Show(result2.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                odenenTutar = odenenTutar + decimal.Parse(txtTutar.Text);
+                borcaOdenen = borcaOdenen + kacOdenecek;
+
+                txtOdenen.Text = odenenTutar.ToString();
+                txtBorc.Text = borcaOdenen.ToString();
+            }
+            else
+            {
+                MessageBox.Show(result2.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         void ListeleKasa()
         {
             KasaManager kasaManager = new KasaManager(new EfKasaDal());
@@ -40,14 +104,22 @@ namespace UIWinForm
             var result = cariManager.GetById(_cariId).Data;
             txtCariId.Text = _cariId.ToString();
             txtCari.Text = result.Ismi.ToString();
+
         }
 
         void ListeleBorc()
         {
             BorcManager borcManager = new BorcManager(new EfBorcDal());
-            lookUpEdit2.Properties.DataSource = borcManager.GetBorcOzetTahsilDTOs().Data;
-            lookUpEdit2.Properties.ValueMember = "Id";
-            lookUpEdit2.Properties.DisplayMember= "Cari";
+            var result = borcManager.GetByCariId(_cariId).Data;
+            var result2 = borcManager.GetById(result.Id).Data;
+            if (result != null)
+            {
+                MessageBox.Show("Seçilen carinin hali hazırda borcu var", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                borcVarmi = true;
+                lblBorc.Text = result.KacOdenecek.ToString();
+                lblBorcTur.Text = result.Tur;
+                dateEdit2.Text = result2.TeslimTarih.ToShortDateString();
+            }
         }
 
 
@@ -67,6 +139,7 @@ namespace UIWinForm
             ListeleBorc();
         }
 
+        //Nakit satış
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             KasaManager kasaManager = new KasaManager(new EfKasaDal());
@@ -75,36 +148,47 @@ namespace UIWinForm
             decimal bakiye = result.Bakiye + kasaTutar;
             result.Bakiye = bakiye;
 
-            var result2 = kasaManager.Update(result);
 
-            if (result2.Success)
-            {
-                MessageBox.Show(result2.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show(result2.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
             FaturaBilgiManager faturaBilgiManager = new FaturaBilgiManager(new EfFaturaBilgiDal());
             var result3 = faturaBilgiManager.Get(_fbId).Data;
             kalanTutar = kalanTutar - decimal.Parse(txtKasaTutar.Text);
             result3.Tutar = kalanTutar;
-            faturaBilgiManager.Update(result3);
+
+            var result2 = kasaManager.UpdateMoney(result, result3);
+            var result4 = faturaBilgiManager.Update(result3);
+
+            if (result2.Success && result4.Success)
+            {
+                MessageBox.Show(result2.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(result4.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                odenenTutar = odenenTutar + kasaTutar;
+                nakitOdenen = nakitOdenen + kasaTutar;
+
+                txtOdenen.Text = odenenTutar.ToString();
+                txtNakit.Text = nakitOdenen.ToString();
+            }
+            else
+            {
+                MessageBox.Show(result4.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             ListeleHesap();
             ListeleKasa();
-
-            odenenTutar = odenenTutar + kasaTutar;
-            nakitOdenen = nakitOdenen + kasaTutar;
-
-            txtOdenen.Text = odenenTutar.ToString();
-            txtNakit.Text = nakitOdenen.ToString();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            BorcManager borcManager = new BorcManager(new EfBorcDal());
-            
+
+            if (borcVarmi == true)
+            {
+                BorcaEkle();
+            }
+            else
+            {
+                YeniBorcEkle();
+            }
+            ListeleHesap();
+            ListeleBorc();
         }
     }
 }

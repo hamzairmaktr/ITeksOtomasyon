@@ -18,6 +18,8 @@ namespace Entities.Concrete
         public int CariId { get; set; }
         public int PersonelId { get; set; }
         public string TeslimAlan { get; set; }
+        public decimal KacOdendi { get; set; }
+        public decimal KacOdenecek { get; set; }
         public decimal Tutar { get; set; }
     }
 }

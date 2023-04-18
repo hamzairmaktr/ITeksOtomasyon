@@ -15,6 +15,8 @@ namespace Entities.DTOs
         public string CariName { get; set; }
         public string PersonelName { get; set; }
         public string TeslimAlan { get; set; }
+        public decimal KacOdendi { get; set; }
+        public decimal KacOdenecek { get; set; }
         public decimal Tutar { get; set; }
     }
 }

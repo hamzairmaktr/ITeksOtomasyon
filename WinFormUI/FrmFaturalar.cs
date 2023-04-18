@@ -74,7 +74,9 @@ namespace UIWinForm
                 PersonelId = int.Parse(lookPersonel.EditValue.ToString()),
                 SiraNo = txtSiraNo.Text.ToString(),
                 TeslimAlan = txtTAlan.Text,
-                Tutar = 0
+                Tutar = 0,
+                KacOdenecek = 0,
+                KacOdendi = 0
             };
             FaturaBilgiManager faturaBilgiManager = new FaturaBilgiManager(new EfFaturaBilgiDal());
             var result = faturaBilgiManager.Add(faturaBilgi);

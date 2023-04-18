@@ -74,18 +74,22 @@ namespace UIWinForm
                 SiraNo = get.SiraNo,
                 TeslimAlan = get.TeslimAlan,
                 Time = get.Time,
-                Tutar = toplam
+                Tutar = toplam,
+                KacOdenecek = toplam,
+                KacOdendi = get.KacOdendi
             };
             faturaBilgiManager.Update(faturaBilgi);
 
             UrunManager urunManager = new UrunManager(new EfUrunDal());
-            var get1=urunManager.Get(int.Parse(lookUpEdit1.EditValue.ToString())).Data;
+            var get1 = urunManager.Get(int.Parse(lookUpEdit1.EditValue.ToString())).Data;
             int topsayi = get1.TopAdet - int.Parse(txtAdet.Text);
             decimal kg = get1.Kg - decimal.Parse(txtKg.Text);
-            get1.TopAdet= topsayi;
+            get1.TopAdet = topsayi;
             get1.Kg = kg;
 
             urunManager.Update(get1);
+
+
         }
 
         private void txtKdv_EditValueChanged(object sender, EventArgs e)

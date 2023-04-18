@@ -86,6 +86,30 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
+        public BorcOzetDto GetByCariId(int id)
+        {
+            using (Context context = new Context())
+            {
+                var result = (from b in context.Borclar
+                             join c in context.Cariler
+                             on b.CariId equals c.Id
+                             where b.Odendimi == false
+                             && b.CariId == id
+                             select new BorcOzetDto
+                             {
+                                 Id = b.Id,
+                                 Cari = c.Ismi,
+                                 CariId = c.Id,
+                                 KacOdenecek = b.KacOdenecek,
+                                 Tutar = b.Tutar,
+                                 Tur = "Alacak",
+                                 KacOdendi = b.KacOdendi,
+                                 Odendimi = b.Odendimi
+                             }).FirstOrDefault();
+                return result;
+            }
+        }
+
         public List<BorcDetailsDto> GetProductDetailsAll()
         {
             using(Context context = new Context())

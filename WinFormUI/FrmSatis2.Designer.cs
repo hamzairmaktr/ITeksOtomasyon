@@ -52,7 +52,9 @@
             txtKasaTutar = new DevExpress.XtraEditors.TextEdit();
             dateEdit2 = new DevExpress.XtraEditors.DateEdit();
             label12 = new System.Windows.Forms.Label();
-            lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
+            lblBorc = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
+            lblBorcTur = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)txtNakit.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtOdenen.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtBorc.Properties).BeginInit();
@@ -64,7 +66,6 @@
             ((System.ComponentModel.ISupportInitialize)txtKasaTutar.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit2.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit2.Properties.CalendarTimeProperties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit2.Properties).BeginInit();
             SuspendLayout();
             // 
             // simpleButton1
@@ -72,7 +73,7 @@
             simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             simpleButton1.Appearance.Options.UseFont = true;
             simpleButton1.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton1.ImageOptions.SvgImage");
-            simpleButton1.Location = new System.Drawing.Point(360, 197);
+            simpleButton1.Location = new System.Drawing.Point(408, 222);
             simpleButton1.Name = "simpleButton1";
             simpleButton1.Size = new System.Drawing.Size(153, 46);
             simpleButton1.TabIndex = 42;
@@ -93,7 +94,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label7.Location = new System.Drawing.Point(479, 148);
+            label7.Location = new System.Drawing.Point(479, 118);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(54, 18);
             label7.TabIndex = 37;
@@ -123,7 +124,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label6.Location = new System.Drawing.Point(435, 117);
+            label6.Location = new System.Drawing.Point(435, 87);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(98, 18);
             label6.TabIndex = 36;
@@ -161,7 +162,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label5.Location = new System.Drawing.Point(491, 88);
+            label5.Location = new System.Drawing.Point(491, 58);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(42, 18);
             label5.TabIndex = 35;
@@ -199,7 +200,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(472, 58);
+            label4.Location = new System.Drawing.Point(472, 28);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(61, 18);
             label4.TabIndex = 30;
@@ -210,7 +211,7 @@
             simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             simpleButton2.Appearance.Options.UseFont = true;
             simpleButton2.ImageOptions.SvgImage = (DevExpress.Utils.Svg.SvgImage)resources.GetObject("simpleButton2.ImageOptions.SvgImage");
-            simpleButton2.Location = new System.Drawing.Point(191, 197);
+            simpleButton2.Location = new System.Drawing.Point(239, 222);
             simpleButton2.Name = "simpleButton2";
             simpleButton2.Size = new System.Drawing.Size(153, 46);
             simpleButton2.TabIndex = 31;
@@ -229,7 +230,8 @@
             // 
             // txtCari
             // 
-            txtCari.Location = new System.Drawing.Point(539, 85);
+            txtCari.Enabled = false;
+            txtCari.Location = new System.Drawing.Point(539, 55);
             txtCari.Name = "txtCari";
             txtCari.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtCari.Properties.Appearance.Options.UseFont = true;
@@ -248,7 +250,8 @@
             // 
             // txtCariId
             // 
-            txtCariId.Location = new System.Drawing.Point(539, 55);
+            txtCariId.Enabled = false;
+            txtCariId.Location = new System.Drawing.Point(539, 25);
             txtCariId.Name = "txtCariId";
             txtCariId.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtCariId.Properties.Appearance.Options.UseFont = true;
@@ -257,7 +260,7 @@
             // 
             // txtTutar
             // 
-            txtTutar.Location = new System.Drawing.Point(539, 144);
+            txtTutar.Location = new System.Drawing.Point(539, 114);
             txtTutar.Name = "txtTutar";
             txtTutar.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtTutar.Properties.Appearance.Options.UseFont = true;
@@ -276,7 +279,7 @@
             // dateEdit2
             // 
             dateEdit2.EditValue = null;
-            dateEdit2.Location = new System.Drawing.Point(539, 114);
+            dateEdit2.Location = new System.Drawing.Point(539, 84);
             dateEdit2.Name = "dateEdit2";
             dateEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dateEdit2.Properties.Appearance.Options.UseFont = true;
@@ -288,22 +291,42 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label12.Location = new System.Drawing.Point(483, 27);
+            label12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label12.Location = new System.Drawing.Point(432, 149);
             label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(47, 18);
-            label12.TabIndex = 48;
-            label12.Text = "Borç :";
+            label12.Size = new System.Drawing.Size(101, 20);
+            label12.TabIndex = 47;
+            label12.Text = "Kişinin Borcu :";
             // 
-            // lookUpEdit2
+            // lblBorc
             // 
-            lookUpEdit2.Location = new System.Drawing.Point(539, 25);
-            lookUpEdit2.Name = "lookUpEdit2";
-            lookUpEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lookUpEdit2.Properties.Appearance.Options.UseFont = true;
-            lookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            lookUpEdit2.Size = new System.Drawing.Size(232, 24);
-            lookUpEdit2.TabIndex = 47;
+            lblBorc.AutoSize = true;
+            lblBorc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblBorc.Location = new System.Drawing.Point(539, 149);
+            lblBorc.Name = "lblBorc";
+            lblBorc.Size = new System.Drawing.Size(74, 20);
+            lblBorc.TabIndex = 48;
+            lblBorc.Text = "Borcu Yok";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label13.Location = new System.Drawing.Point(432, 178);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(101, 20);
+            label13.TabIndex = 49;
+            label13.Text = "Kişinin Borcu :";
+            // 
+            // lblBorcTur
+            // 
+            lblBorcTur.AutoSize = true;
+            lblBorcTur.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblBorcTur.Location = new System.Drawing.Point(539, 178);
+            lblBorcTur.Name = "lblBorcTur";
+            lblBorcTur.Size = new System.Drawing.Size(53, 20);
+            lblBorcTur.TabIndex = 50;
+            lblBorcTur.Text = "Alacak";
             // 
             // FrmSatis2
             // 
@@ -311,8 +334,10 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             ClientSize = new System.Drawing.Size(800, 450);
+            Controls.Add(lblBorcTur);
+            Controls.Add(label13);
+            Controls.Add(lblBorc);
             Controls.Add(label12);
-            Controls.Add(lookUpEdit2);
             Controls.Add(dateEdit2);
             Controls.Add(txtKasaTutar);
             Controls.Add(txtTutar);
@@ -352,7 +377,6 @@
             ((System.ComponentModel.ISupportInitialize)txtKasaTutar.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit2.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateEdit2.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)lookUpEdit2.Properties).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -388,6 +412,8 @@
         private DevExpress.XtraEditors.TextEdit txtKasaTutar;
         private DevExpress.XtraEditors.DateEdit dateEdit2;
         private System.Windows.Forms.Label label12;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
+        private System.Windows.Forms.Label lblBorc;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblBorcTur;
     }
 }
