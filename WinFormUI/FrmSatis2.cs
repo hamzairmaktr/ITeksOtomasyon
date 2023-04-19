@@ -21,9 +21,16 @@ namespace UIWinForm
 
         void YeniBorcEkle()
         {
+            FaturaBilgiManager faturaBilgiManager = new FaturaBilgiManager(new EfFaturaBilgiDal());
+            var result3 = faturaBilgiManager.Get(_fbId).Data;
+            kalanTutar = kalanTutar - decimal.Parse(txtTutar.Text);
+            result3.KacOdenecek = kalanTutar;
+            result3.KacOdendi = result3.Tutar - result3.KacOdenecek;
+            var result4 = faturaBilgiManager.Update(result3);
+
             BorcManager borcManager = new BorcManager(new EfBorcDal());
             decimal kacOdenecek = decimal.Parse(txtTutar.Text);
-            var result = borcManager.Add(new Borc
+            var result = borcManager.AddBorcFatura(new Borc
             {
                 CariId = _cariId,
                 Geciktimi = false,
@@ -34,28 +41,35 @@ namespace UIWinForm
                 Tur = "Alacak",
                 Tutar = kacOdenecek,
                 VerilisTarih = DateTime.Now,
-            });
-            if (result.Success)
+            },result3);
+            if (result.Success && result4.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                odenenTutar = odenenTutar + kacOdenecek;
-                borcaOdenen = nakitOdenen + kacOdenecek;
 
-                txtOdenen.Text = odenenTutar.ToString();
+                borcaOdenen = borcaOdenen + kacOdenecek;
+
                 txtBorc.Text = borcaOdenen.ToString();
             }
             else
             {
                 MessageBox.Show(result.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
-           
+
         }
         void BorcaEkle()
         {
+            FaturaBilgiManager faturaBilgiManager = new FaturaBilgiManager(new EfFaturaBilgiDal());
+            var result3 = faturaBilgiManager.Get(_fbId).Data;
+            kalanTutar = kalanTutar - decimal.Parse(txtTutar.Text);
+            result3.KacOdenecek = kalanTutar;
+            result3.KacOdendi = result3.Tutar - result3.KacOdenecek;
+            var result4 = faturaBilgiManager.Update(result3);
+
             BorcManager borcManager = new BorcManager(new EfBorcDal());
             var result = borcManager.GetByCariId(_cariId).Data;
             decimal kacOdenecek = decimal.Parse(txtTutar.Text) + result.KacOdenecek;
-            var result2 = borcManager.Update(new Borc
+            var result2 = borcManager.UpdateMoney(new Borc
             {
                 Id = result.Id,
                 CariId = _cariId,
@@ -67,14 +81,13 @@ namespace UIWinForm
                 Tur = "Alacak",
                 Tutar = kacOdenecek,
                 VerilisTarih = DateTime.Now,
-            });
-            if (result2.Success)
+            },result3);
+            if (result2.Success && result4.Success)
             {
                 MessageBox.Show(result2.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                odenenTutar = odenenTutar + decimal.Parse(txtTutar.Text);
-                borcaOdenen = borcaOdenen + kacOdenecek;
 
-                txtOdenen.Text = odenenTutar.ToString();
+                borcaOdenen = borcaOdenen + decimal.Parse(txtTutar.Text);
+
                 txtBorc.Text = borcaOdenen.ToString();
             }
             else
@@ -94,8 +107,9 @@ namespace UIWinForm
         {
             FaturaBilgiManager faturaBilgiManager = new FaturaBilgiManager(new EfFaturaBilgiDal());
             var result = faturaBilgiManager.Get(_fbId).Data;
-            kalanTutar = result.Tutar;
+            kalanTutar = result.KacOdenecek;
             txtKalan.Text = kalanTutar.ToString();
+            txtOdenen.Text = result.KacOdendi.ToString();
         }
 
         void ListeleCari()
@@ -111,9 +125,10 @@ namespace UIWinForm
         {
             BorcManager borcManager = new BorcManager(new EfBorcDal());
             var result = borcManager.GetByCariId(_cariId).Data;
-            var result2 = borcManager.GetById(result.Id).Data;
             if (result != null)
             {
+                var result2 = borcManager.GetById(result.Id).Data;
+
                 MessageBox.Show("Seçilen carinin hali hazırda borcu var", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 borcVarmi = true;
                 lblBorc.Text = result.KacOdenecek.ToString();
@@ -153,7 +168,8 @@ namespace UIWinForm
             FaturaBilgiManager faturaBilgiManager = new FaturaBilgiManager(new EfFaturaBilgiDal());
             var result3 = faturaBilgiManager.Get(_fbId).Data;
             kalanTutar = kalanTutar - decimal.Parse(txtKasaTutar.Text);
-            result3.Tutar = kalanTutar;
+            result3.KacOdenecek = kalanTutar;
+            result3.KacOdendi = result3.Tutar - result3.KacOdenecek;
 
             var result2 = kasaManager.UpdateMoney(result, result3);
             var result4 = faturaBilgiManager.Update(result3);
@@ -162,10 +178,10 @@ namespace UIWinForm
             {
                 MessageBox.Show(result2.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MessageBox.Show(result4.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                odenenTutar = odenenTutar + kasaTutar;
+                
                 nakitOdenen = nakitOdenen + kasaTutar;
 
-                txtOdenen.Text = odenenTutar.ToString();
+                
                 txtNakit.Text = nakitOdenen.ToString();
             }
             else

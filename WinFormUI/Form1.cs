@@ -39,9 +39,15 @@ namespace AnaMenu
             }
         }
 
+        FrmGider frmGider;
         private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            if (frmGider == null)
+            {
+                frmGider = new FrmGider();
+                frmGider.MdiParent = this;
+                frmGider.Show();
+            }
         }
 
         private void barButtonItem16_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

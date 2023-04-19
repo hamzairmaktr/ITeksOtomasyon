@@ -39,6 +39,24 @@ namespace Business.Concrete
             }
         }
 
+        public IResult AddBorcFatura(Borc borc, FaturaBilgi faturaBilgi)
+        {
+            if (faturaBilgi.KacOdenecek < 0)
+            {
+                return new ErrorResult();
+            }
+            if (faturaBilgi.Tutar < 0)
+            {
+                return new ErrorResult();
+            }
+            if (borc.Tutar < 0)
+            {
+                return new ErrorResult();
+            }
+            _borcDal.Add(borc);
+            return new SuccessResult();
+        }
+
         public IResult Delete(Borc borc)
         {
             _borcDal.Delete(borc);
@@ -79,6 +97,24 @@ namespace Business.Concrete
         {
             _borcDal.Update(borc);
             return new SuccessResult("Borç bilgisi güncellendi");        
+        }
+
+        public IResult UpdateMoney(Borc borc, FaturaBilgi faturaBilgi)
+        {
+            if (faturaBilgi.KacOdenecek < 0)
+            {
+                return new ErrorResult();
+            }
+            if (faturaBilgi.Tutar < 0)
+            {
+                return new ErrorResult();
+            }
+            if (borc.Tutar < 0)
+            {
+                return new ErrorResult();
+            }
+            _borcDal.Update(borc);
+            return new SuccessResult();
         }
     }
 }

@@ -14,6 +14,8 @@ namespace Business.Abstract
         IResult Add(Borc borc);
         IResult Delete(Borc borc);
         IResult Update(Borc borc);
+        IResult UpdateMoney(Borc borc,FaturaBilgi faturaBilgi);
+        IResult AddBorcFatura(Borc borc, FaturaBilgi faturaBilgi);
 
 
         IDataResult<List<BorcDetailsDto>> GetBorcDetailAll();

@@ -13,12 +13,7 @@ namespace Entities.Concrete
         [Key]
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public decimal Elektrik { get; set; }
-        public decimal Su { get; set; }
-        public decimal DogalGaz { get; set; }
-        public decimal Internet { get; set; }
-        public decimal Maaslar { get; set; }
-        public decimal Ekstra { get; set; }
         public string Not { get; set; }
+        public decimal Tutar { get; set; }
     }
 }
