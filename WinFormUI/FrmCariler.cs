@@ -19,7 +19,7 @@ namespace UIWinForm
         {
             InitializeComponent();
         }
-        
+
 
         private void FrmCariler_Load(object sender, EventArgs e)
         {

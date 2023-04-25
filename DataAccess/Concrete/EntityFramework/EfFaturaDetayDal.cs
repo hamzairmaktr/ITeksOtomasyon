@@ -33,7 +33,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  UrunId = u.Id,
                                  Tutar = ft.Tutar,
                                  UrunRenk=u.Renk,
-                                 UrunTur=u.KumasTur
+                                 UrunTur=u.KumasTur,
+                                 Fiyat = ft.Fiyat,
                              };
                 return result.ToList();
             }

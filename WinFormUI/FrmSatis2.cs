@@ -79,7 +79,7 @@ namespace UIWinForm
                 Odendimi = false,
                 TeslimTarih = dateEdit2.DateTime,
                 Tur = "Alacak",
-                Tutar = kacOdenecek,
+                Tutar = decimal.Parse(txtTutar.Text) + result.Tutar,
                 VerilisTarih = DateTime.Now,
             },result3);
             if (result2.Success && result4.Success)

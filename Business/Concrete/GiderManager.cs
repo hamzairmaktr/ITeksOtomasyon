@@ -2,6 +2,7 @@
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,34 +40,34 @@ namespace Business.Concrete
             return new SuccessResult("Gider bilgisi sistemden silindi");
         }
 
-        public IDataResult<List<Gider>> GetAll()
+        public IDataResult<List<GiderDetailsDto>> GetAll()
         {
-            return new SucessDataResult<List<Gider>>(_giderDal.GetAll());
+            return new SucessDataResult<List<GiderDetailsDto>>(_giderDal.GetDetailsDto());
         }
 
-        public IDataResult<List<Gider>> GetAll30DayBefore()
+        public IDataResult<List<GiderDetailsDto>> GetAll30DayBefore()
         {
-            return new SucessDataResult<List<Gider>>(_giderDal.GetAll(p=>p.Date >= DateTime.Now.AddDays(-30)));
+            return new SucessDataResult<List<GiderDetailsDto>>(_giderDal.GetDetailsDto(p=>p.Date >= DateTime.Now.AddDays(-30)));
         }
 
-        public IDataResult<List<Gider>> GetAll365DayBefore()
+        public IDataResult<List<GiderDetailsDto>> GetAll365DayBefore()
         {
-            return new SucessDataResult<List<Gider>>(_giderDal.GetAll(p => p.Date >= DateTime.Now.AddDays(-365)));
+            return new SucessDataResult<List<GiderDetailsDto>>(_giderDal.GetDetailsDto(p => p.Date >= DateTime.Now.AddDays(-365)));
         }
 
-        public IDataResult<List<Gider>> GetAll7DayBefore()
+        public IDataResult<List<GiderDetailsDto>> GetAll7DayBefore()
         {
-            return new SucessDataResult<List<Gider>>(_giderDal.GetAll(p => p.Date >= DateTime.Now.AddDays(-7)));
+            return new SucessDataResult<List<GiderDetailsDto>>(_giderDal.GetDetailsDto(p => p.Date >= DateTime.Now.AddDays(-7)));
         }
 
-        public IDataResult<List<Gider>> GetAllDay(DateTime date)
+        public IDataResult<List<GiderDetailsDto>> GetAllDay(DateTime date)
         {
-            return new SucessDataResult<List<Gider>>(_giderDal.GetAll(p => p.Date == date));
+            return new SucessDataResult<List<GiderDetailsDto>>(_giderDal.GetDetailsDto(p => p.Date == date));
         }
 
-        public IDataResult<List<Gider>> GetAllMonth(DateTime date)
+        public IDataResult<List<GiderDetailsDto>> GetAllMonth(DateTime date)
         {
-            return new SucessDataResult<List<Gider>>(_giderDal.GetAll(p => p.Date.Month == date.Month && p.Date.Year == date.Year));
+            return new SucessDataResult<List<GiderDetailsDto>>(_giderDal.GetDetailsDto(p => p.Date.Month == date.Month && p.Date.Year == date.Year));
         }
 
         public IResult Update(Gider gider)

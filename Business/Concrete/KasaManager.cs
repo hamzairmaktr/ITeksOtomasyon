@@ -72,10 +72,24 @@ namespace Business.Concrete
             }
             if (faturaBilgi.Tutar < 0 || faturaBilgi.KacOdenecek < 0)
             {
-                return new ErrorResult();
+                return new ErrorResult("Lütfen geçerli tutar giriniz");
             }
             _kasaDal.Update(kasa);
             return new SuccessResult("Başarı ile bakiye eklendi");
+        }
+
+        public IResult UpdateMoneyGider(Kasa kasa, Gider Gider)
+        {
+            if (kasa.KasaTur == 0)
+            {
+                return new ErrorResult("Lütfen kasa ismi giriniz");
+            }
+            if (Gider.Tutar < 0)
+            {
+                return new ErrorResult("Lütfen geçerli tutar giriniz");
+            }
+            _kasaDal.Update(kasa);
+            return new SuccessResult("Başarı ile bakiye eksiltildi");
         }
     }
 }

@@ -54,6 +54,9 @@ namespace UIWinForm
             BorcManager borcManager = new BorcManager(new EfBorcDal());
             var result = borcManager.GetBorcDetailAll();
             gridControl1.DataSource = result.Data;
+
+            BorcBitis();
+            Geciktimi();
         }
 
         private void btnCari_Click(object sender, EventArgs e)
@@ -64,8 +67,7 @@ namespace UIWinForm
 
         private void FrmBorclar_Load(object sender, EventArgs e)
         {
-            BorcBitis();
-            Geciktimi();
+
             GetAll();
         }
 
@@ -121,7 +123,7 @@ namespace UIWinForm
 
                 throw;
             }
-            
+
         }
 
         private void simpleButton3_Click(object sender, EventArgs e)
@@ -150,7 +152,7 @@ namespace UIWinForm
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            FrmBorcOde frmBorcOde= new FrmBorcOde();
+            FrmBorcOde frmBorcOde = new FrmBorcOde();
             frmBorcOde.ShowDialog();
         }
     }

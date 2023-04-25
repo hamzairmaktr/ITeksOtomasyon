@@ -146,7 +146,7 @@ namespace UIWinForm
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            FrmFaturaDetay frmFaturaDetay = new FrmFaturaDetay(txtId.Text,int.Parse(lookCari.EditValue.ToString()),int.Parse(txtId.Text));
+            FrmFaturaDetay frmFaturaDetay = new FrmFaturaDetay(txtId.Text, int.Parse(lookCari.EditValue.ToString()), int.Parse(txtId.Text));
             frmFaturaDetay.ShowDialog();
         }
     }

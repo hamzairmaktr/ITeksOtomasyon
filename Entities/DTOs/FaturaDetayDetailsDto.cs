@@ -17,6 +17,7 @@ namespace Entities.DTOs
         public string UrunRenk { get; set; }
         public int Adet { get; set; }
         public decimal Kg { get; set; }
+        public decimal Fiyat { get; set; }
         public decimal Tutar { get; set; }
     }
 }

@@ -37,6 +37,9 @@
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            lblOdenecekTutar = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             SuspendLayout();
@@ -65,6 +68,7 @@
             simpleButton1.Size = new System.Drawing.Size(135, 37);
             simpleButton1.TabIndex = 1;
             simpleButton1.Text = "Yazdır";
+            simpleButton1.Click += simpleButton1_Click;
             // 
             // simpleButton2
             // 
@@ -123,12 +127,35 @@
             simpleButton4.Text = "Nakit Satış";
             simpleButton4.Click += simpleButton4_Click;
             // 
+            // lblOdenecekTutar
+            // 
+            lblOdenecekTutar.AutoSize = true;
+            lblOdenecekTutar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblOdenecekTutar.Location = new System.Drawing.Point(287, 22);
+            lblOdenecekTutar.Name = "lblOdenecekTutar";
+            lblOdenecekTutar.Size = new System.Drawing.Size(25, 20);
+            lblOdenecekTutar.TabIndex = 8;
+            lblOdenecekTutar.Text = "00";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label4.Location = new System.Drawing.Point(168, 21);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(120, 20);
+            label4.TabIndex = 7;
+            label4.Text = "Ödenecek Tutar :";
+            label4.Click += label4_Click;
+            // 
             // FrmFaturaDetay
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             ClientSize = new System.Drawing.Size(1318, 817);
+            Controls.Add(lblOdenecekTutar);
+            Controls.Add(label4);
             Controls.Add(simpleButton4);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -158,5 +185,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Label lblOdenecekTutar;
+        private System.Windows.Forms.Label label4;
     }
 }

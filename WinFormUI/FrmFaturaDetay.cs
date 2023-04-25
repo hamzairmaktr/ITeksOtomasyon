@@ -18,7 +18,7 @@ namespace UIWinForm
         public static int _cariId;
         public static int _fbId;
 
-        public FrmFaturaDetay(string id, int cariId,int fbId)
+        public FrmFaturaDetay(string id, int cariId, int fbId)
         {
             _cariId = cariId;
             secilenCari = id;
@@ -34,6 +34,9 @@ namespace UIWinForm
             FaturaBilgiManager fat = new FaturaBilgiManager(new EfFaturaBilgiDal());
             var tutar = fat.Get(int.Parse(secilenCari)).Data.Tutar;
             label2.Text = tutar.ToString();
+            var kalanTutar = fat.Get(int.Parse(secilenCari)).Data.KacOdenecek;
+            lblOdenecekTutar.Text = kalanTutar.ToString();
+            
         }
 
         private void FrmFaturaDetay_Load(object sender, EventArgs e)
@@ -59,8 +62,20 @@ namespace UIWinForm
 
         private void simpleButton4_Click(object sender, EventArgs e)
         {
-            FrmSatis2 nakitToptanSatis = new FrmSatis2(_cariId,_fbId);
+            FrmSatis2 nakitToptanSatis = new FrmSatis2(_cariId, _fbId);
             nakitToptanSatis.ShowDialog();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            FaturaDetayManager faturaDetayManager = new FaturaDetayManager(new EfFaturaDetayDal());
+            var result = faturaDetayManager.GetAllDetailsDto(int.Parse(secilenCari)).Data;
+            printDocument1.Print();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

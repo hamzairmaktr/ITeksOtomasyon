@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +15,12 @@ namespace Business.Abstract
         IResult Update(Gider gider);
         IResult Delete(Gider gider);
 
-        IDataResult<List<Gider>> GetAll7DayBefore();
-        IDataResult<List<Gider>> GetAll30DayBefore();
-        IDataResult<List<Gider>> GetAll365DayBefore();
-        IDataResult<List<Gider>> GetAllMonth(DateTime date);
-        IDataResult<List<Gider>> GetAllDay(DateTime date);
-        IDataResult<List<Gider>> GetAll();
+        IDataResult<List<GiderDetailsDto>> GetAll7DayBefore();
+        IDataResult<List<GiderDetailsDto>> GetAll30DayBefore();
+        IDataResult<List<GiderDetailsDto>> GetAll365DayBefore();
+        IDataResult<List<GiderDetailsDto>> GetAllMonth(DateTime date);
+        IDataResult<List<GiderDetailsDto>> GetAllDay(DateTime date);
+        IDataResult<List<GiderDetailsDto>> GetAll();
 
 
     }

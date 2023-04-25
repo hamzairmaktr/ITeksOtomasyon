@@ -109,6 +109,7 @@ namespace UIWinForm
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             Listele();
+            KasaTurGetir();
         }
     }
 }

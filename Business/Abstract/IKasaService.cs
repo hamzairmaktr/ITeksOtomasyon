@@ -14,6 +14,7 @@ namespace Business.Abstract
         IResult Add(Kasa kasa);
         IResult Update(Kasa kasa);
         IResult UpdateMoney(Kasa kasa, FaturaBilgi faturaBilgi);
+        IResult UpdateMoneyGider(Kasa kasa, Gider Gider);
         IResult Delete(Kasa kasa);
         IDataResult<List<KasaDetailsDto>> GetDetailsDto();
         IDataResult<Kasa> GetById(int id);
