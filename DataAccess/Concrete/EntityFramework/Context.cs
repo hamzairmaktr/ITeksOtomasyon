@@ -1,4 +1,6 @@
-﻿using Entities.Concrete;
+﻿using Core.DataAccess.EntityFramework.Context;
+using Core.Entities;
+using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class Context:DbContext
+    public class Context : DbContext,IContext
     {
+        
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true;");
@@ -23,7 +27,10 @@ namespace DataAccess.Concrete.EntityFramework
                 .HasOne(u => u.Urun)
                 .WithMany()
                 .OnDelete(DeleteBehavior.NoAction);
+
         }
+
+        
 
         public DbSet<Banka> Bankalar { get; set; }
         public DbSet<Borc> Borclar { get; set; }

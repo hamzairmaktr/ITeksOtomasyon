@@ -19,7 +19,7 @@ namespace Business.Concrete
         {
             _bankaDal = bankaDal;
         }
-
+        
         public IResult Add(Banka banka)
         {
             if (String.IsNullOrEmpty(banka.BankaAd))

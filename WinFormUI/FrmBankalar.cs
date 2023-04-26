@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DevExpress.XtraSpreadsheet.Model;
 using Entities.Concrete;
@@ -16,7 +17,8 @@ namespace UIWinForm
 {
     public partial class FrmBankalar : Form
     {
-        public FrmBankalar()
+        private readonly IBankaService _bankaService;
+        public FrmBankalar(IBankaService bankaService)
         {
             InitializeComponent();
         }
@@ -27,8 +29,8 @@ namespace UIWinForm
         }
         void Listele()
         {
-            BankaManager bankaManager = new BankaManager(new EfBankaDal());
-            gridControl1.DataSource = bankaManager.GetAll().Data;
+            
+            gridControl1.DataSource = _bankaService.GetAll().Data;
         }
         private void FrmBankalar_Load(object sender, EventArgs e)
         {
@@ -37,7 +39,7 @@ namespace UIWinForm
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            BankaManager bankaManager = new BankaManager(new EfBankaDal());
+            
             Banka banka = new Banka()
             {
                 BankaAd = txtAd.Text,
@@ -48,7 +50,7 @@ namespace UIWinForm
                 Tarih = DateTime.Now,
                 Yetkili = txtYetkili.Text
             };
-            var result = bankaManager.Add(banka);
+            var result = _bankaService.Add(banka);
             if (result.Success == true)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -63,12 +65,12 @@ namespace UIWinForm
 
         private void btnSil_Click(object sender, EventArgs e)
         {
-            BankaManager bankaManager = new BankaManager(new EfBankaDal());
+            
             Banka banka = new Banka()
             {
                 Id = int.Parse(txtId.Text)
             };
-            var result = bankaManager.Delete(banka);
+            var result = _bankaService.Delete(banka);
             if (result.Success == true)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -114,7 +116,7 @@ namespace UIWinForm
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            BankaManager bankaManager = new BankaManager(new EfBankaDal());
+            
             Banka banka = new Banka()
             {
                 BankaAd = txtAd.Text,
@@ -126,7 +128,7 @@ namespace UIWinForm
                 Yetkili = txtYetkili.Text,
                 Id = int.Parse(txtId.Text)
             };
-            var result = bankaManager.Update(banka);
+            var result = _bankaService.Update(banka);
             if (result.Success == true)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
