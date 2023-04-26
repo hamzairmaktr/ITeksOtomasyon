@@ -12,6 +12,8 @@ namespace Entities.Concrete
     {
         [Key]
         public int Id { get; set; }
+
+        [StringLength(256)]
         public string BankaAd { get; set; }
         public string Sube { get; set; }
         public string Iban { get; set; }

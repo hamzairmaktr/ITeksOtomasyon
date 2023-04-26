@@ -84,6 +84,10 @@ namespace Business.Concrete
             {
                 return new ErrorResult("Lütfen kasa ismi giriniz");
             }
+            if (kasa.Bakiye < 0)
+            {
+                return new ErrorResult("Kasadaki para yetersiz");
+            }
             if (Gider.Tutar < 0)
             {
                 return new ErrorResult("Lütfen geçerli tutar giriniz");

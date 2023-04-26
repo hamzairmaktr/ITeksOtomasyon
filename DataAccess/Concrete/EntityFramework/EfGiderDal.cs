@@ -27,7 +27,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  Date = g.Date,
                                  Not = g.Not,
                                  Personel=p.AdSoyad,
-                                 Tur = g.Tur
+                                 Tur = g.Tur,
+                                 Tutar = g.Tutar
                              };
                 return filter == null ? result.ToList() : result.Where(filter).ToList();
             }

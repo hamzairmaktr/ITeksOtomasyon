@@ -20,11 +20,15 @@ namespace Business.Concrete
             _giderDal = giderDal;
         }
 
-        public IResult Add(Gider gider)
+        public IResult Add(Gider gider,Kasa kasa)
         {
             if (String.IsNullOrEmpty(gider.Not))
             {
                 return new ErrorResult("Not kısmını boş girmeyiniz");
+            }
+            if (kasa.Bakiye < 0)
+            {
+                return new ErrorResult("Kasanızda yeterli bakiye bulunmamaktadır");
             }
             if (gider.Tutar <= 0)
             {
@@ -68,6 +72,11 @@ namespace Business.Concrete
         public IDataResult<List<GiderDetailsDto>> GetAllMonth(DateTime date)
         {
             return new SucessDataResult<List<GiderDetailsDto>>(_giderDal.GetDetailsDto(p => p.Date.Month == date.Month && p.Date.Year == date.Year));
+        }
+
+        public IDataResult<Gider> GetById(int id)
+        {
+            return new SucessDataResult<Gider>(_giderDal.Get(p => p.Id == id));
         }
 
         public IResult Update(Gider gider)

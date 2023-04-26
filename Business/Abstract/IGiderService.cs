@@ -11,7 +11,7 @@ namespace Business.Abstract
 {
     public interface IGiderService
     {
-        IResult Add(Gider gider);
+        IResult Add(Gider gider,Kasa kasa);
         IResult Update(Gider gider);
         IResult Delete(Gider gider);
 
@@ -21,7 +21,7 @@ namespace Business.Abstract
         IDataResult<List<GiderDetailsDto>> GetAllMonth(DateTime date);
         IDataResult<List<GiderDetailsDto>> GetAllDay(DateTime date);
         IDataResult<List<GiderDetailsDto>> GetAll();
-
+        IDataResult<Gider> GetById(int id);
 
     }
 }

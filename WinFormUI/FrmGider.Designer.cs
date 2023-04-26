@@ -44,6 +44,9 @@
             txtId = new DevExpress.XtraEditors.TextEdit();
             xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+            txtTur = new DevExpress.XtraEditors.TextEdit();
+            label7 = new System.Windows.Forms.Label();
+            lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             label5 = new System.Windows.Forms.Label();
             txtTutar = new DevExpress.XtraEditors.TextEdit();
             dateTarih = new DevExpress.XtraEditors.DateEdit();
@@ -63,6 +66,9 @@
             btnFiltrele = new DevExpress.XtraEditors.SimpleButton();
             label18 = new System.Windows.Forms.Label();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
+            label8 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)gridView3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
@@ -73,6 +79,8 @@
             xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tablePanel1).BeginInit();
             tablePanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtTur.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtTutar.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateTarih.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dateTarih.Properties.CalendarTimeProperties).BeginInit();
@@ -87,6 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)cmbFiltreTuru.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cmbTarihAraligi.Properties).BeginInit();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)lookUpEdit2.Properties).BeginInit();
             SuspendLayout();
             // 
             // gridView3
@@ -132,9 +141,9 @@
             tablePanel1.SetColumn(label3, 0);
             label3.Dock = System.Windows.Forms.DockStyle.Fill;
             label3.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label3.Location = new System.Drawing.Point(14, 160);
+            label3.Location = new System.Drawing.Point(14, 220);
             label3.Name = "label3";
-            tablePanel1.SetRow(label3, 5);
+            tablePanel1.SetRow(label3, 7);
             label3.Size = new System.Drawing.Size(96, 30);
             label3.TabIndex = 22;
             label3.Text = "Not :";
@@ -161,9 +170,9 @@
             tablePanel1.SetColumn(btnTemizle, 1);
             btnTemizle.Dock = System.Windows.Forms.DockStyle.Fill;
             btnTemizle.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("btnTemizle.ImageOptions.Image");
-            btnTemizle.Location = new System.Drawing.Point(115, 342);
+            btnTemizle.Location = new System.Drawing.Point(115, 432);
             btnTemizle.Name = "btnTemizle";
-            tablePanel1.SetRow(btnTemizle, 11);
+            tablePanel1.SetRow(btnTemizle, 14);
             btnTemizle.Size = new System.Drawing.Size(257, 26);
             btnTemizle.TabIndex = 20;
             btnTemizle.Text = "Temizle";
@@ -176,9 +185,9 @@
             tablePanel1.SetColumn(btnSil, 1);
             btnSil.Dock = System.Windows.Forms.DockStyle.Fill;
             btnSil.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("btnSil.ImageOptions.Image");
-            btnSil.Location = new System.Drawing.Point(115, 312);
+            btnSil.Location = new System.Drawing.Point(115, 402);
             btnSil.Name = "btnSil";
-            tablePanel1.SetRow(btnSil, 10);
+            tablePanel1.SetRow(btnSil, 13);
             btnSil.Size = new System.Drawing.Size(257, 26);
             btnSil.TabIndex = 19;
             btnSil.Text = "Sil";
@@ -191,9 +200,9 @@
             tablePanel1.SetColumn(btnGuncelle, 1);
             btnGuncelle.Dock = System.Windows.Forms.DockStyle.Fill;
             btnGuncelle.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("btnGuncelle.ImageOptions.Image");
-            btnGuncelle.Location = new System.Drawing.Point(115, 282);
+            btnGuncelle.Location = new System.Drawing.Point(115, 372);
             btnGuncelle.Name = "btnGuncelle";
-            tablePanel1.SetRow(btnGuncelle, 9);
+            tablePanel1.SetRow(btnGuncelle, 12);
             btnGuncelle.Size = new System.Drawing.Size(257, 26);
             btnGuncelle.TabIndex = 18;
             btnGuncelle.Text = "Güncelle";
@@ -206,9 +215,9 @@
             tablePanel1.SetColumn(btnKaydet, 1);
             btnKaydet.Dock = System.Windows.Forms.DockStyle.Fill;
             btnKaydet.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("btnKaydet.ImageOptions.Image");
-            btnKaydet.Location = new System.Drawing.Point(115, 252);
+            btnKaydet.Location = new System.Drawing.Point(115, 342);
             btnKaydet.Name = "btnKaydet";
-            tablePanel1.SetRow(btnKaydet, 8);
+            tablePanel1.SetRow(btnKaydet, 11);
             btnKaydet.Size = new System.Drawing.Size(257, 26);
             btnKaydet.TabIndex = 17;
             btnKaydet.Text = "Kaydet";
@@ -252,6 +261,12 @@
             // tablePanel1
             // 
             tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 28.22F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 71.78F) });
+            tablePanel1.Controls.Add(label9);
+            tablePanel1.Controls.Add(label8);
+            tablePanel1.Controls.Add(lookUpEdit2);
+            tablePanel1.Controls.Add(txtTur);
+            tablePanel1.Controls.Add(label7);
+            tablePanel1.Controls.Add(lookUpEdit1);
             tablePanel1.Controls.Add(label5);
             tablePanel1.Controls.Add(txtTutar);
             tablePanel1.Controls.Add(dateTarih);
@@ -273,15 +288,56 @@
             tablePanel1.TabIndex = 2;
             tablePanel1.UseSkinIndents = true;
             // 
+            // txtTur
+            // 
+            tablePanel1.SetColumn(txtTur, 1);
+            txtTur.Dock = System.Windows.Forms.DockStyle.Fill;
+            txtTur.Location = new System.Drawing.Point(115, 192);
+            txtTur.Name = "txtTur";
+            txtTur.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            txtTur.Properties.Appearance.Options.UseFont = true;
+            txtTur.Properties.AutoHeight = false;
+            tablePanel1.SetRow(txtTur, 6);
+            txtTur.Size = new System.Drawing.Size(257, 26);
+            txtTur.TabIndex = 29;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            tablePanel1.SetColumn(label7, 0);
+            label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            label7.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label7.Location = new System.Drawing.Point(14, 280);
+            label7.Name = "label7";
+            tablePanel1.SetRow(label7, 9);
+            label7.Size = new System.Drawing.Size(96, 30);
+            label7.TabIndex = 28;
+            label7.Text = "Kasa :";
+            label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lookUpEdit1
+            // 
+            tablePanel1.SetColumn(lookUpEdit1, 1);
+            lookUpEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            lookUpEdit1.Location = new System.Drawing.Point(115, 282);
+            lookUpEdit1.Name = "lookUpEdit1";
+            lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lookUpEdit1.Properties.Appearance.Options.UseFont = true;
+            lookUpEdit1.Properties.AutoHeight = false;
+            lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            tablePanel1.SetRow(lookUpEdit1, 9);
+            lookUpEdit1.Size = new System.Drawing.Size(257, 26);
+            lookUpEdit1.TabIndex = 27;
+            // 
             // label5
             // 
             label5.AutoSize = true;
             tablePanel1.SetColumn(label5, 0);
             label5.Dock = System.Windows.Forms.DockStyle.Fill;
             label5.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label5.Location = new System.Drawing.Point(14, 190);
+            label5.Location = new System.Drawing.Point(14, 250);
             label5.Name = "label5";
-            tablePanel1.SetRow(label5, 6);
+            tablePanel1.SetRow(label5, 8);
             label5.Size = new System.Drawing.Size(96, 30);
             label5.TabIndex = 26;
             label5.Text = "Tutar :";
@@ -291,12 +347,12 @@
             // 
             tablePanel1.SetColumn(txtTutar, 1);
             txtTutar.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtTutar.Location = new System.Drawing.Point(115, 192);
+            txtTutar.Location = new System.Drawing.Point(115, 252);
             txtTutar.Name = "txtTutar";
             txtTutar.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtTutar.Properties.Appearance.Options.UseFont = true;
             txtTutar.Properties.AutoHeight = false;
-            tablePanel1.SetRow(txtTutar, 6);
+            tablePanel1.SetRow(txtTutar, 8);
             txtTutar.Size = new System.Drawing.Size(257, 26);
             txtTutar.TabIndex = 25;
             // 
@@ -334,12 +390,12 @@
             // 
             tablePanel1.SetColumn(txtNot, 1);
             txtNot.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtNot.Location = new System.Drawing.Point(115, 162);
+            txtNot.Location = new System.Drawing.Point(115, 222);
             txtNot.Name = "txtNot";
             txtNot.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtNot.Properties.Appearance.Options.UseFont = true;
             txtNot.Properties.AutoHeight = false;
-            tablePanel1.SetRow(txtNot, 5);
+            tablePanel1.SetRow(txtNot, 7);
             txtNot.Size = new System.Drawing.Size(257, 26);
             txtNot.TabIndex = 3;
             // 
@@ -543,6 +599,48 @@
             tableLayoutPanel1.Size = new System.Drawing.Size(1924, 740);
             tableLayoutPanel1.TabIndex = 6;
             // 
+            // lookUpEdit2
+            // 
+            tablePanel1.SetColumn(lookUpEdit2, 1);
+            lookUpEdit2.Dock = System.Windows.Forms.DockStyle.Fill;
+            lookUpEdit2.Location = new System.Drawing.Point(115, 162);
+            lookUpEdit2.Name = "lookUpEdit2";
+            lookUpEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lookUpEdit2.Properties.Appearance.Options.UseFont = true;
+            lookUpEdit2.Properties.AutoHeight = false;
+            lookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            tablePanel1.SetRow(lookUpEdit2, 5);
+            lookUpEdit2.Size = new System.Drawing.Size(257, 26);
+            lookUpEdit2.TabIndex = 30;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            tablePanel1.SetColumn(label8, 0);
+            label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            label8.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label8.Location = new System.Drawing.Point(14, 190);
+            label8.Name = "label8";
+            tablePanel1.SetRow(label8, 6);
+            label8.Size = new System.Drawing.Size(96, 30);
+            label8.TabIndex = 31;
+            label8.Text = "Tür :";
+            label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            tablePanel1.SetColumn(label9, 0);
+            label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            label9.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label9.Location = new System.Drawing.Point(14, 160);
+            label9.Name = "label9";
+            tablePanel1.SetRow(label9, 5);
+            label9.Size = new System.Drawing.Size(96, 30);
+            label9.TabIndex = 32;
+            label9.Text = "Personel :";
+            label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FrmGider
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -565,6 +663,8 @@
             ((System.ComponentModel.ISupportInitialize)tablePanel1).EndInit();
             tablePanel1.ResumeLayout(false);
             tablePanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtTur.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)lookUpEdit1.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtTutar.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateTarih.Properties.CalendarTimeProperties).EndInit();
             ((System.ComponentModel.ISupportInitialize)dateTarih.Properties).EndInit();
@@ -580,6 +680,7 @@
             ((System.ComponentModel.ISupportInitialize)cmbFiltreTuru.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)cmbTarihAraligi.Properties).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)lookUpEdit2.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -622,5 +723,11 @@
         private DevExpress.XtraEditors.DateEdit dateFiltre;
         private DevExpress.XtraEditors.ComboBoxEdit cmbFiltreTuru;
         private DevExpress.XtraEditors.ComboBoxEdit cmbTarihAraligi;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.TextEdit txtTur;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
     }
 }

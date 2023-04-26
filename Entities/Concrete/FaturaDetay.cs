@@ -13,7 +13,10 @@ namespace Entities.Concrete
         [Key]
         public int Id { get; set; }
         public int FaturaId { get; set; }
+
         public int UrunId { get; set; }
+        public Urun Urun { get; set; }
+
         public int TopSayisi { get; set; }
         public decimal Kg { get; set; }
         public decimal Fiyat { get; set; }

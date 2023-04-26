@@ -14,6 +14,17 @@ namespace DataAccess.Concrete.EntityFramework
         {
             optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true;");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<FaturaDetay>()
+                .HasOne(u => u.Urun)
+                .WithMany()
+                .OnDelete(DeleteBehavior.NoAction);
+        }
+
         public DbSet<Banka> Bankalar { get; set; }
         public DbSet<Borc> Borclar { get; set; }
         public DbSet<FaturaBilgi> FaturaBilgiler { get; set; }
