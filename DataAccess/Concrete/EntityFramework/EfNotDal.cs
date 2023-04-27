@@ -12,12 +12,18 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfNotDal : EfEntityRepositoryBase<Not, Context>, INotDal
     {
+        private readonly Context _context;
+
+        public EfNotDal(Context context) : base(context)
+        {
+            this._context = context;
+        }
+
         public List<NotDetailsDto> GetAllDetailsDto()
         {
-            using (Context context = new Context())
-            {
-                var result = from n in context.Notlar
-                             join p in context.Personeller
+            
+                var result = from n in _context.Notlar
+                             join p in _context.Personeller
                              on n.PersonelID equals p.Id
                              orderby n.Yapildimi
                              select new NotDetailsDto
@@ -31,7 +37,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  Yapildimi = n.Yapildimi
                              };
                 return result.ToList();
-            }
+           
         }
     }
 }

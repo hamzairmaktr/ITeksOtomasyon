@@ -13,7 +13,7 @@ namespace Business.Concrete
 {
     public class KasaTurManager : IKasaTurService
     {
-        IKasaTurDal _kasaTurDal;
+        private readonly IKasaTurDal _kasaTurDal;
 
         public KasaTurManager(IKasaTurDal kasaTurDal)
         {

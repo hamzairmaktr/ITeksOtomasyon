@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Business.Abstract;
+using DataAccess.Abstract;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,31 +15,28 @@ namespace AnaMenu
 {
     public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public Form1()
+        private readonly IServiceProvider _serviceProvider;
+
+         public Form1(IServiceProvider serviceProvider)
         {
             InitializeComponent();
+            _serviceProvider = serviceProvider;
         }
 
-        FrmPersoneller frmPersoneller;
         private void barButtonItem13_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (frmPersoneller == null)
-            {
-                frmPersoneller = new FrmPersoneller();
-                frmPersoneller.MdiParent = this;
-                frmPersoneller.Show();
-            }
+
+            var frmPersoneller = _serviceProvider.GetService<FrmPersoneller>();
+            frmPersoneller.MdiParent = this;
+            frmPersoneller.Show();
+
         }
 
-        FrmBankalar frmBankalar;
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (frmBankalar == null)
-            {
-                frmBankalar = new FrmBankalar();
-                frmBankalar.MdiParent = this;
-                frmBankalar.Show();
-            }
+            var frmBankalar = _serviceProvider.GetService<FrmBankalar>();
+            frmBankalar.MdiParent = this;
+            frmBankalar.Show();
         }
 
         FrmGider frmGider;
@@ -55,26 +55,22 @@ namespace AnaMenu
 
         }
 
-        FrmBorclar frmBorclar;
+
         private void barButtonItem11_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (frmBorclar == null)
-            {
-                frmBorclar = new FrmBorclar();
-                frmBorclar.MdiParent = this;
-                frmBorclar.Show();
-            }
+            var frmBorclar = _serviceProvider.GetService<FrmBorclar>();
+            frmBorclar.MdiParent = this;
+            frmBorclar.Show();
+
         }
 
-        FrmCariler frmCariler;
+
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (frmCariler == null)
-            {
-                frmCariler = new FrmCariler();
-                frmCariler.MdiParent = this;
-                frmCariler.Show();
-            }
+            var frmCariler = _serviceProvider.GetService<FrmCariler>();
+            frmCariler.MdiParent = this;
+            frmCariler.Show();
+
         }
 
         FrmKasa frmKasa;
@@ -88,15 +84,12 @@ namespace AnaMenu
             }
         }
 
-        FrmUrunler frmUrunler;
         private void barButtonItem15_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (frmUrunler == null)
-            {
-                frmUrunler = new FrmUrunler();
-                frmUrunler.MdiParent = this;
-                frmUrunler.Show();
-            }
+            var frmUrunler = _serviceProvider.GetService<FrmUrunler>();
+            frmUrunler.MdiParent = this;
+            frmUrunler.Show();
+
         }
 
         FrmNotlar frmNotlar;
@@ -110,15 +103,17 @@ namespace AnaMenu
             }
         }
 
-        FrmFaturalar frmFaturalar;
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (frmFaturalar==null)
-            {
-                frmFaturalar = new FrmFaturalar();
-                frmFaturalar.MdiParent = this;
-                frmFaturalar.Show();
-            }
+            var frmFaturalar = _serviceProvider.GetService<FrmFaturalar>();
+            frmFaturalar.MdiParent = this;
+            frmFaturalar.Show();
+
+        }
+
+        private void ribbonControl1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -16,5 +16,10 @@ namespace UIWinForm
         {
             InitializeComponent();
         }
+
+        private void FrmFaturaRapor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

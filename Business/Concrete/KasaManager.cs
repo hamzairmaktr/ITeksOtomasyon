@@ -14,7 +14,7 @@ namespace Business.Concrete
 {
     public class KasaManager : IKasaService
     {
-        IKasaDal _kasaDal;
+        private readonly IKasaDal _kasaDal;
         
 
         public KasaManager(IKasaDal kasaDal)

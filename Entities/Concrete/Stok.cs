@@ -12,8 +12,12 @@ namespace Entities.Concrete
     {
         [Key]
         public int Id { get; set; }
+        [Required]
+        [StringLength(50)]
         public string Tur { get; set; }
+        [Required]
         public int TopAdet { get; set; }
+        [Required]
         public decimal Kilogram { get; set; }
     }
 }

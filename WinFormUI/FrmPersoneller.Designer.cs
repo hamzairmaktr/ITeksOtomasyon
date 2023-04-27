@@ -176,6 +176,8 @@
             txtMaas.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtMaas.Properties.Appearance.Options.UseFont = true;
             txtMaas.Properties.AutoHeight = false;
+            txtMaas.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
+            txtMaas.Properties.MaskSettings.Set("mask", "c");
             tablePanel1.SetRow(txtMaas, 3);
             txtMaas.Size = new System.Drawing.Size(199, 29);
             txtMaas.TabIndex = 50;

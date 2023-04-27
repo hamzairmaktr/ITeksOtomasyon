@@ -18,18 +18,19 @@ namespace UIWinForm
     public partial class FrmBankalar : Form
     {
         private readonly IBankaService _bankaService;
+
         public FrmBankalar(IBankaService bankaService)
         {
             InitializeComponent();
+            _bankaService = bankaService;
         }
-
         private void gridControl1_Click(object sender, EventArgs e)
         {
 
         }
         void Listele()
         {
-            
+
             gridControl1.DataSource = _bankaService.GetAll().Data;
         }
         private void FrmBankalar_Load(object sender, EventArgs e)
@@ -39,7 +40,7 @@ namespace UIWinForm
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            
+
             Banka banka = new Banka()
             {
                 BankaAd = txtAd.Text,
@@ -65,7 +66,7 @@ namespace UIWinForm
 
         private void btnSil_Click(object sender, EventArgs e)
         {
-            
+
             Banka banka = new Banka()
             {
                 Id = int.Parse(txtId.Text)
@@ -116,7 +117,7 @@ namespace UIWinForm
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            
+
             Banka banka = new Banka()
             {
                 BankaAd = txtAd.Text,
@@ -139,6 +140,11 @@ namespace UIWinForm
             }
             Listele();
             Temizle();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

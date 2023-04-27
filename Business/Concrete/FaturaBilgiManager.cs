@@ -13,7 +13,7 @@ namespace Business.Concrete
 {
     public class FaturaBilgiManager : IFaturaBilgiService
     {
-        IFaturaBilgiDal _faturaBilgiDal;
+        private readonly IFaturaBilgiDal _faturaBilgiDal;
 
         public FaturaBilgiManager(IFaturaBilgiDal faturaBilgiDal)
         {

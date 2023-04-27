@@ -13,7 +13,7 @@ namespace Business.Concrete
 {
     public class BankaManager : IBankaService
     {
-        IBankaDal _bankaDal;
+        private readonly IBankaDal _bankaDal;
 
         public BankaManager(IBankaDal bankaDal)
         {

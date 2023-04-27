@@ -15,6 +15,14 @@ namespace UIWinForm
 {
     public partial class FrmKasaTur : Form
     {
+        private readonly KasaTurManager _kasaTurManager;
+        private readonly BankaManager _bankaManager;
+        public FrmKasaTur(KasaTurManager kasaTurManager, BankaManager bankaManager)
+        {
+            _kasaTurManager = kasaTurManager;
+            _bankaManager = bankaManager;
+        }
+
         public FrmKasaTur()
         {
             InitializeComponent();
@@ -22,15 +30,13 @@ namespace UIWinForm
 
         void Listele()
         {
-            KasaTurManager kasaTurManager = new KasaTurManager(new EfKasaTurDal());
-            var result = kasaTurManager.GetAllKasaTurDetails().Data;
+            var result = _kasaTurManager.GetAllKasaTurDetails().Data;
             gridControl1.DataSource = result;
         }
 
         void GetListBanka()
         {
-            BankaManager bankaManager = new BankaManager(new EfBankaDal());
-            var result = bankaManager.GetAll().Data;
+            var result = _bankaManager.GetAll().Data;
             lookUpEdit1.Properties.DataSource = result;
             lookUpEdit1.Properties.DisplayMember = "BankaAd";
             lookUpEdit1.Properties.ValueMember = "Id";
@@ -51,8 +57,7 @@ namespace UIWinForm
                 BankaId = int.Parse(lookUpEdit1.EditValue.ToString())
             };
 
-            KasaTurManager kasaTurManager = new KasaTurManager(new EfKasaTurDal());
-            var result = kasaTurManager.Add(kasaTur);
+            var result = _kasaTurManager.Add(kasaTur);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -71,8 +76,7 @@ namespace UIWinForm
                 Id = int.Parse(txtId.Text)
             };
 
-            KasaTurManager kasaTurManager = new KasaTurManager(new EfKasaTurDal());
-            var result = kasaTurManager.Delete(kasaTur);
+            var result = _kasaTurManager.Delete(kasaTur);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -93,8 +97,7 @@ namespace UIWinForm
                 BankaId = int.Parse(lookUpEdit1.EditValue.ToString())
             };
 
-            KasaTurManager kasaTurManager = new KasaTurManager(new EfKasaTurDal());
-            var result = kasaTurManager.Update(kasaTur);
+            var result = _kasaTurManager.Update(kasaTur);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

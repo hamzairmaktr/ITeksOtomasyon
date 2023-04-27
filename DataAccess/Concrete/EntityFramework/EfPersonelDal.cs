@@ -9,7 +9,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfPersonelDal:EfEntityRepositoryBase<Personel,Context>,IPersonelDal
+    public class EfPersonelDal : EfEntityRepositoryBase<Personel, Context>, IPersonelDal
     {
+        private readonly Context _context;
+        public EfPersonelDal(Context context) : base(context)
+        {
+            this._context = context;
+        }
     }
 }

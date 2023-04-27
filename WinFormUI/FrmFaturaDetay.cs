@@ -1,5 +1,7 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,28 +16,33 @@ namespace UIWinForm
 {
     public partial class FrmFaturaDetay : Form
     {
-        public static string secilenCari = "";
-        public static int _cariId;
-        public static int _fbId;
+        private readonly IFaturaDetayService _faturaDetayManager;
+        private readonly IFaturaBilgiService _faturaBilgiManager;
+        private readonly IServiceProvider _serviceProvider;
 
-        public FrmFaturaDetay(string id, int cariId, int fbId)
+        public string secilenCari;
+        public int _cariId;
+        public int _fbId;
+
+        public FrmFaturaDetay(IFaturaBilgiService faturaBilgiService, IFaturaDetayService faturaDetayService, IServiceProvider serviceProvider)
         {
-            _cariId = cariId;
-            secilenCari = id;
-            _fbId = fbId;
             InitializeComponent();
+            _faturaDetayManager = faturaDetayService;
+            _faturaBilgiManager = faturaBilgiService;
+            _serviceProvider = serviceProvider;
         }
 
         void Listele()
         {
-            FaturaDetayManager faturaDetayManager = new FaturaDetayManager(new EfFaturaDetayDal());
-            var result = faturaDetayManager.GetAllDetailsDto(int.Parse(secilenCari)).Data;
-            gridControl1.DataSource = result;
-            FaturaBilgiManager fat = new FaturaBilgiManager(new EfFaturaBilgiDal());
-            var tutar = fat.Get(int.Parse(secilenCari)).Data.Tutar;
-            label2.Text = tutar.ToString();
-            var kalanTutar = fat.Get(int.Parse(secilenCari)).Data.KacOdenecek;
-            lblOdenecekTutar.Text = kalanTutar.ToString();
+            if (_faturaBilgiManager.Get(_fbId).Data.Tutar > 0)
+            {
+                var result = _faturaDetayManager.GetAllDetailsDto(int.Parse(secilenCari)).Data;
+                gridControl1.DataSource = result;
+                var tutar = _faturaBilgiManager.Get(int.Parse(secilenCari)).Data.Tutar;
+                label2.Text = tutar.ToString();
+                var kalanTutar = _faturaBilgiManager.Get(int.Parse(secilenCari)).Data.KacOdenecek;
+                lblOdenecekTutar.Text = kalanTutar.ToString();
+            }
             
         }
 
@@ -46,8 +53,9 @@ namespace UIWinForm
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            FrmFaturaDetayEkle frmFaturaDetayEkle = new FrmFaturaDetayEkle(int.Parse(secilenCari));
-            frmFaturaDetayEkle.ShowDialog();
+            var a = _serviceProvider.GetService<FrmFaturaDetayEkle>();
+            a._id = int.Parse(secilenCari);
+            a.ShowDialog();
         }
 
         private void simpleButton3_Click(object sender, EventArgs e)
@@ -62,14 +70,15 @@ namespace UIWinForm
 
         private void simpleButton4_Click(object sender, EventArgs e)
         {
+            
+
             FrmSatis2 nakitToptanSatis = new FrmSatis2(_cariId, _fbId);
             nakitToptanSatis.ShowDialog();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            FaturaDetayManager faturaDetayManager = new FaturaDetayManager(new EfFaturaDetayDal());
-            var result = faturaDetayManager.GetAllDetailsDto(int.Parse(secilenCari)).Data;
+            var result = _faturaDetayManager.GetAllDetailsDto(int.Parse(secilenCari)).Data;
             printDocument1.Print();
         }
 

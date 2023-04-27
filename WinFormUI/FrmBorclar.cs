@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DevExpress.Mvvm.Native;
 using Entities.Concrete;
@@ -18,9 +19,11 @@ namespace UIWinForm
 {
     public partial class FrmBorclar : Form
     {
-        public FrmBorclar()
+        private readonly IBorcService _borcManager;
+        public FrmBorclar(IBorcService borcManager)
         {
             InitializeComponent();
+            _borcManager = borcManager;
         }
 
         public static int secilenCari = 0;
@@ -51,8 +54,7 @@ namespace UIWinForm
         //Listele
         void GetAll()
         {
-            BorcManager borcManager = new BorcManager(new EfBorcDal());
-            var result = borcManager.GetBorcDetailAll();
+            var result = _borcManager.GetBorcDetailAll();
             gridControl1.DataSource = result.Data;
 
             BorcBitis();
@@ -73,7 +75,6 @@ namespace UIWinForm
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            BorcManager borcManager = new BorcManager(new EfBorcDal());
             Borc borc = new Borc
             {
                 Geciktimi = false,
@@ -86,7 +87,7 @@ namespace UIWinForm
                 Tur = cmbTur.Text,
                 Tutar = decimal.Parse(txtTutar.Text)
             };
-            var result = borcManager.Add(borc);
+            var result = _borcManager.Add(borc);
             if (result.Success == true)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -128,9 +129,8 @@ namespace UIWinForm
 
         private void simpleButton3_Click(object sender, EventArgs e)
         {
-            BorcManager borcManager = new BorcManager(new EfBorcDal());
             Borc borc = new Borc() { Id = int.Parse(txtId.Text) };
-            borcManager.Delete(borc);
+            _borcManager.Delete(borc);
             GetAll();
             Temizle();
 

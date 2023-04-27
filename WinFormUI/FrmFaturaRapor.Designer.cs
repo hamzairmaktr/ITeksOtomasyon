@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DevExpress.XtraReports.UserDesigner.BarInfo barInfo1 = new DevExpress.XtraReports.UserDesigner.BarInfo();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFaturaRapor));
             DevExpress.XtraReports.UserDesigner.XRDesignPanelListener xrDesignPanelListener1 = new DevExpress.XtraReports.UserDesigner.XRDesignPanelListener();
             DevExpress.XtraReports.UserDesigner.XRDesignPanelListener xrDesignPanelListener2 = new DevExpress.XtraReports.UserDesigner.XRDesignPanelListener();
             DevExpress.XtraReports.UserDesigner.XRDesignPanelListener xrDesignPanelListener3 = new DevExpress.XtraReports.UserDesigner.XRDesignPanelListener();
@@ -37,67 +39,26 @@
             DevExpress.XtraReports.UserDesigner.XRDesignPanelListener xrDesignPanelListener6 = new DevExpress.XtraReports.UserDesigner.XRDesignPanelListener();
             DevExpress.XtraReports.UserDesigner.XRDesignPanelListener xrDesignPanelListener7 = new DevExpress.XtraReports.UserDesigner.XRDesignPanelListener();
             DevExpress.XtraReports.UserDesigner.XRDesignPanelListener xrDesignPanelListener8 = new DevExpress.XtraReports.UserDesigner.XRDesignPanelListener();
-            DevExpress.XtraReports.UserDesigner.BarInfo barInfo1 = new DevExpress.XtraReports.UserDesigner.BarInfo();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFaturaRapor));
-            standardReportDesigner1 = new DevExpress.XtraReports.UserDesigner.Native.StandardReportDesigner();
-            reportDesigner1 = new DevExpress.XtraReports.UserDesigner.XRDesignMdiController(components);
             xrDesignBarManager1 = new DevExpress.XtraReports.UserDesigner.XRDesignBarManager(components);
-            barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            bar2 = new DevExpress.XtraBars.Bar();
             designBar1 = new DevExpress.XtraReports.UserDesigner.DesignBar();
-            designBar2 = new DevExpress.XtraReports.UserDesigner.DesignBar();
-            designBar3 = new DevExpress.XtraReports.UserDesigner.DesignBar();
-            designBar4 = new DevExpress.XtraReports.UserDesigner.DesignBar();
-            designBar5 = new DevExpress.XtraReports.UserDesigner.DesignBar();
-            recentlyUsedItemsComboBox1 = new DevExpress.XtraReports.UserDesigner.RecentlyUsedItemsComboBox();
-            designRepositoryItemComboBox1 = new DevExpress.XtraReports.UserDesigner.DesignRepositoryItemComboBox();
-            beiFontName = new DevExpress.XtraBars.BarEditItem();
-            beiFontSize = new DevExpress.XtraBars.BarEditItem();
-            bbiFontBold = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiFontItalic = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiFontUnderline = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiForeColor = new DevExpress.XtraReports.UserDesigner.CommandColorBarItem();
-            bbiBackColor = new DevExpress.XtraReports.UserDesigner.CommandColorBarItem();
-            bbiJustifyLeft = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiJustifyCenter = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiJustifyRight = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiJustifyJustify = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiAlignToGrid = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiAlignLeft = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiAlignVerticalCenters = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiAlignRight = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiAlignTop = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiAlignHorizontalCenters = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiAlignBottom = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiSizeToControlWidth = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiSizeToGrid = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiSizeToControlHeight = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiSizeToControl = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiHorizSpaceMakeEqual = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiHorizSpaceIncrease = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiHorizSpaceDecrease = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiHorizSpaceConcatenate = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiVertSpaceMakeEqual = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiVertSpaceIncrease = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiVertSpaceDecrease = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiVertSpaceConcatenate = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiCenterHorizontally = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiCenterVertically = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiBringToFront = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiSendToBack = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            msiFile = new DevExpress.XtraBars.BarSubItem();
             commandBarItem1 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            commandBarItem2 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             bbiOpenFile = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             bbiSaveFile = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            commandBarItem3 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            commandBarItem7 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            commandBarItem11 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            commandBarItem4 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            msiEdit = new DevExpress.XtraBars.BarSubItem();
+            bbiUndo = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiRedo = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             bbiCut = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             bbiCopy = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             bbiPaste = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiUndo = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bbiRedo = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bsiHint = new DevExpress.XtraBars.BarStaticItem();
-            msiFile = new DevExpress.XtraBars.BarSubItem();
-            msiEdit = new DevExpress.XtraBars.BarSubItem();
+            commandBarItem5 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            commandBarItem6 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             msiTabButtons = new DevExpress.XtraBars.BarSubItem();
             barReportTabButtonsListItem1 = new DevExpress.XtraReports.UserDesigner.BarReportTabButtonsListItem();
             barSubItem1 = new DevExpress.XtraBars.BarSubItem();
@@ -105,81 +66,106 @@
             barSubItem2 = new DevExpress.XtraBars.BarSubItem();
             barDockPanelsListItem1 = new DevExpress.XtraReports.UserDesigner.BarDockPanelsListItem();
             msiFormat = new DevExpress.XtraBars.BarSubItem();
+            bbiForeColor = new DevExpress.XtraReports.UserDesigner.CommandColorBarItem();
+            bbiBackColor = new DevExpress.XtraReports.UserDesigner.CommandColorBarItem();
             msiFont = new DevExpress.XtraBars.BarSubItem();
+            bbiFontBold = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiFontItalic = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiFontUnderline = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             msiJustify = new DevExpress.XtraBars.BarSubItem();
+            bbiJustifyLeft = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiJustifyCenter = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiJustifyRight = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiJustifyJustify = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             msiAlign = new DevExpress.XtraBars.BarSubItem();
+            bbiAlignLeft = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiAlignVerticalCenters = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiAlignRight = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiAlignTop = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiAlignHorizontalCenters = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiAlignBottom = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiAlignToGrid = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             msiSameSize = new DevExpress.XtraBars.BarSubItem();
+            bbiSizeToControlWidth = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiSizeToGrid = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiSizeToControlHeight = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiSizeToControl = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             msiHorizontalSpacing = new DevExpress.XtraBars.BarSubItem();
+            bbiHorizSpaceMakeEqual = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiHorizSpaceIncrease = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiHorizSpaceDecrease = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiHorizSpaceConcatenate = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             msiVerticalSpacing = new DevExpress.XtraBars.BarSubItem();
+            bbiVertSpaceMakeEqual = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiVertSpaceIncrease = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiVertSpaceDecrease = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiVertSpaceConcatenate = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             bsiCenter = new DevExpress.XtraBars.BarSubItem();
+            bbiCenterHorizontally = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiCenterVertically = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             msiOrder = new DevExpress.XtraBars.BarSubItem();
-            commandBarItem2 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            commandBarItem3 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            commandBarItem4 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            commandBarItem5 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            commandBarItem6 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            commandBarItem7 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiBringToFront = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            bbiSendToBack = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             msiWindow = new DevExpress.XtraBars.BarSubItem();
             msiWindowInterface = new DevExpress.XtraReports.UserDesigner.CommandBarCheckItem();
             commandBarItem8 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             commandBarItem9 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             commandBarItem10 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             msiWindows = new DevExpress.XtraBars.BarMdiChildrenListItem();
-            commandBarItem11 = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
+            designBar2 = new DevExpress.XtraReports.UserDesigner.DesignBar();
+            designBar3 = new DevExpress.XtraReports.UserDesigner.DesignBar();
+            beiFontName = new DevExpress.XtraBars.BarEditItem();
+            recentlyUsedItemsComboBox1 = new DevExpress.XtraReports.UserDesigner.RecentlyUsedItemsComboBox();
+            beiFontSize = new DevExpress.XtraBars.BarEditItem();
+            designRepositoryItemComboBox1 = new DevExpress.XtraReports.UserDesigner.DesignRepositoryItemComboBox();
+            designBar4 = new DevExpress.XtraReports.UserDesigner.DesignBar();
+            designBar5 = new DevExpress.XtraReports.UserDesigner.DesignBar();
+            bsiHint = new DevExpress.XtraBars.BarStaticItem();
             bar1 = new DevExpress.XtraBars.Bar();
             bbiZoomOut = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
             bbiZoom = new DevExpress.XtraReports.UserDesigner.XRZoomBarEditItem();
             designRepositoryItemComboBox2 = new DevExpress.XtraReports.UserDesigner.DesignRepositoryItemComboBox();
             bbiZoomIn = new DevExpress.XtraReports.UserDesigner.CommandBarItem();
-            bar2 = new DevExpress.XtraBars.Bar();
+            barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             xrDesignDockManager1 = new DevExpress.XtraReports.UserDesigner.XRDesignDockManager(components);
-            fieldListDockPanel1 = new DevExpress.XtraReports.UserDesigner.FieldListDockPanel();
-            fieldListDockPanel1_Container = new DevExpress.XtraReports.UserDesigner.DesignControlContainer();
-            propertyGridDockPanel1 = new DevExpress.XtraReports.UserDesigner.PropertyGridDockPanel();
-            propertyGridDockPanel1_Container = new DevExpress.XtraReports.UserDesigner.DesignControlContainer();
+            panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
+            panelContainer2 = new DevExpress.XtraBars.Docking.DockPanel();
             reportExplorerDockPanel1 = new DevExpress.XtraReports.UserDesigner.ReportExplorerDockPanel();
             reportExplorerDockPanel1_Container = new DevExpress.XtraReports.UserDesigner.DesignControlContainer();
+            fieldListDockPanel1 = new DevExpress.XtraReports.UserDesigner.FieldListDockPanel();
+            fieldListDockPanel1_Container = new DevExpress.XtraReports.UserDesigner.DesignControlContainer();
+            panelContainer3 = new DevExpress.XtraBars.Docking.DockPanel();
+            propertyGridDockPanel1 = new DevExpress.XtraReports.UserDesigner.PropertyGridDockPanel();
+            propertyGridDockPanel1_Container = new DevExpress.XtraReports.UserDesigner.DesignControlContainer();
             reportGalleryDockPanel1 = new DevExpress.XtraReports.UserDesigner.ReportGalleryDockPanel();
             reportGalleryDockPanel1_Container = new DevExpress.XtraReports.UserDesigner.DesignControlContainer();
+            panelContainer4 = new DevExpress.XtraBars.Docking.DockPanel();
             groupAndSortDockPanel1 = new DevExpress.XtraReports.UserDesigner.GroupAndSortDockPanel();
             groupAndSortDockPanel1_Container = new DevExpress.XtraReports.UserDesigner.DesignControlContainer();
             errorListDockPanel1 = new DevExpress.XtraReports.UserDesigner.ErrorListDockPanel();
             errorListDockPanel1_Container = new DevExpress.XtraReports.UserDesigner.DesignControlContainer();
-            panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
-            panelContainer2 = new DevExpress.XtraBars.Docking.DockPanel();
-            panelContainer3 = new DevExpress.XtraBars.Docking.DockPanel();
-            panelContainer4 = new DevExpress.XtraBars.Docking.DockPanel();
-            ((System.ComponentModel.ISupportInitialize)reportDesigner1).BeginInit();
+            standardReportDesigner1 = new DevExpress.XtraReports.UserDesigner.Native.StandardReportDesigner();
+            reportDesigner1 = new DevExpress.XtraReports.UserDesigner.XRDesignMdiController(components);
             ((System.ComponentModel.ISupportInitialize)xrDesignBarManager1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)recentlyUsedItemsComboBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)designRepositoryItemComboBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)designRepositoryItemComboBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)xrDesignDockManager1).BeginInit();
-            fieldListDockPanel1.SuspendLayout();
-            propertyGridDockPanel1.SuspendLayout();
-            reportExplorerDockPanel1.SuspendLayout();
-            reportGalleryDockPanel1.SuspendLayout();
-            groupAndSortDockPanel1.SuspendLayout();
-            errorListDockPanel1.SuspendLayout();
             panelContainer1.SuspendLayout();
             panelContainer2.SuspendLayout();
+            reportExplorerDockPanel1.SuspendLayout();
+            fieldListDockPanel1.SuspendLayout();
             panelContainer3.SuspendLayout();
+            propertyGridDockPanel1.SuspendLayout();
+            reportGalleryDockPanel1.SuspendLayout();
             panelContainer4.SuspendLayout();
+            groupAndSortDockPanel1.SuspendLayout();
+            errorListDockPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)reportDesigner1).BeginInit();
             SuspendLayout();
-            // 
-            // reportDesigner1
-            // 
-            reportDesigner1.ContainerControl = null;
-            xrDesignPanelListener1.DesignControl = xrDesignBarManager1;
-            xrDesignPanelListener2.DesignControl = xrDesignDockManager1;
-            xrDesignPanelListener3.DesignControl = fieldListDockPanel1;
-            xrDesignPanelListener4.DesignControl = propertyGridDockPanel1;
-            xrDesignPanelListener5.DesignControl = reportExplorerDockPanel1;
-            xrDesignPanelListener6.DesignControl = reportGalleryDockPanel1;
-            xrDesignPanelListener7.DesignControl = groupAndSortDockPanel1;
-            xrDesignPanelListener8.DesignControl = errorListDockPanel1;
-            reportDesigner1.DesignPanelListeners.AddRange(new DevExpress.XtraReports.UserDesigner.XRDesignPanelListener[] { xrDesignPanelListener1, xrDesignPanelListener2, xrDesignPanelListener3, xrDesignPanelListener4, xrDesignPanelListener5, xrDesignPanelListener6, xrDesignPanelListener7, xrDesignPanelListener8 });
-            reportDesigner1.Form = this;
             // 
             // xrDesignBarManager1
             // 
@@ -211,37 +197,14 @@
             xrDesignBarManager1.Updates.AddRange(new string[] { "Toolbox" });
             xrDesignBarManager1.ZoomItem = bbiZoom;
             // 
-            // barDockControlTop
+            // bar2
             // 
-            barDockControlTop.CausesValidation = false;
-            barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            barDockControlTop.Manager = xrDesignBarManager1;
-            barDockControlTop.Size = new System.Drawing.Size(1075, 71);
-            // 
-            // barDockControlBottom
-            // 
-            barDockControlBottom.CausesValidation = false;
-            barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            barDockControlBottom.Location = new System.Drawing.Point(0, 565);
-            barDockControlBottom.Manager = xrDesignBarManager1;
-            barDockControlBottom.Size = new System.Drawing.Size(1075, 22);
-            // 
-            // barDockControlLeft
-            // 
-            barDockControlLeft.CausesValidation = false;
-            barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            barDockControlLeft.Location = new System.Drawing.Point(0, 71);
-            barDockControlLeft.Manager = xrDesignBarManager1;
-            barDockControlLeft.Size = new System.Drawing.Size(21, 494);
-            // 
-            // barDockControlRight
-            // 
-            barDockControlRight.CausesValidation = false;
-            barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            barDockControlRight.Location = new System.Drawing.Point(1075, 71);
-            barDockControlRight.Manager = xrDesignBarManager1;
-            barDockControlRight.Size = new System.Drawing.Size(0, 494);
+            bar2.BarName = "Toolbox";
+            bar2.DockCol = 0;
+            bar2.DockRow = 0;
+            bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Left;
+            bar2.OptionsBar.AllowQuickCustomization = false;
+            bar2.Text = "Standard Controls";
             // 
             // designBar1
             // 
@@ -254,77 +217,245 @@
             designBar1.OptionsBar.UseWholeRow = true;
             designBar1.Text = "Main Menu";
             // 
-            // designBar2
+            // msiFile
             // 
-            designBar2.BarName = "Toolbar";
-            designBar2.DockCol = 0;
-            designBar2.DockRow = 1;
-            designBar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            designBar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(commandBarItem1), new DevExpress.XtraBars.LinkPersistInfo(bbiOpenFile), new DevExpress.XtraBars.LinkPersistInfo(bbiSaveFile), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem7), new DevExpress.XtraBars.LinkPersistInfo(bbiCut, true), new DevExpress.XtraBars.LinkPersistInfo(bbiCopy), new DevExpress.XtraBars.LinkPersistInfo(bbiPaste), new DevExpress.XtraBars.LinkPersistInfo(bbiUndo, true), new DevExpress.XtraBars.LinkPersistInfo(bbiRedo) });
-            designBar2.Text = "Toolbar";
+            msiFile.Caption = "&File";
+            msiFile.Id = 43;
+            msiFile.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(commandBarItem1), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem2), new DevExpress.XtraBars.LinkPersistInfo(bbiOpenFile), new DevExpress.XtraBars.LinkPersistInfo(bbiSaveFile, true), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem3), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem7), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem11), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem4, true) });
+            msiFile.Name = "msiFile";
             // 
-            // designBar3
+            // commandBarItem1
             // 
-            designBar3.BarName = "Formatting Toolbar";
-            designBar3.DockCol = 1;
-            designBar3.DockRow = 1;
-            designBar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            designBar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(beiFontName), new DevExpress.XtraBars.LinkPersistInfo(beiFontSize), new DevExpress.XtraBars.LinkPersistInfo(bbiFontBold), new DevExpress.XtraBars.LinkPersistInfo(bbiFontItalic), new DevExpress.XtraBars.LinkPersistInfo(bbiFontUnderline), new DevExpress.XtraBars.LinkPersistInfo(bbiForeColor, true), new DevExpress.XtraBars.LinkPersistInfo(bbiBackColor), new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyLeft, true), new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyCenter), new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyRight), new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyJustify) });
-            designBar3.Text = "Formatting Toolbar";
+            commandBarItem1.Caption = "&New";
+            commandBarItem1.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.NewReport;
+            commandBarItem1.Enabled = false;
+            commandBarItem1.Hint = "Create a new blank report";
+            commandBarItem1.Id = 34;
+            commandBarItem1.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N);
+            commandBarItem1.Name = "commandBarItem1";
             // 
-            // designBar4
+            // commandBarItem2
             // 
-            designBar4.BarName = "Layout Toolbar";
-            designBar4.DockCol = 0;
-            designBar4.DockRow = 2;
-            designBar4.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            designBar4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiAlignToGrid), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignLeft, true), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignVerticalCenters), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignRight), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignTop, true), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignHorizontalCenters), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignBottom), new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToControlWidth, true), new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToGrid), new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToControlHeight), new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToControl), new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceMakeEqual, true), new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceIncrease), new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceDecrease), new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceConcatenate), new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceMakeEqual, true), new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceIncrease), new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceDecrease), new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceConcatenate), new DevExpress.XtraBars.LinkPersistInfo(bbiCenterHorizontally, true), new DevExpress.XtraBars.LinkPersistInfo(bbiCenterVertically), new DevExpress.XtraBars.LinkPersistInfo(bbiBringToFront, true), new DevExpress.XtraBars.LinkPersistInfo(bbiSendToBack) });
-            designBar4.Text = "Layout Toolbar";
+            commandBarItem2.Caption = "New via &Wizard...";
+            commandBarItem2.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.NewReportWizard;
+            commandBarItem2.Enabled = false;
+            commandBarItem2.Hint = "Create a new report using the Wizard";
+            commandBarItem2.Id = 60;
+            commandBarItem2.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W);
+            commandBarItem2.Name = "commandBarItem2";
             // 
-            // designBar5
+            // bbiOpenFile
             // 
-            designBar5.BarName = "Status Bar";
-            designBar5.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            designBar5.DockCol = 0;
-            designBar5.DockRow = 0;
-            designBar5.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            designBar5.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bsiHint) });
-            designBar5.OptionsBar.AllowQuickCustomization = false;
-            designBar5.OptionsBar.DrawDragBorder = false;
-            designBar5.OptionsBar.UseWholeRow = true;
-            designBar5.Text = "Status Bar";
+            bbiOpenFile.Caption = "&Open...";
+            bbiOpenFile.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.OpenFile;
+            bbiOpenFile.Enabled = false;
+            bbiOpenFile.Hint = "Open a report";
+            bbiOpenFile.Id = 35;
+            bbiOpenFile.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O);
+            bbiOpenFile.Name = "bbiOpenFile";
             // 
-            // recentlyUsedItemsComboBox1
+            // bbiSaveFile
             // 
-            recentlyUsedItemsComboBox1.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            recentlyUsedItemsComboBox1.AppearanceDropDown.Options.UseFont = true;
-            recentlyUsedItemsComboBox1.AutoHeight = false;
-            recentlyUsedItemsComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            recentlyUsedItemsComboBox1.Name = "recentlyUsedItemsComboBox1";
+            bbiSaveFile.Caption = "&Save";
+            bbiSaveFile.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.SaveFile;
+            bbiSaveFile.Enabled = false;
+            bbiSaveFile.Hint = "Save the report";
+            bbiSaveFile.Id = 36;
+            bbiSaveFile.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S);
+            bbiSaveFile.Name = "bbiSaveFile";
             // 
-            // designRepositoryItemComboBox1
+            // commandBarItem3
             // 
-            designRepositoryItemComboBox1.AutoHeight = false;
-            designRepositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            designRepositoryItemComboBox1.Name = "designRepositoryItemComboBox1";
+            commandBarItem3.Caption = "Save &As...";
+            commandBarItem3.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.SaveFileAs;
+            commandBarItem3.Enabled = false;
+            commandBarItem3.Hint = "Save the report with a new name";
+            commandBarItem3.Id = 61;
+            commandBarItem3.Name = "commandBarItem3";
             // 
-            // beiFontName
+            // commandBarItem7
             // 
-            beiFontName.Caption = "Font Name";
-            beiFontName.Edit = recentlyUsedItemsComboBox1;
-            beiFontName.EditWidth = 120;
-            beiFontName.Hint = "Font Name";
-            beiFontName.Id = 0;
-            beiFontName.Name = "beiFontName";
+            commandBarItem7.Caption = "Save A&ll";
+            commandBarItem7.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.SaveAll;
+            commandBarItem7.Enabled = false;
+            commandBarItem7.Hint = "Save all reports";
+            commandBarItem7.Id = 65;
+            commandBarItem7.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L);
+            commandBarItem7.Name = "commandBarItem7";
             // 
-            // beiFontSize
+            // commandBarItem11
             // 
-            beiFontSize.Caption = "Font Size";
-            beiFontSize.Edit = designRepositoryItemComboBox1;
-            beiFontSize.EditWidth = 55;
-            beiFontSize.Hint = "Font Size";
-            beiFontSize.Id = 1;
-            beiFontSize.Name = "beiFontSize";
+            commandBarItem11.Caption = "&Close";
+            commandBarItem11.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Close;
+            commandBarItem11.Enabled = false;
+            commandBarItem11.Hint = "Close the report";
+            commandBarItem11.Id = 72;
+            commandBarItem11.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F4);
+            commandBarItem11.Name = "commandBarItem11";
+            // 
+            // commandBarItem4
+            // 
+            commandBarItem4.Caption = "E&xit";
+            commandBarItem4.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Exit;
+            commandBarItem4.Enabled = false;
+            commandBarItem4.Hint = "Close the designer";
+            commandBarItem4.Id = 62;
+            commandBarItem4.Name = "commandBarItem4";
+            // 
+            // msiEdit
+            // 
+            msiEdit.Caption = "&Edit";
+            msiEdit.Id = 44;
+            msiEdit.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiUndo, true), new DevExpress.XtraBars.LinkPersistInfo(bbiRedo), new DevExpress.XtraBars.LinkPersistInfo(bbiCut, true), new DevExpress.XtraBars.LinkPersistInfo(bbiCopy), new DevExpress.XtraBars.LinkPersistInfo(bbiPaste), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem5), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem6, true) });
+            msiEdit.Name = "msiEdit";
+            // 
+            // bbiUndo
+            // 
+            bbiUndo.Caption = "&Undo";
+            bbiUndo.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Undo;
+            bbiUndo.Enabled = false;
+            bbiUndo.Hint = "Undo the last operation";
+            bbiUndo.Id = 40;
+            bbiUndo.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z);
+            bbiUndo.Name = "bbiUndo";
+            // 
+            // bbiRedo
+            // 
+            bbiRedo.Caption = "&Redo";
+            bbiRedo.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Redo;
+            bbiRedo.Enabled = false;
+            bbiRedo.Hint = "Redo the last operation";
+            bbiRedo.Id = 41;
+            bbiRedo.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y);
+            bbiRedo.Name = "bbiRedo";
+            // 
+            // bbiCut
+            // 
+            bbiCut.Caption = "Cu&t";
+            bbiCut.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Cut;
+            bbiCut.Enabled = false;
+            bbiCut.Hint = "Delete the control and copy it to the clipboard";
+            bbiCut.Id = 37;
+            bbiCut.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X);
+            bbiCut.Name = "bbiCut";
+            // 
+            // bbiCopy
+            // 
+            bbiCopy.Caption = "&Copy";
+            bbiCopy.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Copy;
+            bbiCopy.Enabled = false;
+            bbiCopy.Hint = "Copy the control to the clipboard";
+            bbiCopy.Id = 38;
+            bbiCopy.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C);
+            bbiCopy.Name = "bbiCopy";
+            // 
+            // bbiPaste
+            // 
+            bbiPaste.Caption = "&Paste";
+            bbiPaste.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Paste;
+            bbiPaste.Enabled = false;
+            bbiPaste.Hint = "Add the control from the clipboard";
+            bbiPaste.Id = 39;
+            bbiPaste.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V);
+            bbiPaste.Name = "bbiPaste";
+            // 
+            // commandBarItem5
+            // 
+            commandBarItem5.Caption = "&Delete";
+            commandBarItem5.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Delete;
+            commandBarItem5.Enabled = false;
+            commandBarItem5.Hint = "Delete the control";
+            commandBarItem5.Id = 63;
+            commandBarItem5.Name = "commandBarItem5";
+            // 
+            // commandBarItem6
+            // 
+            commandBarItem6.Caption = "Select &All";
+            commandBarItem6.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.SelectAll;
+            commandBarItem6.Enabled = false;
+            commandBarItem6.Hint = "Select all the controls in the document";
+            commandBarItem6.Id = 64;
+            commandBarItem6.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A);
+            commandBarItem6.Name = "commandBarItem6";
+            // 
+            // msiTabButtons
+            // 
+            msiTabButtons.Caption = "&View";
+            msiTabButtons.Id = 45;
+            msiTabButtons.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(barReportTabButtonsListItem1), new DevExpress.XtraBars.LinkPersistInfo(barSubItem1, true), new DevExpress.XtraBars.LinkPersistInfo(barSubItem2, true) });
+            msiTabButtons.Name = "msiTabButtons";
+            // 
+            // barReportTabButtonsListItem1
+            // 
+            barReportTabButtonsListItem1.Caption = "Tab Buttons";
+            barReportTabButtonsListItem1.Id = 46;
+            barReportTabButtonsListItem1.Name = "barReportTabButtonsListItem1";
+            // 
+            // barSubItem1
+            // 
+            barSubItem1.Caption = "&Toolbars";
+            barSubItem1.Id = 47;
+            barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(xrBarToolbarsListItem1) });
+            barSubItem1.Name = "barSubItem1";
+            // 
+            // xrBarToolbarsListItem1
+            // 
+            xrBarToolbarsListItem1.Caption = "&Toolbars";
+            xrBarToolbarsListItem1.Id = 48;
+            xrBarToolbarsListItem1.Name = "xrBarToolbarsListItem1";
+            // 
+            // barSubItem2
+            // 
+            barSubItem2.Caption = "&Windows";
+            barSubItem2.Id = 49;
+            barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(barDockPanelsListItem1) });
+            barSubItem2.Name = "barSubItem2";
+            // 
+            // barDockPanelsListItem1
+            // 
+            barDockPanelsListItem1.Caption = "&Windows";
+            barDockPanelsListItem1.DockManager = null;
+            barDockPanelsListItem1.Id = 50;
+            barDockPanelsListItem1.Name = "barDockPanelsListItem1";
+            barDockPanelsListItem1.ShowCustomizationItem = false;
+            barDockPanelsListItem1.ShowDockPanels = true;
+            barDockPanelsListItem1.ShowToolbars = false;
+            // 
+            // msiFormat
+            // 
+            msiFormat.Caption = "Fo&rmat";
+            msiFormat.Id = 51;
+            msiFormat.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiForeColor), new DevExpress.XtraBars.LinkPersistInfo(bbiBackColor), new DevExpress.XtraBars.LinkPersistInfo(msiFont, true), new DevExpress.XtraBars.LinkPersistInfo(msiJustify), new DevExpress.XtraBars.LinkPersistInfo(msiAlign, true), new DevExpress.XtraBars.LinkPersistInfo(msiSameSize), new DevExpress.XtraBars.LinkPersistInfo(msiHorizontalSpacing, true), new DevExpress.XtraBars.LinkPersistInfo(msiVerticalSpacing), new DevExpress.XtraBars.LinkPersistInfo(bsiCenter, true), new DevExpress.XtraBars.LinkPersistInfo(msiOrder, true) });
+            msiFormat.Name = "msiFormat";
+            // 
+            // bbiForeColor
+            // 
+            bbiForeColor.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            bbiForeColor.Caption = "For&eground Color";
+            bbiForeColor.CloseSubMenuOnClickMode = DevExpress.Utils.DefaultBoolean.False;
+            bbiForeColor.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.ForeColor;
+            bbiForeColor.Enabled = false;
+            bbiForeColor.Hint = "Set the foreground color of the control";
+            bbiForeColor.Id = 5;
+            bbiForeColor.Name = "bbiForeColor";
+            // 
+            // bbiBackColor
+            // 
+            bbiBackColor.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            bbiBackColor.Caption = "Bac&kground Color";
+            bbiBackColor.CloseSubMenuOnClickMode = DevExpress.Utils.DefaultBoolean.False;
+            bbiBackColor.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.BackColor;
+            bbiBackColor.Enabled = false;
+            bbiBackColor.Hint = "Set the background color of the control";
+            bbiBackColor.Id = 6;
+            bbiBackColor.Name = "bbiBackColor";
+            // 
+            // msiFont
+            // 
+            msiFont.Caption = "&Font";
+            msiFont.Id = 52;
+            msiFont.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiFontBold, true), new DevExpress.XtraBars.LinkPersistInfo(bbiFontItalic), new DevExpress.XtraBars.LinkPersistInfo(bbiFontUnderline) });
+            msiFont.Name = "msiFont";
             // 
             // bbiFontBold
             // 
@@ -356,27 +487,12 @@
             bbiFontUnderline.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U);
             bbiFontUnderline.Name = "bbiFontUnderline";
             // 
-            // bbiForeColor
+            // msiJustify
             // 
-            bbiForeColor.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            bbiForeColor.Caption = "For&eground Color";
-            bbiForeColor.CloseSubMenuOnClickMode = DevExpress.Utils.DefaultBoolean.False;
-            bbiForeColor.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.ForeColor;
-            bbiForeColor.Enabled = false;
-            bbiForeColor.Hint = "Set the foreground color of the control";
-            bbiForeColor.Id = 5;
-            bbiForeColor.Name = "bbiForeColor";
-            // 
-            // bbiBackColor
-            // 
-            bbiBackColor.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
-            bbiBackColor.Caption = "Bac&kground Color";
-            bbiBackColor.CloseSubMenuOnClickMode = DevExpress.Utils.DefaultBoolean.False;
-            bbiBackColor.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.BackColor;
-            bbiBackColor.Enabled = false;
-            bbiBackColor.Hint = "Set the background color of the control";
-            bbiBackColor.Id = 6;
-            bbiBackColor.Name = "bbiBackColor";
+            msiJustify.Caption = "&Justify";
+            msiJustify.Id = 53;
+            msiJustify.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyLeft, true), new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyCenter), new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyRight), new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyJustify) });
+            msiJustify.Name = "msiJustify";
             // 
             // bbiJustifyLeft
             // 
@@ -414,14 +530,12 @@
             bbiJustifyJustify.Id = 10;
             bbiJustifyJustify.Name = "bbiJustifyJustify";
             // 
-            // bbiAlignToGrid
+            // msiAlign
             // 
-            bbiAlignToGrid.Caption = "to &Grid";
-            bbiAlignToGrid.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.AlignToGrid;
-            bbiAlignToGrid.Enabled = false;
-            bbiAlignToGrid.Hint = "Align the positions of the selected controls to the grid";
-            bbiAlignToGrid.Id = 11;
-            bbiAlignToGrid.Name = "bbiAlignToGrid";
+            msiAlign.Caption = "&Align";
+            msiAlign.Id = 54;
+            msiAlign.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiAlignLeft, true), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignVerticalCenters), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignRight), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignTop, true), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignHorizontalCenters), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignBottom), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignToGrid, true) });
+            msiAlign.Name = "msiAlign";
             // 
             // bbiAlignLeft
             // 
@@ -477,6 +591,22 @@
             bbiAlignBottom.Id = 17;
             bbiAlignBottom.Name = "bbiAlignBottom";
             // 
+            // bbiAlignToGrid
+            // 
+            bbiAlignToGrid.Caption = "to &Grid";
+            bbiAlignToGrid.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.AlignToGrid;
+            bbiAlignToGrid.Enabled = false;
+            bbiAlignToGrid.Hint = "Align the positions of the selected controls to the grid";
+            bbiAlignToGrid.Id = 11;
+            bbiAlignToGrid.Name = "bbiAlignToGrid";
+            // 
+            // msiSameSize
+            // 
+            msiSameSize.Caption = "&Make Same Size";
+            msiSameSize.Id = 55;
+            msiSameSize.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToControlWidth, true), new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToGrid), new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToControlHeight), new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToControl) });
+            msiSameSize.Name = "msiSameSize";
+            // 
             // bbiSizeToControlWidth
             // 
             bbiSizeToControlWidth.Caption = "&Width";
@@ -512,6 +642,13 @@
             bbiSizeToControl.Hint = "Make the selected controls the same size";
             bbiSizeToControl.Id = 21;
             bbiSizeToControl.Name = "bbiSizeToControl";
+            // 
+            // msiHorizontalSpacing
+            // 
+            msiHorizontalSpacing.Caption = "&Horizontal Spacing";
+            msiHorizontalSpacing.Id = 56;
+            msiHorizontalSpacing.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceMakeEqual, true), new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceIncrease), new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceDecrease), new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceConcatenate) });
+            msiHorizontalSpacing.Name = "msiHorizontalSpacing";
             // 
             // bbiHorizSpaceMakeEqual
             // 
@@ -549,6 +686,13 @@
             bbiHorizSpaceConcatenate.Id = 25;
             bbiHorizSpaceConcatenate.Name = "bbiHorizSpaceConcatenate";
             // 
+            // msiVerticalSpacing
+            // 
+            msiVerticalSpacing.Caption = "&Vertical Spacing";
+            msiVerticalSpacing.Id = 57;
+            msiVerticalSpacing.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceMakeEqual, true), new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceIncrease), new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceDecrease), new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceConcatenate) });
+            msiVerticalSpacing.Name = "msiVerticalSpacing";
+            // 
             // bbiVertSpaceMakeEqual
             // 
             bbiVertSpaceMakeEqual.Caption = "Make &Equal";
@@ -585,6 +729,13 @@
             bbiVertSpaceConcatenate.Id = 29;
             bbiVertSpaceConcatenate.Name = "bbiVertSpaceConcatenate";
             // 
+            // bsiCenter
+            // 
+            bsiCenter.Caption = "&Center in Form";
+            bsiCenter.Id = 58;
+            bsiCenter.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiCenterHorizontally, true), new DevExpress.XtraBars.LinkPersistInfo(bbiCenterVertically) });
+            bsiCenter.Name = "bsiCenter";
+            // 
             // bbiCenterHorizontally
             // 
             bbiCenterHorizontally.Caption = "&Horizontally";
@@ -602,6 +753,13 @@
             bbiCenterVertically.Hint = "Vertically center the selected controls within a band";
             bbiCenterVertically.Id = 31;
             bbiCenterVertically.Name = "bbiCenterVertically";
+            // 
+            // msiOrder
+            // 
+            msiOrder.Caption = "&Order";
+            msiOrder.Id = 59;
+            msiOrder.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiBringToFront, true), new DevExpress.XtraBars.LinkPersistInfo(bbiSendToBack) });
+            msiOrder.Name = "msiOrder";
             // 
             // bbiBringToFront
             // 
@@ -621,266 +779,6 @@
             bbiSendToBack.Id = 33;
             bbiSendToBack.Name = "bbiSendToBack";
             // 
-            // commandBarItem1
-            // 
-            commandBarItem1.Caption = "&New";
-            commandBarItem1.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.NewReport;
-            commandBarItem1.Hint = "Create a new blank report";
-            commandBarItem1.Id = 34;
-            commandBarItem1.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N);
-            commandBarItem1.Name = "commandBarItem1";
-            // 
-            // bbiOpenFile
-            // 
-            bbiOpenFile.Caption = "&Open...";
-            bbiOpenFile.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.OpenFile;
-            bbiOpenFile.Hint = "Open a report";
-            bbiOpenFile.Id = 35;
-            bbiOpenFile.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O);
-            bbiOpenFile.Name = "bbiOpenFile";
-            // 
-            // bbiSaveFile
-            // 
-            bbiSaveFile.Caption = "&Save";
-            bbiSaveFile.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.SaveFile;
-            bbiSaveFile.Enabled = false;
-            bbiSaveFile.Hint = "Save the report";
-            bbiSaveFile.Id = 36;
-            bbiSaveFile.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S);
-            bbiSaveFile.Name = "bbiSaveFile";
-            // 
-            // bbiCut
-            // 
-            bbiCut.Caption = "Cu&t";
-            bbiCut.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Cut;
-            bbiCut.Enabled = false;
-            bbiCut.Hint = "Delete the control and copy it to the clipboard";
-            bbiCut.Id = 37;
-            bbiCut.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X);
-            bbiCut.Name = "bbiCut";
-            // 
-            // bbiCopy
-            // 
-            bbiCopy.Caption = "&Copy";
-            bbiCopy.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Copy;
-            bbiCopy.Enabled = false;
-            bbiCopy.Hint = "Copy the control to the clipboard";
-            bbiCopy.Id = 38;
-            bbiCopy.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C);
-            bbiCopy.Name = "bbiCopy";
-            // 
-            // bbiPaste
-            // 
-            bbiPaste.Caption = "&Paste";
-            bbiPaste.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Paste;
-            bbiPaste.Enabled = false;
-            bbiPaste.Hint = "Add the control from the clipboard";
-            bbiPaste.Id = 39;
-            bbiPaste.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V);
-            bbiPaste.Name = "bbiPaste";
-            // 
-            // bbiUndo
-            // 
-            bbiUndo.Caption = "&Undo";
-            bbiUndo.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Undo;
-            bbiUndo.Enabled = false;
-            bbiUndo.Hint = "Undo the last operation";
-            bbiUndo.Id = 40;
-            bbiUndo.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z);
-            bbiUndo.Name = "bbiUndo";
-            // 
-            // bbiRedo
-            // 
-            bbiRedo.Caption = "&Redo";
-            bbiRedo.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Redo;
-            bbiRedo.Enabled = false;
-            bbiRedo.Hint = "Redo the last operation";
-            bbiRedo.Id = 41;
-            bbiRedo.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y);
-            bbiRedo.Name = "bbiRedo";
-            // 
-            // bsiHint
-            // 
-            bsiHint.AutoSize = DevExpress.XtraBars.BarStaticItemSize.Spring;
-            bsiHint.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            bsiHint.Id = 42;
-            bsiHint.Name = "bsiHint";
-            // 
-            // msiFile
-            // 
-            msiFile.Caption = "&File";
-            msiFile.Id = 43;
-            msiFile.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(commandBarItem1), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem2), new DevExpress.XtraBars.LinkPersistInfo(bbiOpenFile), new DevExpress.XtraBars.LinkPersistInfo(bbiSaveFile, true), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem3), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem7), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem11), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem4, true) });
-            msiFile.Name = "msiFile";
-            // 
-            // msiEdit
-            // 
-            msiEdit.Caption = "&Edit";
-            msiEdit.Id = 44;
-            msiEdit.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiUndo, true), new DevExpress.XtraBars.LinkPersistInfo(bbiRedo), new DevExpress.XtraBars.LinkPersistInfo(bbiCut, true), new DevExpress.XtraBars.LinkPersistInfo(bbiCopy), new DevExpress.XtraBars.LinkPersistInfo(bbiPaste), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem5), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem6, true) });
-            msiEdit.Name = "msiEdit";
-            // 
-            // msiTabButtons
-            // 
-            msiTabButtons.Caption = "&View";
-            msiTabButtons.Id = 45;
-            msiTabButtons.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(barReportTabButtonsListItem1), new DevExpress.XtraBars.LinkPersistInfo(barSubItem1, true), new DevExpress.XtraBars.LinkPersistInfo(barSubItem2, true) });
-            msiTabButtons.Name = "msiTabButtons";
-            // 
-            // barReportTabButtonsListItem1
-            // 
-            barReportTabButtonsListItem1.Caption = "Tab Buttons";
-            barReportTabButtonsListItem1.Id = 46;
-            barReportTabButtonsListItem1.Name = "barReportTabButtonsListItem1";
-            // 
-            // barSubItem1
-            // 
-            barSubItem1.Caption = "&Toolbars";
-            barSubItem1.Id = 47;
-            barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(xrBarToolbarsListItem1) });
-            barSubItem1.Name = "barSubItem1";
-            // 
-            // xrBarToolbarsListItem1
-            // 
-            xrBarToolbarsListItem1.Caption = "&Toolbars";
-            xrBarToolbarsListItem1.Id = 48;
-            xrBarToolbarsListItem1.Name = "xrBarToolbarsListItem1";
-            // 
-            // barSubItem2
-            // 
-            barSubItem2.Caption = "&Windows";
-            barSubItem2.Id = 49;
-            barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(barDockPanelsListItem1) });
-            barSubItem2.Name = "barSubItem2";
-            // 
-            // barDockPanelsListItem1
-            // 
-            barDockPanelsListItem1.Caption = "&Windows";
-            barDockPanelsListItem1.DockManager = null;
-            barDockPanelsListItem1.Id = 50;
-            barDockPanelsListItem1.Name = "barDockPanelsListItem1";
-            barDockPanelsListItem1.ShowCustomizationItem = false;
-            barDockPanelsListItem1.ShowDockPanels = true;
-            barDockPanelsListItem1.ShowToolbars = false;
-            // 
-            // msiFormat
-            // 
-            msiFormat.Caption = "Fo&rmat";
-            msiFormat.Id = 51;
-            msiFormat.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiForeColor), new DevExpress.XtraBars.LinkPersistInfo(bbiBackColor), new DevExpress.XtraBars.LinkPersistInfo(msiFont, true), new DevExpress.XtraBars.LinkPersistInfo(msiJustify), new DevExpress.XtraBars.LinkPersistInfo(msiAlign, true), new DevExpress.XtraBars.LinkPersistInfo(msiSameSize), new DevExpress.XtraBars.LinkPersistInfo(msiHorizontalSpacing, true), new DevExpress.XtraBars.LinkPersistInfo(msiVerticalSpacing), new DevExpress.XtraBars.LinkPersistInfo(bsiCenter, true), new DevExpress.XtraBars.LinkPersistInfo(msiOrder, true) });
-            msiFormat.Name = "msiFormat";
-            // 
-            // msiFont
-            // 
-            msiFont.Caption = "&Font";
-            msiFont.Id = 52;
-            msiFont.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiFontBold, true), new DevExpress.XtraBars.LinkPersistInfo(bbiFontItalic), new DevExpress.XtraBars.LinkPersistInfo(bbiFontUnderline) });
-            msiFont.Name = "msiFont";
-            // 
-            // msiJustify
-            // 
-            msiJustify.Caption = "&Justify";
-            msiJustify.Id = 53;
-            msiJustify.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyLeft, true), new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyCenter), new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyRight), new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyJustify) });
-            msiJustify.Name = "msiJustify";
-            // 
-            // msiAlign
-            // 
-            msiAlign.Caption = "&Align";
-            msiAlign.Id = 54;
-            msiAlign.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiAlignLeft, true), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignVerticalCenters), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignRight), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignTop, true), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignHorizontalCenters), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignBottom), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignToGrid, true) });
-            msiAlign.Name = "msiAlign";
-            // 
-            // msiSameSize
-            // 
-            msiSameSize.Caption = "&Make Same Size";
-            msiSameSize.Id = 55;
-            msiSameSize.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToControlWidth, true), new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToGrid), new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToControlHeight), new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToControl) });
-            msiSameSize.Name = "msiSameSize";
-            // 
-            // msiHorizontalSpacing
-            // 
-            msiHorizontalSpacing.Caption = "&Horizontal Spacing";
-            msiHorizontalSpacing.Id = 56;
-            msiHorizontalSpacing.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceMakeEqual, true), new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceIncrease), new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceDecrease), new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceConcatenate) });
-            msiHorizontalSpacing.Name = "msiHorizontalSpacing";
-            // 
-            // msiVerticalSpacing
-            // 
-            msiVerticalSpacing.Caption = "&Vertical Spacing";
-            msiVerticalSpacing.Id = 57;
-            msiVerticalSpacing.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceMakeEqual, true), new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceIncrease), new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceDecrease), new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceConcatenate) });
-            msiVerticalSpacing.Name = "msiVerticalSpacing";
-            // 
-            // bsiCenter
-            // 
-            bsiCenter.Caption = "&Center in Form";
-            bsiCenter.Id = 58;
-            bsiCenter.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiCenterHorizontally, true), new DevExpress.XtraBars.LinkPersistInfo(bbiCenterVertically) });
-            bsiCenter.Name = "bsiCenter";
-            // 
-            // msiOrder
-            // 
-            msiOrder.Caption = "&Order";
-            msiOrder.Id = 59;
-            msiOrder.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiBringToFront, true), new DevExpress.XtraBars.LinkPersistInfo(bbiSendToBack) });
-            msiOrder.Name = "msiOrder";
-            // 
-            // commandBarItem2
-            // 
-            commandBarItem2.Caption = "New via &Wizard...";
-            commandBarItem2.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.NewReportWizard;
-            commandBarItem2.Hint = "Create a new report using the Wizard";
-            commandBarItem2.Id = 60;
-            commandBarItem2.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W);
-            commandBarItem2.Name = "commandBarItem2";
-            // 
-            // commandBarItem3
-            // 
-            commandBarItem3.Caption = "Save &As...";
-            commandBarItem3.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.SaveFileAs;
-            commandBarItem3.Enabled = false;
-            commandBarItem3.Hint = "Save the report with a new name";
-            commandBarItem3.Id = 61;
-            commandBarItem3.Name = "commandBarItem3";
-            // 
-            // commandBarItem4
-            // 
-            commandBarItem4.Caption = "E&xit";
-            commandBarItem4.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Exit;
-            commandBarItem4.Hint = "Close the designer";
-            commandBarItem4.Id = 62;
-            commandBarItem4.Name = "commandBarItem4";
-            // 
-            // commandBarItem5
-            // 
-            commandBarItem5.Caption = "&Delete";
-            commandBarItem5.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Delete;
-            commandBarItem5.Enabled = false;
-            commandBarItem5.Hint = "Delete the control";
-            commandBarItem5.Id = 63;
-            commandBarItem5.Name = "commandBarItem5";
-            // 
-            // commandBarItem6
-            // 
-            commandBarItem6.Caption = "Select &All";
-            commandBarItem6.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.SelectAll;
-            commandBarItem6.Enabled = false;
-            commandBarItem6.Hint = "Select all the controls in the document";
-            commandBarItem6.Id = 64;
-            commandBarItem6.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A);
-            commandBarItem6.Name = "commandBarItem6";
-            // 
-            // commandBarItem7
-            // 
-            commandBarItem7.Caption = "Save A&ll";
-            commandBarItem7.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.SaveAll;
-            commandBarItem7.Enabled = false;
-            commandBarItem7.Hint = "Save all reports";
-            commandBarItem7.Id = 65;
-            commandBarItem7.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L);
-            commandBarItem7.Name = "commandBarItem7";
-            // 
             // msiWindow
             // 
             msiWindow.Caption = "&Window";
@@ -894,6 +792,7 @@
             msiWindowInterface.Caption = "&Tabbed Interface";
             msiWindowInterface.Checked = true;
             msiWindowInterface.CheckedCommand = DevExpress.XtraReports.UserDesigner.ReportCommand.ShowTabbedInterface;
+            msiWindowInterface.Enabled = false;
             msiWindowInterface.Hint = "Switch between tabbed and window MDI layout modes";
             msiWindowInterface.Id = 67;
             msiWindowInterface.Name = "msiWindowInterface";
@@ -932,15 +831,84 @@
             msiWindows.Id = 71;
             msiWindows.Name = "msiWindows";
             // 
-            // commandBarItem11
+            // designBar2
             // 
-            commandBarItem11.Caption = "&Close";
-            commandBarItem11.Command = DevExpress.XtraReports.UserDesigner.ReportCommand.Close;
-            commandBarItem11.Enabled = false;
-            commandBarItem11.Hint = "Close the report";
-            commandBarItem11.Id = 72;
-            commandBarItem11.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F4);
-            commandBarItem11.Name = "commandBarItem11";
+            designBar2.BarName = "Toolbar";
+            designBar2.DockCol = 0;
+            designBar2.DockRow = 1;
+            designBar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            designBar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(commandBarItem1), new DevExpress.XtraBars.LinkPersistInfo(bbiOpenFile), new DevExpress.XtraBars.LinkPersistInfo(bbiSaveFile), new DevExpress.XtraBars.LinkPersistInfo(commandBarItem7), new DevExpress.XtraBars.LinkPersistInfo(bbiCut, true), new DevExpress.XtraBars.LinkPersistInfo(bbiCopy), new DevExpress.XtraBars.LinkPersistInfo(bbiPaste), new DevExpress.XtraBars.LinkPersistInfo(bbiUndo, true), new DevExpress.XtraBars.LinkPersistInfo(bbiRedo) });
+            designBar2.Text = "Toolbar";
+            // 
+            // designBar3
+            // 
+            designBar3.BarName = "Formatting Toolbar";
+            designBar3.DockCol = 1;
+            designBar3.DockRow = 1;
+            designBar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            designBar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(beiFontName), new DevExpress.XtraBars.LinkPersistInfo(beiFontSize), new DevExpress.XtraBars.LinkPersistInfo(bbiFontBold), new DevExpress.XtraBars.LinkPersistInfo(bbiFontItalic), new DevExpress.XtraBars.LinkPersistInfo(bbiFontUnderline), new DevExpress.XtraBars.LinkPersistInfo(bbiForeColor, true), new DevExpress.XtraBars.LinkPersistInfo(bbiBackColor), new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyLeft, true), new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyCenter), new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyRight), new DevExpress.XtraBars.LinkPersistInfo(bbiJustifyJustify) });
+            designBar3.Text = "Formatting Toolbar";
+            // 
+            // beiFontName
+            // 
+            beiFontName.Caption = "Font Name";
+            beiFontName.Edit = recentlyUsedItemsComboBox1;
+            beiFontName.EditWidth = 120;
+            beiFontName.Hint = "Font Name";
+            beiFontName.Id = 0;
+            beiFontName.Name = "beiFontName";
+            // 
+            // recentlyUsedItemsComboBox1
+            // 
+            recentlyUsedItemsComboBox1.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            recentlyUsedItemsComboBox1.AppearanceDropDown.Options.UseFont = true;
+            recentlyUsedItemsComboBox1.AutoHeight = false;
+            recentlyUsedItemsComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            recentlyUsedItemsComboBox1.Name = "recentlyUsedItemsComboBox1";
+            // 
+            // beiFontSize
+            // 
+            beiFontSize.Caption = "Font Size";
+            beiFontSize.Edit = designRepositoryItemComboBox1;
+            beiFontSize.EditWidth = 55;
+            beiFontSize.Hint = "Font Size";
+            beiFontSize.Id = 1;
+            beiFontSize.Name = "beiFontSize";
+            // 
+            // designRepositoryItemComboBox1
+            // 
+            designRepositoryItemComboBox1.AutoHeight = false;
+            designRepositoryItemComboBox1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            designRepositoryItemComboBox1.Name = "designRepositoryItemComboBox1";
+            // 
+            // designBar4
+            // 
+            designBar4.BarName = "Layout Toolbar";
+            designBar4.DockCol = 0;
+            designBar4.DockRow = 2;
+            designBar4.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            designBar4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bbiAlignToGrid), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignLeft, true), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignVerticalCenters), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignRight), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignTop, true), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignHorizontalCenters), new DevExpress.XtraBars.LinkPersistInfo(bbiAlignBottom), new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToControlWidth, true), new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToGrid), new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToControlHeight), new DevExpress.XtraBars.LinkPersistInfo(bbiSizeToControl), new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceMakeEqual, true), new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceIncrease), new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceDecrease), new DevExpress.XtraBars.LinkPersistInfo(bbiHorizSpaceConcatenate), new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceMakeEqual, true), new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceIncrease), new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceDecrease), new DevExpress.XtraBars.LinkPersistInfo(bbiVertSpaceConcatenate), new DevExpress.XtraBars.LinkPersistInfo(bbiCenterHorizontally, true), new DevExpress.XtraBars.LinkPersistInfo(bbiCenterVertically), new DevExpress.XtraBars.LinkPersistInfo(bbiBringToFront, true), new DevExpress.XtraBars.LinkPersistInfo(bbiSendToBack) });
+            designBar4.Text = "Layout Toolbar";
+            // 
+            // designBar5
+            // 
+            designBar5.BarName = "Status Bar";
+            designBar5.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
+            designBar5.DockCol = 0;
+            designBar5.DockRow = 0;
+            designBar5.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            designBar5.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] { new DevExpress.XtraBars.LinkPersistInfo(bsiHint) });
+            designBar5.OptionsBar.AllowQuickCustomization = false;
+            designBar5.OptionsBar.DrawDragBorder = false;
+            designBar5.OptionsBar.UseWholeRow = true;
+            designBar5.Text = "Status Bar";
+            // 
+            // bsiHint
+            // 
+            bsiHint.AutoSize = DevExpress.XtraBars.BarStaticItemSize.Spring;
+            bsiHint.Border = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            bsiHint.Id = 42;
+            bsiHint.Name = "bsiHint";
             // 
             // bar1
             // 
@@ -987,14 +955,37 @@
             bbiZoomIn.ItemShortcut = new DevExpress.XtraBars.BarShortcut(System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Add);
             bbiZoomIn.Name = "bbiZoomIn";
             // 
-            // bar2
+            // barDockControlTop
             // 
-            bar2.BarName = "Toolbox";
-            bar2.DockCol = 0;
-            bar2.DockRow = 0;
-            bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Left;
-            bar2.OptionsBar.AllowQuickCustomization = false;
-            bar2.Text = "Standard Controls";
+            barDockControlTop.CausesValidation = false;
+            barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            barDockControlTop.Manager = xrDesignBarManager1;
+            barDockControlTop.Size = new System.Drawing.Size(1075, 71);
+            // 
+            // barDockControlBottom
+            // 
+            barDockControlBottom.CausesValidation = false;
+            barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            barDockControlBottom.Location = new System.Drawing.Point(0, 565);
+            barDockControlBottom.Manager = xrDesignBarManager1;
+            barDockControlBottom.Size = new System.Drawing.Size(1075, 22);
+            // 
+            // barDockControlLeft
+            // 
+            barDockControlLeft.CausesValidation = false;
+            barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            barDockControlLeft.Location = new System.Drawing.Point(0, 71);
+            barDockControlLeft.Manager = xrDesignBarManager1;
+            barDockControlLeft.Size = new System.Drawing.Size(21, 494);
+            // 
+            // barDockControlRight
+            // 
+            barDockControlRight.CausesValidation = false;
+            barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            barDockControlRight.Location = new System.Drawing.Point(1075, 71);
+            barDockControlRight.Manager = xrDesignBarManager1;
+            barDockControlRight.Size = new System.Drawing.Size(0, 494);
             // 
             // xrDesignDockManager1
             // 
@@ -1004,41 +995,31 @@
             xrDesignDockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] { panelContainer1, panelContainer4 });
             xrDesignDockManager1.TopZIndexControls.AddRange(new string[] { "DevExpress.XtraBars.BarDockControl", "DevExpress.XtraBars.StandaloneBarDockControl", "System.Windows.Forms.MenuStrip", "System.Windows.Forms.StatusStrip", "System.Windows.Forms.StatusBar", "DevExpress.XtraBars.Ribbon.RibbonStatusBar", "DevExpress.XtraBars.Ribbon.RibbonControl", "DevExpress.XtraBars.Navigation.OfficeNavigationBar", "DevExpress.XtraBars.Navigation.TileNavPane", "DevExpress.XtraBars.TabFormControl", "DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl", "DevExpress.XtraBars.ToolbarForm.ToolbarFormControl", "DevExpress.XtraReports.UserDesigner.XRToolBoxPanel" });
             // 
-            // fieldListDockPanel1
+            // panelContainer1
             // 
-            fieldListDockPanel1.Controls.Add(fieldListDockPanel1_Container);
-            fieldListDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            fieldListDockPanel1.ID = new System.Guid("faf69838-a93f-4114-83e8-d0d09cc5ce95");
-            fieldListDockPanel1.Location = new System.Drawing.Point(1, 23);
-            fieldListDockPanel1.Name = "fieldListDockPanel1";
-            fieldListDockPanel1.OriginalSize = new System.Drawing.Size(200, 200);
-            fieldListDockPanel1.Size = new System.Drawing.Size(374, 197);
-            fieldListDockPanel1.Text = "Field List";
+            panelContainer1.Controls.Add(panelContainer2);
+            panelContainer1.Controls.Add(panelContainer3);
+            panelContainer1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
+            panelContainer1.ID = new System.Guid("9a3efe09-d597-471b-8c1e-c91ab430f444");
+            panelContainer1.Location = new System.Drawing.Point(700, 71);
+            panelContainer1.Name = "panelContainer1";
+            panelContainer1.OriginalSize = new System.Drawing.Size(375, 200);
+            panelContainer1.Size = new System.Drawing.Size(375, 494);
+            panelContainer1.Text = "panelContainer1";
             // 
-            // fieldListDockPanel1_Container
+            // panelContainer2
             // 
-            fieldListDockPanel1_Container.Location = new System.Drawing.Point(0, 0);
-            fieldListDockPanel1_Container.Name = "fieldListDockPanel1_Container";
-            fieldListDockPanel1_Container.Size = new System.Drawing.Size(374, 197);
-            fieldListDockPanel1_Container.TabIndex = 0;
-            // 
-            // propertyGridDockPanel1
-            // 
-            propertyGridDockPanel1.Controls.Add(propertyGridDockPanel1_Container);
-            propertyGridDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            propertyGridDockPanel1.ID = new System.Guid("b38d12c3-cd06-4dec-b93d-63a0088e495a");
-            propertyGridDockPanel1.Location = new System.Drawing.Point(1, 24);
-            propertyGridDockPanel1.Name = "propertyGridDockPanel1";
-            propertyGridDockPanel1.OriginalSize = new System.Drawing.Size(200, 200);
-            propertyGridDockPanel1.Size = new System.Drawing.Size(374, 196);
-            propertyGridDockPanel1.Text = "Properties";
-            // 
-            // propertyGridDockPanel1_Container
-            // 
-            propertyGridDockPanel1_Container.Location = new System.Drawing.Point(0, 0);
-            propertyGridDockPanel1_Container.Name = "propertyGridDockPanel1_Container";
-            propertyGridDockPanel1_Container.Size = new System.Drawing.Size(374, 196);
-            propertyGridDockPanel1_Container.TabIndex = 0;
+            panelContainer2.ActiveChild = reportExplorerDockPanel1;
+            panelContainer2.Controls.Add(reportExplorerDockPanel1);
+            panelContainer2.Controls.Add(fieldListDockPanel1);
+            panelContainer2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+            panelContainer2.ID = new System.Guid("d456c01b-b604-4c87-8f7c-a65e5444aeaa");
+            panelContainer2.Location = new System.Drawing.Point(0, 0);
+            panelContainer2.Name = "panelContainer2";
+            panelContainer2.OriginalSize = new System.Drawing.Size(200, 200);
+            panelContainer2.Size = new System.Drawing.Size(375, 247);
+            panelContainer2.Tabbed = true;
+            panelContainer2.Text = "panelContainer2";
             // 
             // reportExplorerDockPanel1
             // 
@@ -1058,6 +1039,56 @@
             reportExplorerDockPanel1_Container.Size = new System.Drawing.Size(374, 197);
             reportExplorerDockPanel1_Container.TabIndex = 0;
             // 
+            // fieldListDockPanel1
+            // 
+            fieldListDockPanel1.Controls.Add(fieldListDockPanel1_Container);
+            fieldListDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+            fieldListDockPanel1.ID = new System.Guid("faf69838-a93f-4114-83e8-d0d09cc5ce95");
+            fieldListDockPanel1.Location = new System.Drawing.Point(1, 23);
+            fieldListDockPanel1.Name = "fieldListDockPanel1";
+            fieldListDockPanel1.OriginalSize = new System.Drawing.Size(200, 200);
+            fieldListDockPanel1.Size = new System.Drawing.Size(374, 197);
+            fieldListDockPanel1.Text = "Field List";
+            // 
+            // fieldListDockPanel1_Container
+            // 
+            fieldListDockPanel1_Container.Location = new System.Drawing.Point(0, 0);
+            fieldListDockPanel1_Container.Name = "fieldListDockPanel1_Container";
+            fieldListDockPanel1_Container.Size = new System.Drawing.Size(374, 197);
+            fieldListDockPanel1_Container.TabIndex = 0;
+            // 
+            // panelContainer3
+            // 
+            panelContainer3.ActiveChild = propertyGridDockPanel1;
+            panelContainer3.Controls.Add(propertyGridDockPanel1);
+            panelContainer3.Controls.Add(reportGalleryDockPanel1);
+            panelContainer3.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+            panelContainer3.ID = new System.Guid("23e54f69-8e64-42e8-aa33-96b7e97f5557");
+            panelContainer3.Location = new System.Drawing.Point(0, 247);
+            panelContainer3.Name = "panelContainer3";
+            panelContainer3.OriginalSize = new System.Drawing.Size(200, 200);
+            panelContainer3.Size = new System.Drawing.Size(375, 247);
+            panelContainer3.Tabbed = true;
+            panelContainer3.Text = "panelContainer3";
+            // 
+            // propertyGridDockPanel1
+            // 
+            propertyGridDockPanel1.Controls.Add(propertyGridDockPanel1_Container);
+            propertyGridDockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+            propertyGridDockPanel1.ID = new System.Guid("b38d12c3-cd06-4dec-b93d-63a0088e495a");
+            propertyGridDockPanel1.Location = new System.Drawing.Point(1, 24);
+            propertyGridDockPanel1.Name = "propertyGridDockPanel1";
+            propertyGridDockPanel1.OriginalSize = new System.Drawing.Size(200, 200);
+            propertyGridDockPanel1.Size = new System.Drawing.Size(374, 196);
+            propertyGridDockPanel1.Text = "Properties";
+            // 
+            // propertyGridDockPanel1_Container
+            // 
+            propertyGridDockPanel1_Container.Location = new System.Drawing.Point(0, 0);
+            propertyGridDockPanel1_Container.Name = "propertyGridDockPanel1_Container";
+            propertyGridDockPanel1_Container.Size = new System.Drawing.Size(374, 196);
+            propertyGridDockPanel1_Container.TabIndex = 0;
+            // 
             // reportGalleryDockPanel1
             // 
             reportGalleryDockPanel1.Controls.Add(reportGalleryDockPanel1_Container);
@@ -1075,6 +1106,20 @@
             reportGalleryDockPanel1_Container.Name = "reportGalleryDockPanel1_Container";
             reportGalleryDockPanel1_Container.Size = new System.Drawing.Size(374, 196);
             reportGalleryDockPanel1_Container.TabIndex = 0;
+            // 
+            // panelContainer4
+            // 
+            panelContainer4.ActiveChild = groupAndSortDockPanel1;
+            panelContainer4.Controls.Add(groupAndSortDockPanel1);
+            panelContainer4.Controls.Add(errorListDockPanel1);
+            panelContainer4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
+            panelContainer4.ID = new System.Guid("60242e30-64b6-448c-a27a-4c7913a48400");
+            panelContainer4.Location = new System.Drawing.Point(21, 365);
+            panelContainer4.Name = "panelContainer4";
+            panelContainer4.OriginalSize = new System.Drawing.Size(200, 200);
+            panelContainer4.Size = new System.Drawing.Size(679, 200);
+            panelContainer4.Tabbed = true;
+            panelContainer4.Text = "panelContainer4";
             // 
             // groupAndSortDockPanel1
             // 
@@ -1112,59 +1157,19 @@
             errorListDockPanel1_Container.Size = new System.Drawing.Size(679, 149);
             errorListDockPanel1_Container.TabIndex = 0;
             // 
-            // panelContainer1
+            // reportDesigner1
             // 
-            panelContainer1.Controls.Add(panelContainer2);
-            panelContainer1.Controls.Add(panelContainer3);
-            panelContainer1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Right;
-            panelContainer1.ID = new System.Guid("9a3efe09-d597-471b-8c1e-c91ab430f444");
-            panelContainer1.Location = new System.Drawing.Point(700, 71);
-            panelContainer1.Name = "panelContainer1";
-            panelContainer1.OriginalSize = new System.Drawing.Size(375, 200);
-            panelContainer1.Size = new System.Drawing.Size(375, 494);
-            panelContainer1.Text = "panelContainer1";
-            // 
-            // panelContainer2
-            // 
-            panelContainer2.ActiveChild = reportExplorerDockPanel1;
-            panelContainer2.Controls.Add(reportExplorerDockPanel1);
-            panelContainer2.Controls.Add(fieldListDockPanel1);
-            panelContainer2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            panelContainer2.ID = new System.Guid("d456c01b-b604-4c87-8f7c-a65e5444aeaa");
-            panelContainer2.Location = new System.Drawing.Point(0, 0);
-            panelContainer2.Name = "panelContainer2";
-            panelContainer2.OriginalSize = new System.Drawing.Size(200, 200);
-            panelContainer2.Size = new System.Drawing.Size(375, 247);
-            panelContainer2.Tabbed = true;
-            panelContainer2.Text = "panelContainer2";
-            // 
-            // panelContainer3
-            // 
-            panelContainer3.ActiveChild = propertyGridDockPanel1;
-            panelContainer3.Controls.Add(propertyGridDockPanel1);
-            panelContainer3.Controls.Add(reportGalleryDockPanel1);
-            panelContainer3.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            panelContainer3.ID = new System.Guid("23e54f69-8e64-42e8-aa33-96b7e97f5557");
-            panelContainer3.Location = new System.Drawing.Point(0, 247);
-            panelContainer3.Name = "panelContainer3";
-            panelContainer3.OriginalSize = new System.Drawing.Size(200, 200);
-            panelContainer3.Size = new System.Drawing.Size(375, 247);
-            panelContainer3.Tabbed = true;
-            panelContainer3.Text = "panelContainer3";
-            // 
-            // panelContainer4
-            // 
-            panelContainer4.ActiveChild = groupAndSortDockPanel1;
-            panelContainer4.Controls.Add(groupAndSortDockPanel1);
-            panelContainer4.Controls.Add(errorListDockPanel1);
-            panelContainer4.Dock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
-            panelContainer4.ID = new System.Guid("60242e30-64b6-448c-a27a-4c7913a48400");
-            panelContainer4.Location = new System.Drawing.Point(21, 365);
-            panelContainer4.Name = "panelContainer4";
-            panelContainer4.OriginalSize = new System.Drawing.Size(200, 200);
-            panelContainer4.Size = new System.Drawing.Size(679, 200);
-            panelContainer4.Tabbed = true;
-            panelContainer4.Text = "panelContainer4";
+            reportDesigner1.ContainerControl = null;
+            xrDesignPanelListener1.DesignControl = xrDesignBarManager1;
+            xrDesignPanelListener2.DesignControl = xrDesignDockManager1;
+            xrDesignPanelListener3.DesignControl = fieldListDockPanel1;
+            xrDesignPanelListener4.DesignControl = propertyGridDockPanel1;
+            xrDesignPanelListener5.DesignControl = reportExplorerDockPanel1;
+            xrDesignPanelListener6.DesignControl = reportGalleryDockPanel1;
+            xrDesignPanelListener7.DesignControl = groupAndSortDockPanel1;
+            xrDesignPanelListener8.DesignControl = errorListDockPanel1;
+            reportDesigner1.DesignPanelListeners.AddRange(new DevExpress.XtraReports.UserDesigner.XRDesignPanelListener[] { xrDesignPanelListener1, xrDesignPanelListener2, xrDesignPanelListener3, xrDesignPanelListener4, xrDesignPanelListener5, xrDesignPanelListener6, xrDesignPanelListener7, xrDesignPanelListener8 });
+            reportDesigner1.Form = this;
             // 
             // FrmFaturaRapor
             // 
@@ -1179,22 +1184,23 @@
             Controls.Add(barDockControlTop);
             Name = "FrmFaturaRapor";
             Text = "FrmFaturaRapor";
-            ((System.ComponentModel.ISupportInitialize)reportDesigner1).EndInit();
+            Load += FrmFaturaRapor_Load;
             ((System.ComponentModel.ISupportInitialize)xrDesignBarManager1).EndInit();
             ((System.ComponentModel.ISupportInitialize)recentlyUsedItemsComboBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)designRepositoryItemComboBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)designRepositoryItemComboBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)xrDesignDockManager1).EndInit();
-            fieldListDockPanel1.ResumeLayout(false);
-            propertyGridDockPanel1.ResumeLayout(false);
-            reportExplorerDockPanel1.ResumeLayout(false);
-            reportGalleryDockPanel1.ResumeLayout(false);
-            groupAndSortDockPanel1.ResumeLayout(false);
-            errorListDockPanel1.ResumeLayout(false);
             panelContainer1.ResumeLayout(false);
             panelContainer2.ResumeLayout(false);
+            reportExplorerDockPanel1.ResumeLayout(false);
+            fieldListDockPanel1.ResumeLayout(false);
             panelContainer3.ResumeLayout(false);
+            propertyGridDockPanel1.ResumeLayout(false);
+            reportGalleryDockPanel1.ResumeLayout(false);
             panelContainer4.ResumeLayout(false);
+            groupAndSortDockPanel1.ResumeLayout(false);
+            errorListDockPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)reportDesigner1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

@@ -16,5 +16,10 @@ namespace UIWinForm
         {
             InitializeComponent();
         }
+
+        private void FrmUrunAl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

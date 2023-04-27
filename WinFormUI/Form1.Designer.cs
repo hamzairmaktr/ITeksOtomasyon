@@ -64,6 +64,7 @@
             ribbonControl1.Name = "ribbonControl1";
             ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] { ribbonPage1 });
             ribbonControl1.Size = new System.Drawing.Size(1082, 158);
+            ribbonControl1.Click += ribbonControl1_Click;
             // 
             // barButtonItem1
             // 

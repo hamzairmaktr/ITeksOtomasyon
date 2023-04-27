@@ -12,22 +12,28 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfKasaTurDal : EfEntityRepositoryBase<KasaTur, Context>, IKasaTurDal
     {
+        private readonly Context _context;
+
+        public EfKasaTurDal(Context context) : base(context)
+        {
+            this._context = context;
+        }
+
         public List<KasaTurDetails> GetAllKasaTurDetails()
         {
-            using (var context = new Context())
-            {
-                var result = from kt in context.KasalarTurler
-                             join b in context.Bankalar
-                             on kt.BankaId equals b.Id
-                             select new KasaTurDetails
-                             {
-                                 Id = kt.Id,
-                                 Name = kt.Name,
-                                 BankaId = kt.BankaId,
-                                 BankaName = b.BankaAd
-                             };
-                return result.ToList();
-            }
+
+            var result = from kt in _context.KasalarTurler
+                         join b in _context.Bankalar
+                         on kt.BankaId equals b.Id
+                         select new KasaTurDetails
+                         {
+                             Id = kt.Id,
+                             Name = kt.Name,
+                             BankaId = kt.BankaId,
+                             BankaName = b.BankaAd
+                         };
+            return result.ToList();
+
         }
     }
 }

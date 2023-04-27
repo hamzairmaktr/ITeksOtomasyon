@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -15,25 +16,30 @@ namespace UIWinForm
 {
     public partial class FrmFaturaDetayEkle : Form
     {
-        public static int _id;
-        public FrmFaturaDetayEkle(int id)
+        private readonly IUrunService _urunManager;
+        private readonly IFaturaDetayService _faturaDetayManager;
+        private readonly IFaturaBilgiService _faturaBilgiManager;
+        public FrmFaturaDetayEkle(IUrunService urunManager, IFaturaDetayService faturaDetayManager, IFaturaBilgiService faturaBilgiManager)
         {
             InitializeComponent();
-            _id = id;
+            _faturaBilgiManager = faturaBilgiManager;
+            _urunManager = urunManager;
+            _faturaDetayManager = faturaDetayManager;
         }
+
+
+        public int _id;
 
         void GetUrun()
         {
-            UrunManager urunManager = new UrunManager(new EfUrunDal());
-            lookUpEdit1.Properties.DataSource = urunManager.GetAll().Data;
+            lookUpEdit1.Properties.DataSource = _urunManager.GetAll().Data;
             lookUpEdit1.Properties.DisplayMember = "KumasAd";
             lookUpEdit1.Properties.ValueMember = "Id";
         }
 
         void GetFiyat()
         {
-            UrunManager urunManager = new UrunManager(new EfUrunDal());
-            var result = urunManager.Get(int.Parse(lookUpEdit1.EditValue.ToString())).Data;
+            var result = _urunManager.Get(int.Parse(lookUpEdit1.EditValue.ToString())).Data;
             txtFiyat.Text = result.SatisFiyat.ToString();
         }
 
@@ -55,15 +61,13 @@ namespace UIWinForm
                 Tutar = decimal.Parse(txtTutar.Text),
                 UrunId = int.Parse(lookUpEdit1.EditValue.ToString())
             };
-            FaturaDetayManager faturaDetayManager = new FaturaDetayManager(new EfFaturaDetayDal());
-            var result = faturaDetayManager.Add(faturaDetay);
+            var result = _faturaDetayManager.Add(faturaDetay);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            FaturaBilgiManager faturaBilgiManager = new FaturaBilgiManager(new EfFaturaBilgiDal());
-            var get = faturaBilgiManager.Get(_id).Data;
+            var get = _faturaBilgiManager.Get(_id).Data;
             decimal toplam = get.Tutar + decimal.Parse(txtTutar.Text);
             FaturaBilgi faturaBilgi = new FaturaBilgi
             {
@@ -78,16 +82,15 @@ namespace UIWinForm
                 KacOdenecek = toplam,
                 KacOdendi = get.KacOdendi
             };
-            faturaBilgiManager.Update(faturaBilgi);
+            _faturaBilgiManager.Update(faturaBilgi);
 
-            UrunManager urunManager = new UrunManager(new EfUrunDal());
-            var get1 = urunManager.Get(int.Parse(lookUpEdit1.EditValue.ToString())).Data;
+            var get1 = _urunManager.Get(int.Parse(lookUpEdit1.EditValue.ToString())).Data;
             int topsayi = get1.TopAdet - int.Parse(txtAdet.Text);
             decimal kg = get1.Kg - decimal.Parse(txtKg.Text);
             get1.TopAdet = topsayi;
             get1.Kg = kg;
 
-            urunManager.Update(get1);
+            _urunManager.Update(get1);
 
 
         }

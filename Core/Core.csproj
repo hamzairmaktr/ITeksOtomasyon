@@ -13,7 +13,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DevExpress.Mvvm.v22.2">
+      <HintPath>..\..\..\..\..\..\..\Program Files\DevExpress 22.2\Components\Offline Packages\devexpress.mvvm\22.2.3\lib\net6.0-windows\DevExpress.Mvvm.v22.2.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

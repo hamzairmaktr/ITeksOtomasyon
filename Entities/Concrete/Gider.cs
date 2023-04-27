@@ -12,10 +12,18 @@ namespace Entities.Concrete
     {
         [Key]
         public int Id { get; set; }
+        [Required]
+        [DataType(DataType.DateTime)]
         public DateTime Date { get; set; }
+        [Required]
+        [StringLength(20)]
         public string Tur { get; set; }
+        [Required]
         public int PersonelId { get; set; }
+        [Required]
+        [StringLength(500)]
         public string Not { get; set; }
+        [Required]
         public decimal Tutar { get; set; }
     }
 }

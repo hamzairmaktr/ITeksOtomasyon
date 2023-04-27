@@ -15,7 +15,7 @@ namespace Business.Concrete
 {
     public class BorcManager : IBorcService
     {
-        IBorcDal _borcDal;
+        private readonly IBorcDal _borcDal;
 
         public BorcManager(IBorcDal borcDal)
         {

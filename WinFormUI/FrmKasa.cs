@@ -17,6 +17,15 @@ namespace UIWinForm
 {
     public partial class FrmKasa : Form
     {
+        private readonly KasaManager _kasaManager;
+        private readonly KasaTurManager _kasaTurManager;
+        public FrmKasa(KasaManager kasaManager, KasaTurManager kasaTurManager)
+        {
+            _kasaManager = kasaManager;
+            _kasaTurManager = kasaTurManager;
+        }
+
+
         public FrmKasa()
         {
             InitializeComponent();
@@ -24,14 +33,12 @@ namespace UIWinForm
 
         void Listele()
         {
-            KasaManager kasaManager = new KasaManager(new EfKasaDal());
-            gridControl1.DataSource = kasaManager.GetDetailsDto().Data;
+            gridControl1.DataSource = _kasaManager.GetDetailsDto().Data;
         }
 
         void KasaTurGetir()
         {
-            KasaTurManager kasaManager = new KasaTurManager(new EfKasaTurDal());
-            var result = kasaManager.GetAll();
+            var result = _kasaTurManager.GetAll();
             lookUpEdit1.Properties.DataSource = result.Data;
             lookUpEdit1.Properties.DisplayMember = "Name";
             lookUpEdit1.Properties.ValueMember = "Id";
@@ -51,8 +58,7 @@ namespace UIWinForm
                 KasaTur = int.Parse(lookUpEdit1.EditValue.ToString()),
                 Bakiye = decimal.Parse(txtBakiye.Text)
             };
-            KasaManager kasaManager = new KasaManager(new EfKasaDal());
-            var result = kasaManager.Add(kasa);
+            var result = _kasaManager.Add(kasa);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -72,8 +78,7 @@ namespace UIWinForm
                 KasaTur = int.Parse(lookUpEdit1.EditValue.ToString()),
                 Bakiye = decimal.Parse(txtBakiye.Text)
             };
-            KasaManager kasaManager = new KasaManager(new EfKasaDal());
-            var result = kasaManager.Update(kasa);
+            var result = _kasaManager.Update(kasa);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -91,8 +96,7 @@ namespace UIWinForm
             {
                 Id = int.Parse(txtId.Text)
             };
-            KasaManager kasaManager = new KasaManager(new EfKasaDal());
-            var result = kasaManager.Delete(kasa);
+            var result = _kasaManager.Delete(kasa);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

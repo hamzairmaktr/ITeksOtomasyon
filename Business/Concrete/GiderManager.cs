@@ -13,7 +13,7 @@ namespace Business.Concrete
 {
     public class GiderManager : IGiderService
     {
-        IGiderDal _giderDal;
+        private readonly IGiderDal _giderDal;
 
         public GiderManager(IGiderDal giderDal)
         {

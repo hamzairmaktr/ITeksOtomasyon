@@ -12,29 +12,34 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfFaturaBilgiDal : EfEntityRepositoryBase<FaturaBilgi, Context>, IFaturaBilgiDal
     {
+        private readonly Context _context;
+        public EfFaturaBilgiDal(Context context) : base(context)
+        {
+            this._context = context;
+        }
+
         public List<FaturaBilgiDetailsDto> GetAllDetailsDto()
         {
-            using (var context = new Context())
-            {
-                var result = from fb in context.FaturaBilgiler
-                             join c in context.Cariler
-                             on fb.CariId equals c.Id
-                             join p in context.Personeller
-                             on fb.PersonelId equals p.Id
-                             select new FaturaBilgiDetailsDto
-                             {
-                                 Id = fb.Id,
-                                 CariName = c.Ismi,
-                                 PersonelName = p.AdSoyad,
-                                 SiraNo = fb.SiraNo,
-                                 Tarih = fb.Date,
-                                 TeslimAlan = fb.TeslimAlan,
-                                 KacOdendi = fb.KacOdendi,
-                                 KacOdenecek=fb.KacOdenecek,
-                                 Tutar= fb.Tutar,
-                             };
-                return result.ToList();
-            }
+
+            var result = from fb in _context.FaturaBilgiler
+                         join c in _context.Cariler
+                         on fb.CariId equals c.Id
+                         join p in _context.Personeller
+                         on fb.PersonelId equals p.Id
+                         select new FaturaBilgiDetailsDto
+                         {
+                             Id = fb.Id,
+                             CariName = c.Ismi,
+                             PersonelName = p.AdSoyad,
+                             SiraNo = fb.SiraNo,
+                             Tarih = fb.Date,
+                             TeslimAlan = fb.TeslimAlan,
+                             KacOdendi = fb.KacOdendi,
+                             KacOdenecek = fb.KacOdenecek,
+                             Tutar = fb.Tutar,
+                         };
+            return result.ToList();
+
         }
     }
 }

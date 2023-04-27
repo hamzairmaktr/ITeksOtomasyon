@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -15,10 +16,13 @@ namespace UIWinForm
 {
     public partial class FrmPersoneller : Form
     {
-        public FrmPersoneller()
+        private readonly IPersonelService _personelManager;
+        public FrmPersoneller(IPersonelService personelManager)
         {
             InitializeComponent();
+            _personelManager = personelManager;
         }
+
 
         private void FrmPersoneller_Load(object sender, EventArgs e)
         {
@@ -27,8 +31,7 @@ namespace UIWinForm
 
         private void Listele()
         {
-            PersonelManager personelManager = new PersonelManager(new EfPersonelDal());
-            gridControl1.DataSource = personelManager.GetAll().Data;
+            gridControl1.DataSource = _personelManager.GetAll().Data;
         }
 
         private void Temizle()
@@ -57,8 +60,7 @@ namespace UIWinForm
                 Mail = txtMail.Text,
                 Telefon = txtTel1.Text
             };
-            PersonelManager personelManager = new PersonelManager(new EfPersonelDal());
-            var result = personelManager.Add(personel);
+            var result = _personelManager.Add(personel);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -85,8 +87,7 @@ namespace UIWinForm
                 Mail = txtMail.Text,
                 Telefon = txtTel1.Text
             };
-            PersonelManager personelManager = new PersonelManager(new EfPersonelDal());
-            var result = personelManager.Update(personel);
+            var result = _personelManager.Update(personel);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -105,8 +106,7 @@ namespace UIWinForm
             {
                 Id = int.Parse(txtId.Text)
             };
-            PersonelManager personelManager = new PersonelManager(new EfPersonelDal());
-            var result = personelManager.Delete(personel);
+            var result = _personelManager.Delete(personel);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

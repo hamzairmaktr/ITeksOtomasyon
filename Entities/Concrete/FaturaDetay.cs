@@ -12,14 +12,19 @@ namespace Entities.Concrete
     {
         [Key]
         public int Id { get; set; }
+        [Required]
         public int FaturaId { get; set; }
-
+        [Required]
         public int UrunId { get; set; }
+        [Required]
         public Urun Urun { get; set; }
-
+        [Required]
         public int TopSayisi { get; set; }
+        [Required]
         public decimal Kg { get; set; }
+        [Required]
         public decimal Fiyat { get; set; }
+        [Required]
         public decimal Tutar { get; set; }
     }
 }

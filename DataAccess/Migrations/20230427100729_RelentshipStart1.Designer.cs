@@ -4,6 +4,7 @@ using DataAccess.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230427100729_RelentshipStart1")]
+    partial class RelentshipStart1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,9 +81,6 @@ namespace DataAccess.Migrations
                     b.Property<int>("CariId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CariId1")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Geciktimi")
                         .HasColumnType("bit");
 
@@ -110,10 +109,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CariId")
-                        .IsUnique();
-
-                    b.HasIndex("CariId1");
+                    b.HasIndex("CariId");
 
                     b.ToTable("Borclar");
                 });
@@ -556,15 +552,11 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Entities.Concrete.Borc", b =>
                 {
-                    b.HasOne("Entities.Concrete.Cari", null)
-                        .WithOne()
-                        .HasForeignKey("Entities.Concrete.Borc", "CariId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.HasOne("Entities.Concrete.Cari", "Cari")
                         .WithMany()
-                        .HasForeignKey("CariId1");
+                        .HasForeignKey("CariId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Cari");
                 });

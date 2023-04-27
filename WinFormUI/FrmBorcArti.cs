@@ -16,6 +16,11 @@ namespace UIWinForm
 {
     public partial class FrmBorcArti : Form
     {
+        private readonly BorcManager _borcManager;
+        public FrmBorcArti(BorcManager borcManager)
+        {
+            _borcManager = borcManager;
+        }
         public FrmBorcArti()
         {
             InitializeComponent();
@@ -28,8 +33,7 @@ namespace UIWinForm
 
         private void Listele()
         {
-            BorcManager borcManager = new BorcManager(new EfBorcDal());
-            gridControl1.DataSource = borcManager.GetBorcOzetDTOs().Data;
+            gridControl1.DataSource = _borcManager.GetBorcOzetDTOs().Data;
         }
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -43,8 +47,7 @@ namespace UIWinForm
         {
             decimal tutar = decimal.Parse(txtTutar.Text);
 
-            BorcManager borcManager = new BorcManager(new EfBorcDal());
-            var borc = borcManager.GetById(int.Parse(txtId.Text)).Data;
+            var borc = _borcManager.GetById(int.Parse(txtId.Text)).Data;
             decimal borctutar = borc.Tutar + tutar;
             decimal kacodenecek = borc.KacOdenecek + tutar;
             decimal kacodendi = borctutar - kacodenecek;
@@ -61,7 +64,7 @@ namespace UIWinForm
                 Tutar = borctutar,
                 VerilisTarih = borc.VerilisTarih
             };
-            var result = borcManager.Update(borc1);
+            var result = _borcManager.Update(borc1);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

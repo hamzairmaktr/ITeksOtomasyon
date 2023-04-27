@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -15,15 +16,17 @@ namespace UIWinForm
 {
     public partial class FrmUrunler : Form
     {
-        public FrmUrunler()
+        private readonly IUrunService _urunManager;
+
+        public FrmUrunler(IUrunService urunManager)
         {
             InitializeComponent();
+            _urunManager = urunManager;
         }
 
         private void Listele()
         {
-            UrunManager urunManager = new UrunManager(new EfUrunDal());
-            gridControl1.DataSource = urunManager.GetAll().Data;
+            gridControl1.DataSource = _urunManager.GetAll().Data;
         }
 
         void Temizle()
@@ -57,8 +60,7 @@ namespace UIWinForm
                 SatisFiyat = decimal.Parse(txtSatisFiyat.Text),
                 TopAdet = int.Parse(txtAdet.Text)
             };
-            UrunManager urunManager = new UrunManager(new EfUrunDal());
-            var result = urunManager.Add(urun);
+            var result = _urunManager.Add(urun);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -85,8 +87,7 @@ namespace UIWinForm
                 SatisFiyat = decimal.Parse(txtSatisFiyat.Text),
                 TopAdet = int.Parse(txtAdet.Text)
             };
-            UrunManager urunManager = new UrunManager(new EfUrunDal());
-            var result = urunManager.Update(urun);
+            var result = _urunManager.Update(urun);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -105,8 +106,7 @@ namespace UIWinForm
             {
                 Id = int.Parse(txtId.Text)
             };
-            UrunManager urunManager = new UrunManager(new EfUrunDal());
-            var result = urunManager.Delete(urun);
+            var result = _urunManager.Delete(urun);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

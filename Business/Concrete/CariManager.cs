@@ -13,7 +13,7 @@ namespace Business.Concrete
 {
     public class CariManager : ICariService
     {
-        ICariDal _cariDal;
+        private readonly ICariDal _cariDal;
 
         public CariManager(ICariDal cariDal)
         {

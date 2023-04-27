@@ -13,7 +13,7 @@ namespace Business.Concrete
 {
     public class NotManager:INotService
     {
-        INotDal _notDal;
+        private readonly INotDal _notDal;
 
         public NotManager(INotDal notDal)
         {

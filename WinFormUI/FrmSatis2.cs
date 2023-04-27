@@ -15,22 +15,37 @@ namespace UIWinForm
 {
     public partial class FrmSatis2 : Form
     {
+
+        private readonly KasaManager _kasaManager;
+        private readonly BorcManager _borcManager;
+        private readonly FaturaBilgiManager _faturaBilgiManager;
+        private readonly CariManager _cariManager;
+
+
+        public FrmSatis2(KasaManager kasaManager, BorcManager borcManager, FaturaBilgiManager faturaBilgiManager, CariManager cariManager)
+        {
+            _borcManager = borcManager;
+            _faturaBilgiManager = faturaBilgiManager;
+            _kasaManager = kasaManager;
+            _cariManager = cariManager;
+
+        }
+
+
         public static int _cariId, _fbId;
         public decimal kalanTutar, odenenTutar, borcaOdenen, nakitOdenen;
         private bool borcVarmi = false;
 
         void YeniBorcEkle()
         {
-            FaturaBilgiManager faturaBilgiManager = new FaturaBilgiManager(new EfFaturaBilgiDal());
-            var result3 = faturaBilgiManager.Get(_fbId).Data;
+            var result3 = _faturaBilgiManager.Get(_fbId).Data;
             kalanTutar = kalanTutar - decimal.Parse(txtTutar.Text);
             result3.KacOdenecek = kalanTutar;
             result3.KacOdendi = result3.Tutar - result3.KacOdenecek;
-            var result4 = faturaBilgiManager.Update(result3);
+            var result4 = _faturaBilgiManager.Update(result3);
 
-            BorcManager borcManager = new BorcManager(new EfBorcDal());
             decimal kacOdenecek = decimal.Parse(txtTutar.Text);
-            var result = borcManager.AddBorcFatura(new Borc
+            var result = _borcManager.AddBorcFatura(new Borc
             {
                 CariId = _cariId,
                 Geciktimi = false,
@@ -59,17 +74,15 @@ namespace UIWinForm
         }
         void BorcaEkle()
         {
-            FaturaBilgiManager faturaBilgiManager = new FaturaBilgiManager(new EfFaturaBilgiDal());
-            var result3 = faturaBilgiManager.Get(_fbId).Data;
+            var result3 = _faturaBilgiManager.Get(_fbId).Data;
             kalanTutar = kalanTutar - decimal.Parse(txtTutar.Text);
             result3.KacOdenecek = kalanTutar;
             result3.KacOdendi = result3.Tutar - result3.KacOdenecek;
-            var result4 = faturaBilgiManager.Update(result3);
+            var result4 = _faturaBilgiManager.Update(result3);
 
-            BorcManager borcManager = new BorcManager(new EfBorcDal());
-            var result = borcManager.GetByCariId(_cariId).Data;
+            var result = _borcManager.GetByCariId(_cariId).Data;
             decimal kacOdenecek = decimal.Parse(txtTutar.Text) + result.KacOdenecek;
-            var result2 = borcManager.UpdateMoney(new Borc
+            var result2 = _borcManager.UpdateMoney(new Borc
             {
                 Id = result.Id,
                 CariId = _cariId,
@@ -97,16 +110,14 @@ namespace UIWinForm
         }
         void ListeleKasa()
         {
-            KasaManager kasaManager = new KasaManager(new EfKasaDal());
-            lookUpEdit1.Properties.DataSource = kasaManager.GetDetailsDto().Data;
+            lookUpEdit1.Properties.DataSource = _kasaManager.GetDetailsDto().Data;
             lookUpEdit1.Properties.ValueMember = "Id";
             lookUpEdit1.Properties.DisplayMember = "Name";
         }
 
         void ListeleHesap()
         {
-            FaturaBilgiManager faturaBilgiManager = new FaturaBilgiManager(new EfFaturaBilgiDal());
-            var result = faturaBilgiManager.Get(_fbId).Data;
+            var result = _faturaBilgiManager.Get(_fbId).Data;
             kalanTutar = result.KacOdenecek;
             txtKalan.Text = kalanTutar.ToString();
             txtOdenen.Text = result.KacOdendi.ToString();
@@ -114,8 +125,7 @@ namespace UIWinForm
 
         void ListeleCari()
         {
-            CariManager cariManager = new CariManager(new EfCariDal());
-            var result = cariManager.GetById(_cariId).Data;
+            var result = _cariManager.GetById(_cariId).Data;
             txtCariId.Text = _cariId.ToString();
             txtCari.Text = result.Ismi.ToString();
 
@@ -123,11 +133,10 @@ namespace UIWinForm
 
         void ListeleBorc()
         {
-            BorcManager borcManager = new BorcManager(new EfBorcDal());
-            var result = borcManager.GetByCariId(_cariId).Data;
+            var result = _borcManager.GetByCariId(_cariId).Data;
             if (result != null)
             {
-                var result2 = borcManager.GetById(result.Id).Data;
+                var result2 = _borcManager.GetById(result.Id).Data;
 
                 MessageBox.Show("Seçilen carinin hali hazırda borcu var", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 borcVarmi = true;
@@ -157,22 +166,20 @@ namespace UIWinForm
         //Nakit satış
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            KasaManager kasaManager = new KasaManager(new EfKasaDal());
-            var result = kasaManager.GetById(int.Parse(lookUpEdit1.EditValue.ToString())).Data;
+            var result = _kasaManager.GetById(int.Parse(lookUpEdit1.EditValue.ToString())).Data;
             decimal kasaTutar = decimal.Parse(txtKasaTutar.Text);
             decimal bakiye = result.Bakiye + kasaTutar;
             result.Bakiye = bakiye;
 
 
 
-            FaturaBilgiManager faturaBilgiManager = new FaturaBilgiManager(new EfFaturaBilgiDal());
-            var result3 = faturaBilgiManager.Get(_fbId).Data;
+            var result3 = _faturaBilgiManager.Get(_fbId).Data;
             kalanTutar = kalanTutar - decimal.Parse(txtKasaTutar.Text);
             result3.KacOdenecek = kalanTutar;
             result3.KacOdendi = result3.Tutar - result3.KacOdenecek;
 
-            var result2 = kasaManager.UpdateMoney(result, result3);
-            var result4 = faturaBilgiManager.Update(result3);
+            var result2 = _kasaManager.UpdateMoney(result, result3);
+            var result4 = _faturaBilgiManager.Update(result3);
 
             if (result2.Success && result4.Success)
             {

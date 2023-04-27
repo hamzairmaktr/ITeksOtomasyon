@@ -13,7 +13,7 @@ namespace Business.Concrete
 {
     public class FaturaDetayManager : IFaturaDetayService
     {
-        IFaturaDetayDal _faturaDetayDal;
+        private readonly IFaturaDetayDal _faturaDetayDal;
 
         public FaturaDetayManager(IFaturaDetayDal faturaDetayDal)
         {

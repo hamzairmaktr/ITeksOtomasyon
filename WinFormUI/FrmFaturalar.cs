@@ -1,8 +1,10 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DevExpress.XtraEditors;
 using Entities.Concrete;
 using Entities.DTOs;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,10 +19,21 @@ namespace UIWinForm
 {
     public partial class FrmFaturalar : Form
     {
-        public FrmFaturalar()
+        private readonly ICariService _cariManager;
+        private readonly IFaturaBilgiService _faturaBilgiManager;
+        private readonly IPersonelService _personelManager;
+        private readonly IServiceProvider _serviceProvider;
+
+        public FrmFaturalar(ICariService cariManager, IFaturaBilgiService faturaBilgiManager, IPersonelService personelManager, IServiceProvider serviceProvider)
         {
             InitializeComponent();
+            _cariManager = cariManager;
+            _faturaBilgiManager = faturaBilgiManager;
+            _personelManager = personelManager;
+            _serviceProvider = serviceProvider;
+
         }
+
 
         void Temizle()
         {
@@ -37,22 +50,19 @@ namespace UIWinForm
 
         void GetAllFaturaBilgi()
         {
-            FaturaBilgiManager faturaBilgiManager = new FaturaBilgiManager(new EfFaturaBilgiDal());
-            gridControl1.DataSource = faturaBilgiManager.GetAllDetailsDto().Data;
+            gridControl1.DataSource = _faturaBilgiManager.GetAllDetailsDto().Data;
         }
 
         void GetCariOzet()
         {
-            CariManager cariManager = new CariManager(new EfCariDal());
-            lookCari.Properties.DataSource = cariManager.GetCariOzetDtos().Data;
+            lookCari.Properties.DataSource = _cariManager.GetCariOzetDtos().Data;
             lookCari.Properties.DisplayMember = "Name";
             lookCari.Properties.ValueMember = "Id";
         }
 
         void GetPersonelOzet()
         {
-            PersonelManager personelManager = new PersonelManager(new EfPersonelDal());
-            lookPersonel.Properties.DataSource = personelManager.GetAll().Data;
+            lookPersonel.Properties.DataSource = _personelManager.GetAll().Data;
             lookPersonel.Properties.DisplayMember = "AdSoyad";
             lookPersonel.Properties.ValueMember = "Id";
         }
@@ -78,8 +88,7 @@ namespace UIWinForm
                 KacOdenecek = 0,
                 KacOdendi = 0
             };
-            FaturaBilgiManager faturaBilgiManager = new FaturaBilgiManager(new EfFaturaBilgiDal());
-            var result = faturaBilgiManager.Add(faturaBilgi);
+            var result = _faturaBilgiManager.Add(faturaBilgi);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -101,8 +110,7 @@ namespace UIWinForm
                 TeslimAlan = txtTAlan.Text,
                 Tutar = 0
             };
-            FaturaBilgiManager faturaBilgiManager = new FaturaBilgiManager(new EfFaturaBilgiDal());
-            var result = faturaBilgiManager.Update(faturaBilgi);
+            var result = _faturaBilgiManager.Update(faturaBilgi);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -117,8 +125,7 @@ namespace UIWinForm
             {
                 Id = int.Parse(txtId.Text),
             };
-            FaturaBilgiManager faturaBilgiManager = new FaturaBilgiManager(new EfFaturaBilgiDal());
-            var result = faturaBilgiManager.Delete(faturaBilgi);
+            var result = _faturaBilgiManager.Delete(faturaBilgi);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -146,8 +153,11 @@ namespace UIWinForm
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            FrmFaturaDetay frmFaturaDetay = new FrmFaturaDetay(txtId.Text, int.Parse(lookCari.EditValue.ToString()), int.Parse(txtId.Text));
-            frmFaturaDetay.ShowDialog();
+            var a = _serviceProvider.GetService<FrmFaturaDetay>();
+            a.secilenCari = lookCari.EditValue.ToString();
+            a._cariId = int.Parse(lookCari.EditValue.ToString());
+            a._fbId = int.Parse(txtId.Text);
+            a.ShowDialog();
         }
     }
 }

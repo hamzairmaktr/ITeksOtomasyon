@@ -1,4 +1,5 @@
 ﻿using AnaMenu;
+using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.DTOs;
@@ -16,6 +17,11 @@ namespace UIWinForm
 {
     public partial class FrmCariSec : Form
     {
+        private readonly ICariService _cariManager;
+        public FrmCariSec(ICariService cariManager)
+        {
+            _cariManager = cariManager;
+        }
         public FrmCariSec()
         {
             InitializeComponent();
@@ -23,8 +29,7 @@ namespace UIWinForm
 
         private void FrmCariSec_Load(object sender, EventArgs e)
         {
-            CariManager cariManager = new CariManager(new EfCariDal());
-            gridControl1.DataSource = cariManager.GetCariOzetDtos().Data;
+            gridControl1.DataSource = _cariManager.GetCariOzetDtos().Data;
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)

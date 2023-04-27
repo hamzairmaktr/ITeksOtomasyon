@@ -17,6 +17,15 @@ namespace UIWinForm
 {
     public partial class FrmNotlar : Form
     {
+        private readonly PersonelManager _personelManager;
+        private readonly NotManager _notManager;
+
+        public FrmNotlar(PersonelManager personelManager, NotManager notManager)
+        {
+            _notManager = notManager;
+            _personelManager = personelManager;
+        }
+
         public FrmNotlar()
         {
             InitializeComponent();
@@ -30,14 +39,12 @@ namespace UIWinForm
 
         private void Listele()
         {
-            NotManager notManager = new NotManager(new EfNotDal());
-            gridControl1.DataSource = notManager.GetAll().Data;
+            gridControl1.DataSource = _notManager.GetAll().Data;
         }
 
         private void GetPersonel()
         {
-            PersonelManager personelManager = new PersonelManager(new EfPersonelDal());
-            lookUpEdit1.Properties.DataSource = personelManager.GetAll().Data;
+            lookUpEdit1.Properties.DataSource = _personelManager.GetAll().Data;
             lookUpEdit1.Properties.DisplayMember = "AdSoyad";
             lookUpEdit1.Properties.ValueMember = "Id";
         }
@@ -53,8 +60,7 @@ namespace UIWinForm
                 PersonelID = int.Parse(lookUpEdit1.EditValue.ToString()),
                 Yapildimi = chkYapildimi.Checked,
             };
-            NotManager notManager = new NotManager(new EfNotDal());
-            var result = notManager.Add(not);
+            var result = _notManager.Add(not);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -91,8 +97,7 @@ namespace UIWinForm
                 PersonelID = int.Parse(lookUpEdit1.EditValue.ToString()),
                 Yapildimi = chkYapildimi.Checked,
             };
-            NotManager notManager = new NotManager(new EfNotDal());
-            var result = notManager.Update(not);
+            var result = _notManager.Update(not);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -111,8 +116,7 @@ namespace UIWinForm
             {
                 Id = int.Parse(txtId.Text),
             };
-            NotManager notManager = new NotManager(new EfNotDal());
-            var result = notManager.Delete(not);
+            var result = _notManager.Delete(not);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -12,7 +12,7 @@ namespace Business.Concrete
 {
     public class PersonelManager:IPersonelService
     {
-        IPersonelDal _personelDal;
+        private readonly IPersonelDal _personelDal;
 
         public PersonelManager(IPersonelDal personelDal)
         {

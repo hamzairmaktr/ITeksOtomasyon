@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -15,9 +16,11 @@ namespace UIWinForm
 {
     public partial class FrmCariler : Form
     {
-        public FrmCariler()
+        private readonly ICariService _cariManager;
+        public FrmCariler(ICariService cariManager)
         {
             InitializeComponent();
+            _cariManager = cariManager;
         }
 
 
@@ -27,9 +30,8 @@ namespace UIWinForm
         }
 
         void Listele()
-        {
-            CariManager cariManager = new CariManager(new EfCariDal());
-            gridControl1.DataSource = cariManager.GetAll().Data;
+        { 
+            gridControl1.DataSource = _cariManager.GetAll().Data;
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -49,8 +51,7 @@ namespace UIWinForm
                 YetkiliAdSoyad = txtYetkili.Text,
                 YetkiliStatu = txtStatu.Text
             };
-            CariManager cariManager = new CariManager(new EfCariDal());
-            var result = cariManager.Add(cari);
+            var result = _cariManager.Add(cari);
             if (result.Success == true)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -81,8 +82,7 @@ namespace UIWinForm
                 YetkiliAdSoyad = txtYetkili.Text,
                 YetkiliStatu = txtStatu.Text
             };
-            CariManager cariManager = new CariManager(new EfCariDal());
-            var result = cariManager.Update(cari);
+            var result = _cariManager.Update(cari);
             if (result.Success == true)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -119,8 +119,7 @@ namespace UIWinForm
             {
                 Id = int.Parse(txtId.Text)
             };
-            CariManager cariManager = new CariManager(new EfCariDal());
-            cariManager.Delete(cari);
+            _cariManager.Delete(cari);
             Listele();
             Temizle();
         }

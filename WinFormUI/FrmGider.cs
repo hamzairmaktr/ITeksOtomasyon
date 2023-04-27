@@ -15,6 +15,18 @@ namespace UIWinForm
 {
     public partial class FrmGider : Form
     {
+        private readonly GiderManager _giderManager;
+        private readonly KasaManager _kasaManager;
+        private readonly PersonelManager _personelManager;
+
+        public FrmGider(GiderManager giderManager, KasaManager kasaManager, PersonelManager personelManager)
+        {
+            _giderManager = giderManager;
+            _kasaManager = kasaManager;
+            _personelManager = personelManager;
+
+        }
+
         public FrmGider()
         {
             InitializeComponent();
@@ -22,8 +34,7 @@ namespace UIWinForm
 
         void GetPersonel()
         {
-            PersonelManager personelManager = new PersonelManager(new EfPersonelDal());
-            var result = personelManager.GetAll().Data;
+            var result = _personelManager.GetAll().Data;
             lookUpEdit2.Properties.DataSource = result;
             lookUpEdit2.Properties.DisplayMember = "AdSoyad";
             lookUpEdit2.Properties.ValueMember = "Id";
@@ -31,8 +42,7 @@ namespace UIWinForm
 
         void GetKasa()
         {
-            KasaManager kasaManager = new KasaManager(new EfKasaDal());
-            var result = kasaManager.GetDetailsDto().Data;
+            var result = _kasaManager.GetDetailsDto().Data;
             lookUpEdit1.Properties.DataSource = result;
             lookUpEdit1.Properties.DisplayMember = "Name";
             lookUpEdit1.Properties.ValueMember = "Id";
@@ -51,8 +61,7 @@ namespace UIWinForm
 
         void Listele()
         {
-            GiderManager giderManager = new GiderManager(new EfGiderDal());
-            gridControl1.DataSource = giderManager.GetAll30DayBefore().Data;
+            gridControl1.DataSource = _giderManager.GetAll30DayBefore().Data;
         }
 
         private void FrmGider_Load(object sender, EventArgs e)
@@ -80,11 +89,9 @@ namespace UIWinForm
                 Tur = txtTur.Text,
                 PersonelId = int.Parse(lookUpEdit2.EditValue.ToString())
             };
-            GiderManager giderManager = new GiderManager(new EfGiderDal());
             
 
-            KasaManager kasaManager = new KasaManager(new EfKasaDal());
-            var get = kasaManager.GetById(int.Parse(lookUpEdit1.EditValue.ToString()));
+            var get = _kasaManager.GetById(int.Parse(lookUpEdit1.EditValue.ToString()));
 
             Kasa kasa = new Kasa
             {
@@ -93,8 +100,8 @@ namespace UIWinForm
                 KasaTur = get.Data.KasaTur,
 
             };
-            var result = giderManager.Add(gider,kasa);
-            var result1 = kasaManager.UpdateMoneyGider(kasa, gider);
+            var result = _giderManager.Add(gider,kasa);
+            var result1 = _kasaManager.UpdateMoneyGider(kasa, gider);
             if (result.Success && result1.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -119,8 +126,7 @@ namespace UIWinForm
                 Tur = txtTur.Text,
                 PersonelId = int.Parse(lookUpEdit2.EditValue.ToString())
             };
-            GiderManager giderManager = new GiderManager(new EfGiderDal());
-            var result = giderManager.Update(gider);
+            var result = _giderManager.Update(gider);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -141,20 +147,18 @@ namespace UIWinForm
                 {
                     Id = int.Parse(txtId.Text),
                 };
-                GiderManager giderManager = new GiderManager(new EfGiderDal());
 
-                var getGider = giderManager.GetById(int.Parse(txtId.Text));
+                var getGider = _giderManager.GetById(int.Parse(txtId.Text));
 
-                KasaManager kasaManager = new KasaManager(new EfKasaDal());
-                var get = kasaManager.GetById(int.Parse(lookUpEdit1.EditValue.ToString()));
+                var get = _kasaManager.GetById(int.Parse(lookUpEdit1.EditValue.ToString()));
                 Kasa kasa = new Kasa
                 {
                     Id = int.Parse(lookUpEdit1.EditValue.ToString()),
                     Bakiye = getGider.Data.Tutar + getGider.Data.Tutar,
                     KasaTur = get.Data.KasaTur
                 };
-                var result = giderManager.Delete(gider);
-                var result1 = kasaManager.UpdateMoneyGider(kasa, gider);
+                var result = _giderManager.Delete(gider);
+                var result1 = _kasaManager.UpdateMoneyGider(kasa, gider);
                 if (result.Success && result.Success)
                 {
                     MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -10,10 +10,14 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class Context : DbContext,IContext
+    public class Context : DbContext
     {
-        
 
+        //public Context(DbContextOptions<Context> options)
+        //{
+
+        //}
+       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true;");
@@ -26,6 +30,12 @@ namespace DataAccess.Concrete.EntityFramework
             modelBuilder.Entity<FaturaDetay>()
                 .HasOne(u => u.Urun)
                 .WithMany()
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Borc>()
+                .HasOne<Cari>()
+                .WithOne()
+                .HasForeignKey<Borc>(b=>b.CariId)
                 .OnDelete(DeleteBehavior.NoAction);
 
         }

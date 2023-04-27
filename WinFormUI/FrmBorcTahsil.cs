@@ -17,6 +17,14 @@ namespace UIWinForm
 {
     public partial class FrmBorcTahsil : Form
     {
+        private readonly BorcManager _borcManager;
+        private readonly KasaManager _kasaManager;
+
+        public FrmBorcTahsil(BorcManager borcManager,KasaManager kasaManager)
+        {
+            _borcManager = borcManager;
+            _kasaManager = kasaManager;
+        }
         public FrmBorcTahsil()
         {
             InitializeComponent();
@@ -29,20 +37,17 @@ namespace UIWinForm
 
         private void Listele()
         {
-            BorcManager borcManager = new BorcManager(new EfBorcDal());
-            gridControl1.DataSource = borcManager.GetBorcOzetTahsilDTOs().Data;
-            MessageBox.Show(borcManager.GetBorcOzetTahsilDTOs().Message);
+            gridControl1.DataSource = _borcManager.GetBorcOzetTahsilDTOs().Data;
+            MessageBox.Show(_borcManager.GetBorcOzetTahsilDTOs().Message);
 
-            KasaManager kasaManager = new KasaManager(new EfKasaDal());
-            gridControl3.DataSource = kasaManager.GetDetailsDto().Data;
+            gridControl3.DataSource = _kasaManager.GetDetailsDto().Data;
         }
 
         void UpdateBorc()
         {
             decimal tutar = decimal.Parse(txtTutar.Text);
 
-            BorcManager borcManager = new BorcManager(new EfBorcDal());
-            var borc = borcManager.GetById(int.Parse(txtId.Text)).Data;
+            var borc = _borcManager.GetById(int.Parse(txtId.Text)).Data;
             decimal kacodendi = borc.KacOdendi + tutar;
             decimal kacodenecek = borc.Tutar - kacodendi;
             Borc borc1 = new Borc
@@ -58,7 +63,7 @@ namespace UIWinForm
                 Tutar = borc.Tutar,
                 VerilisTarih = borc.VerilisTarih
             };
-            var result = borcManager.Update(borc1);
+            var result = _borcManager.Update(borc1);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -68,9 +73,8 @@ namespace UIWinForm
         void UpdateKasa()
         {
             decimal tutar = decimal.Parse(txtTutar.Text);
-            KasaManager kasaManager = new KasaManager(new EfKasaDal());
 
-            var kasa = kasaManager.GetById(int.Parse(txtKasaId.Text));
+            var kasa = _kasaManager.GetById(int.Parse(txtKasaId.Text));
             decimal b = kasa.Data.Bakiye;
             decimal bakiye = b + tutar;
 
@@ -80,7 +84,7 @@ namespace UIWinForm
                 Bakiye = bakiye,
                 KasaTur = kasa.Data.KasaTur
             };
-            var result = kasaManager.Update(kasa1);
+            var result = _kasaManager.Update(kasa1);
             if (result.Success)
             {
                 MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

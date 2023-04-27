@@ -12,20 +12,25 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCariDal : EfEntityRepositoryBase<Cari, Context>, ICariDal
     {
+        private readonly Context _context;
+        public EfCariDal(Context context) : base(context)
+        {
+            this._context = context;
+        }
+
         public List<CariOzetDtos> GetCariOzetDtos()
         {
-            using (Context context=new Context())
-            {
-                var result = from c in context.Cariler
-                             select new CariOzetDtos
-                             {
-                                 Id = c.Id,
-                                 CariTur = c.CariTur,
-                                 Name = c.Ismi,
-                                 YetkiliAdSoyad = c.YetkiliAdSoyad
-                             };
-                return result.ToList();
-            }
+
+            var result = from c in _context.Cariler
+                         select new CariOzetDtos
+                         {
+                             Id = c.Id,
+                             CariTur = c.CariTur,
+                             Name = c.Ismi,
+                             YetkiliAdSoyad = c.YetkiliAdSoyad
+                         };
+            return result.ToList();
+
         }
     }
 }

@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            SuspendLayout();
+            // 
+            // FrmUrunAl
+            // 
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(800, 450);
+            Name = "FrmUrunAl";
             Text = "UrunAl";
+            Load += FrmUrunAl_Load;
+            ResumeLayout(false);
         }
 
         #endregion

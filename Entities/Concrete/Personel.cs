@@ -12,13 +12,28 @@ namespace Entities.Concrete
     {
         [Key]
         public int Id { get; set; }
+        [Required]
+        [StringLength(50)]
         public string AdSoyad { get; set; }
+        [Required]
         public decimal Maas { get; set; }
+        [Required]
+        [StringLength(20)]
         public string Telefon { get; set; }
+        [Required]
+        [StringLength(50)]
         public string Mail { get; set; }
+        [Required]
+        [StringLength(20)]
         public string Il { get; set; }
+        [Required]
+        [StringLength(30)]
         public string Ilce { get; set; }
+        [Required]
+        [StringLength(500)]
         public string Adres { get; set; }
+        [Required]
+        [StringLength(25)]
         public string Gorev { get; set; }
     }
 }
