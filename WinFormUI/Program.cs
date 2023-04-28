@@ -72,8 +72,13 @@ namespace AnaMenu
         {
             var services = new ServiceCollection();
 
-           
-            services.AddScoped<Context>();
+
+            //services.AddScoped<Context>();
+            services.AddDbContext<Context>(opt =>
+            {
+                opt.UseSqlServer(@"Server=.\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true;");
+                opt.EnableSensitiveDataLogging();
+            });
             services.AddScoped<IBankaService, BankaManager>();
             services.AddScoped<IBankaDal, EfBankaDal>();
             services.AddScoped<IBorcService, BorcManager>();
