@@ -58,7 +58,7 @@ namespace Business.Concrete
 
         public IResult Delete(Personel personel)
         {
-            _personelDal.Update(personel);
+            _personelDal.Delete(personel);
             return new SuccessResult("Personel başarı ile silindi");
         }
 

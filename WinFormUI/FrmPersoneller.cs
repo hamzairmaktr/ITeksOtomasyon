@@ -107,13 +107,13 @@ namespace UIWinForm
                 Id = int.Parse(txtId.Text),
                 Adres = txtAdres.Text,
                 AdSoyad = txtName.Text,
-                Gorev= cmbGorev.Text,
-                Il= txtIl.Text,
+                Gorev = cmbGorev.Text,
+                Il = txtIl.Text,
                 Ilce = txtIlce.Text,
                 Maas = decimal.Parse(txtMaas.Text),
                 Mail = txtMail.Text,
                 Telefon = txtTel1.Text,
-                
+
             };
             var result = _personelManager.Delete(personel);
             if (result.Success)

@@ -43,7 +43,7 @@ namespace UIWinForm
                 var kalanTutar = _faturaBilgiManager.Get(int.Parse(secilenCari)).Data.KacOdenecek;
                 lblOdenecekTutar.Text = kalanTutar.ToString();
             }
-            
+
         }
 
         private void FrmFaturaDetay_Load(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace UIWinForm
 
         private void simpleButton4_Click(object sender, EventArgs e)
         {
-            
+
 
             FrmSatis2 nakitToptanSatis = new FrmSatis2(_cariId, _fbId);
             nakitToptanSatis.ShowDialog();

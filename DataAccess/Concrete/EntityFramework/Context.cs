@@ -2,6 +2,7 @@
 using Core.Entities;
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,19 +11,16 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class Context : DbContext
+    public class Context : DbContext,IContext
     {
 
-        //public Context(DbContextOptions<Context> options)
-        //{
-
-        //}
-       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true;");
+            optionsBuilder.EnableSensitiveDataLogging();
+            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.TrackAll);
+            base.OnConfiguring(optionsBuilder);
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -37,7 +35,7 @@ namespace DataAccess.Concrete.EntityFramework
                 .WithOne()
                 .HasForeignKey<Borc>(b=>b.CariId)
                 .OnDelete(DeleteBehavior.NoAction);
-
+            modelBuilder.Entity<Personel>().HasKey(p => p.Id);
         }
 
         

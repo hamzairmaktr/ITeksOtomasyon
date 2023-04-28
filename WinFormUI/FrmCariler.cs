@@ -30,7 +30,7 @@ namespace UIWinForm
         }
 
         void Listele()
-        { 
+        {
             gridControl1.DataSource = _cariManager.GetAll().Data;
         }
 

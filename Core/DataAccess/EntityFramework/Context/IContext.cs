@@ -9,7 +9,5 @@ namespace Core.DataAccess.EntityFramework.Context
 {
     public interface IContext
     {
-       
-
     }
 }
