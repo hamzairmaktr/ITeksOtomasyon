@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
+using DevExpress.XtraReports.UI;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -142,6 +143,12 @@ namespace UIWinForm
         {
             Temizle();
             Listele();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            Report.Report report = new Report.Report();
+            report.ShowDesignerDialog();
         }
     }
 }

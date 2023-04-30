@@ -17,8 +17,6 @@ namespace Entities.Concrete
         [Required]
         public int UrunId { get; set; }
         [Required]
-        public Urun Urun { get; set; }
-        [Required]
         public int TopSayisi { get; set; }
         [Required]
         public decimal Kg { get; set; }

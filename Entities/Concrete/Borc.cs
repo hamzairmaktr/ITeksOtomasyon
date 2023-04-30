@@ -33,7 +33,5 @@ namespace Entities.Concrete
         public bool Geciktimi { get; set; }
         [Required]
         public bool Odendimi { get; set; }
-
-        public Cari Cari { get; set; }
     }
 }

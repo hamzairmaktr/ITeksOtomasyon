@@ -36,11 +36,11 @@ namespace UIWinForm
         {
             if (_faturaBilgiManager.Get(_fbId).Data.Tutar > 0)
             {
-                var result = _faturaDetayManager.GetAllDetailsDto(int.Parse(secilenCari)).Data;
+                var result = _faturaDetayManager.GetAllDetailsDto(_fbId).Data;
                 gridControl1.DataSource = result;
-                var tutar = _faturaBilgiManager.Get(int.Parse(secilenCari)).Data.Tutar;
+                var tutar = _faturaBilgiManager.Get(_fbId).Data.Tutar;
                 label2.Text = tutar.ToString();
-                var kalanTutar = _faturaBilgiManager.Get(int.Parse(secilenCari)).Data.KacOdenecek;
+                var kalanTutar = _faturaBilgiManager.Get(_fbId).Data.KacOdenecek;
                 lblOdenecekTutar.Text = kalanTutar.ToString();
             }
 
@@ -54,7 +54,7 @@ namespace UIWinForm
         private void simpleButton2_Click(object sender, EventArgs e)
         {
             var a = _serviceProvider.GetService<FrmFaturaDetayEkle>();
-            a._id = int.Parse(secilenCari);
+            a._id = _fbId;
             a.ShowDialog();
         }
 

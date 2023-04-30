@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class Context : DbContext,IContext
+    public class Context : DbContext, IContext
     {
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -26,19 +26,30 @@ namespace DataAccess.Concrete.EntityFramework
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<FaturaDetay>()
-                .HasOne(u => u.Urun)
+                .HasMany<Urun>(u => u.UrunId)
                 .WithMany()
                 .OnDelete(DeleteBehavior.NoAction);
-
+            mode
             modelBuilder.Entity<Borc>()
                 .HasOne<Cari>()
                 .WithOne()
-                .HasForeignKey<Borc>(b=>b.CariId)
+                .HasForeignKey<Borc>(b => b.CariId)
                 .OnDelete(DeleteBehavior.NoAction);
-            modelBuilder.Entity<Personel>().HasKey(p => p.Id);
+
+            modelBuilder.Entity<FaturaBilgi>()
+                .HasOne<Personel>()
+                .WithMany()
+                .HasForeignKey(f => f.PersonelId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<FaturaBilgi>()
+                .HasOne<Cari>()
+                .WithMany()
+                .HasForeignKey(f => f.CariId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
 
-        
+
 
         public DbSet<Banka> Bankalar { get; set; }
         public DbSet<Borc> Borclar { get; set; }

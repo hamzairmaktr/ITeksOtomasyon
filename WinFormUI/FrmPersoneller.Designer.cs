@@ -56,6 +56,7 @@
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             txtId = new DevExpress.XtraEditors.TextEdit();
+            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
@@ -106,6 +107,7 @@
             // tablePanel1
             // 
             tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 32.48F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 67.52F) });
+            tablePanel1.Controls.Add(simpleButton1);
             tablePanel1.Controls.Add(cmbGorev);
             tablePanel1.Controls.Add(label3);
             tablePanel1.Controls.Add(txtMaas);
@@ -458,6 +460,17 @@
             txtId.Size = new System.Drawing.Size(199, 29);
             txtId.TabIndex = 0;
             // 
+            // simpleButton1
+            // 
+            tablePanel1.SetColumn(simpleButton1, 1);
+            simpleButton1.Location = new System.Drawing.Point(110, 602);
+            simpleButton1.Name = "simpleButton1";
+            tablePanel1.SetRow(simpleButton1, 16);
+            simpleButton1.Size = new System.Drawing.Size(199, 23);
+            simpleButton1.TabIndex = 53;
+            simpleButton1.Text = "simpleButton1";
+            simpleButton1.Click += simpleButton1_Click;
+            // 
             // FrmPersoneller
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -512,5 +525,6 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.TextEdit txtId;
         private DevExpress.XtraEditors.ComboBoxEdit cmbGorev;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }
