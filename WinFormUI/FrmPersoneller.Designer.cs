@@ -33,6 +33,7 @@
             gridControl1 = new DevExpress.XtraGrid.GridControl();
             gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             tablePanel1 = new DevExpress.Utils.Layout.TablePanel();
+            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             cmbGorev = new DevExpress.XtraEditors.ComboBoxEdit();
             label3 = new System.Windows.Forms.Label();
             txtMaas = new DevExpress.XtraEditors.TextEdit();
@@ -56,7 +57,6 @@
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             txtId = new DevExpress.XtraEditors.TextEdit();
-            simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
@@ -139,6 +139,17 @@
             tablePanel1.TabIndex = 1;
             tablePanel1.UseSkinIndents = true;
             // 
+            // simpleButton1
+            // 
+            tablePanel1.SetColumn(simpleButton1, 1);
+            simpleButton1.Location = new System.Drawing.Point(110, 602);
+            simpleButton1.Name = "simpleButton1";
+            tablePanel1.SetRow(simpleButton1, 16);
+            simpleButton1.Size = new System.Drawing.Size(199, 23);
+            simpleButton1.TabIndex = 53;
+            simpleButton1.Text = "simpleButton1";
+            simpleButton1.Click += simpleButton1_Click;
+            // 
             // cmbGorev
             // 
             tablePanel1.SetColumn(cmbGorev, 1);
@@ -173,6 +184,7 @@
             // 
             tablePanel1.SetColumn(txtMaas, 1);
             txtMaas.Dock = System.Windows.Forms.DockStyle.Fill;
+            txtMaas.EditValue = "0";
             txtMaas.Location = new System.Drawing.Point(110, 170);
             txtMaas.Name = "txtMaas";
             txtMaas.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -183,6 +195,7 @@
             tablePanel1.SetRow(txtMaas, 3);
             txtMaas.Size = new System.Drawing.Size(199, 29);
             txtMaas.TabIndex = 50;
+            txtMaas.EditValueChanged += txtMaas_EditValueChanged;
             // 
             // txtTel1
             // 
@@ -459,17 +472,6 @@
             tablePanel1.SetRow(txtId, 1);
             txtId.Size = new System.Drawing.Size(199, 29);
             txtId.TabIndex = 0;
-            // 
-            // simpleButton1
-            // 
-            tablePanel1.SetColumn(simpleButton1, 1);
-            simpleButton1.Location = new System.Drawing.Point(110, 602);
-            simpleButton1.Name = "simpleButton1";
-            tablePanel1.SetRow(simpleButton1, 16);
-            simpleButton1.Size = new System.Drawing.Size(199, 23);
-            simpleButton1.TabIndex = 53;
-            simpleButton1.Text = "simpleButton1";
-            simpleButton1.Click += simpleButton1_Click;
             // 
             // FrmPersoneller
             // 

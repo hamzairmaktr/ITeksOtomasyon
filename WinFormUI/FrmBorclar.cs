@@ -2,6 +2,7 @@
 using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DevExpress.Mvvm.Native;
+using DevExpress.Mvvm.POCO;
 using Entities.Concrete;
 using Entities.DTOs;
 using Microsoft.Data.SqlClient;
@@ -20,10 +21,12 @@ namespace UIWinForm
     public partial class FrmBorclar : Form
     {
         private readonly IBorcService _borcManager;
-        public FrmBorclar(IBorcService borcManager)
+        private readonly IServiceProvider _serviceProvider;
+        public FrmBorclar(IBorcService borcManager, IServiceProvider serviceProvider)
         {
             InitializeComponent();
             _borcManager = borcManager;
+            _serviceProvider = serviceProvider;
         }
 
         public static int secilenCari = 0;
@@ -63,7 +66,7 @@ namespace UIWinForm
 
         private void btnCari_Click(object sender, EventArgs e)
         {
-            FrmCariSec frmCariSec = new FrmCariSec();
+            var frmCariSec = _serviceProvider.GetRequiredService<FrmCariSec>();
             frmCariSec.ShowDialog();
         }
 
@@ -102,13 +105,13 @@ namespace UIWinForm
 
         private void simpleButton4_Click(object sender, EventArgs e)
         {
-            FrmBorcArti frmBorcArti = new FrmBorcArti();
+            var frmBorcArti = _serviceProvider.GetRequiredService<FrmBorcArti>();
             frmBorcArti.ShowDialog();
         }
 
         private void simpleButton5_Click(object sender, EventArgs e)
         {
-            FrmBorcTahsil frm = new FrmBorcTahsil();
+            var frm = _serviceProvider.GetRequiredService<FrmBorcTahsil>();
             frm.ShowDialog();
         }
 
@@ -152,7 +155,7 @@ namespace UIWinForm
 
         private void simpleButton2_Click(object sender, EventArgs e)
         {
-            FrmBorcOde frmBorcOde = new FrmBorcOde();
+            var frmBorcOde = _serviceProvider.GetRequiredService<FrmBorcOde>();
             frmBorcOde.ShowDialog();
         }
     }

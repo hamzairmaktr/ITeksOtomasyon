@@ -1,4 +1,6 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
+using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -16,13 +18,13 @@ namespace UIWinForm
     public partial class FrmSatis2 : Form
     {
 
-        private readonly KasaManager _kasaManager;
-        private readonly BorcManager _borcManager;
-        private readonly FaturaBilgiManager _faturaBilgiManager;
-        private readonly CariManager _cariManager;
+        private readonly IKasaService _kasaManager;
+        private readonly IBorcService _borcManager;
+        private readonly IFaturaBilgiService _faturaBilgiManager;
+        private readonly ICariService _cariManager;
+        public int _cariId, _fbId;
 
-
-        public FrmSatis2(KasaManager kasaManager, BorcManager borcManager, FaturaBilgiManager faturaBilgiManager, CariManager cariManager)
+        public FrmSatis2(IKasaService kasaManager, IBorcService borcManager, IFaturaBilgiService faturaBilgiManager, ICariService cariManager)
         {
             _borcManager = borcManager;
             _faturaBilgiManager = faturaBilgiManager;
@@ -32,7 +34,7 @@ namespace UIWinForm
         }
 
 
-        public static int _cariId, _fbId;
+       
         public decimal kalanTutar, odenenTutar, borcaOdenen, nakitOdenen;
         private bool borcVarmi = false;
 

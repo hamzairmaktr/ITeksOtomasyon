@@ -25,11 +25,11 @@ namespace DataAccess.Concrete.EntityFramework
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<FaturaDetay>()
-                .HasMany<Urun>(u => u.UrunId)
-                .WithMany()
-                .OnDelete(DeleteBehavior.NoAction);
-            mode
+            //modelBuilder.Entity<FaturaDetay>()
+            //    .HasMany<FaturaDetay>(u => u.UrunId)
+            //    .WithMany()
+            //    .OnDelete(DeleteBehavior.NoAction);
+            
             modelBuilder.Entity<Borc>()
                 .HasOne<Cari>()
                 .WithOne()

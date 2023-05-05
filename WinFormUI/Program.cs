@@ -65,6 +65,11 @@ namespace AnaMenu
             services.AddScoped<FrmFaturaDetayEkle>();
             services.AddScoped<FrmUrunler>();
             services.AddScoped<FrmUrunAl>();
+            services.AddScoped<FrmSatis2>();
+            services.AddScoped<FrmCariSec>();
+            services.AddScoped<FrmBorcOde>();
+            services.AddScoped<FrmBorcTahsil>();
+            services.AddScoped<FrmBorcArti>();
 
             ServiceProvider = services.BuildServiceProvider();
             return services.BuildServiceProvider();

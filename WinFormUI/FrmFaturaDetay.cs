@@ -70,7 +70,10 @@ namespace UIWinForm
 
         private void simpleButton4_Click(object sender, EventArgs e)
         {
-
+            var result = _serviceProvider.GetRequiredService<FrmSatis2>();
+            result._cariId = _cariId;
+            result._fbId = _fbId;
+            result.ShowDialog();
 
             FrmSatis2 nakitToptanSatis = new FrmSatis2(_cariId, _fbId);
             nakitToptanSatis.ShowDialog();

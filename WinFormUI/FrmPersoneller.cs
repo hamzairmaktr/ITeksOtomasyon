@@ -150,5 +150,10 @@ namespace UIWinForm
             Report.Report report = new Report.Report();
             report.ShowDesignerDialog();
         }
+
+        private void txtMaas_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

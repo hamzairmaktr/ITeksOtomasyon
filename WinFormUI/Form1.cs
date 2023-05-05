@@ -17,7 +17,7 @@ namespace AnaMenu
     {
         private readonly IServiceProvider _serviceProvider;
 
-         public Form1(IServiceProvider serviceProvider)
+        public Form1(IServiceProvider serviceProvider)
         {
             InitializeComponent();
             _serviceProvider = serviceProvider;
