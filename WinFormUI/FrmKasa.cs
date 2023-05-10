@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DevExpress.Utils.Extensions;
 using DevExpress.Utils.MVVM;
@@ -17,19 +18,17 @@ namespace UIWinForm
 {
     public partial class FrmKasa : Form
     {
-        private readonly KasaManager _kasaManager;
-        private readonly KasaTurManager _kasaTurManager;
-        public FrmKasa(KasaManager kasaManager, KasaTurManager kasaTurManager)
-        {
-            _kasaManager = kasaManager;
-            _kasaTurManager = kasaTurManager;
-        }
-
-
-        public FrmKasa()
+        private readonly IKasaService _kasaManager;
+        private readonly IKasaTurService _kasaTurManager;
+        private readonly FrmKasaTur _frmKasaTur;
+        public FrmKasa(IKasaService kasaManager, IKasaTurService kasaTurManager,FrmKasaTur frmKasaTur)
         {
             InitializeComponent();
+            _kasaManager = kasaManager;
+            _kasaTurManager = kasaTurManager;
+            _frmKasaTur = frmKasaTur;
         }
+
 
         void Listele()
         {
@@ -38,11 +37,14 @@ namespace UIWinForm
 
         void KasaTurGetir()
         {
-            var result = _kasaTurManager.GetAll();
-            lookUpEdit1.Properties.DataSource = result.Data;
-            lookUpEdit1.Properties.DisplayMember = "Name";
-            lookUpEdit1.Properties.ValueMember = "Id";
-            lookUpEdit1.EditValue = 0;
+            var result = _kasaTurManager;
+            if (_kasaTurManager.GetAll().Data != null)
+            {
+                lookUpEdit1.Properties.DataSource = result.GetAll().Data;
+                lookUpEdit1.Properties.DisplayMember = "Name";
+                lookUpEdit1.Properties.ValueMember = "Id";
+                lookUpEdit1.EditValue = 0;
+            }
         }
 
         private void FrmKasa_Load(object sender, EventArgs e)
@@ -106,8 +108,7 @@ namespace UIWinForm
 
         private void btnKasaTur_Click(object sender, EventArgs e)
         {
-            FrmKasaTur frmKasaTur = new FrmKasaTur();
-            frmKasaTur.ShowDialog();
+            _frmKasaTur.ShowDialog();
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)

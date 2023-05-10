@@ -3,6 +3,7 @@ using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.DTOs;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,13 +19,12 @@ namespace UIWinForm
     public partial class FrmCariSec : Form
     {
         private readonly ICariService _cariManager;
-        public FrmCariSec(ICariService cariManager)
-        {
-            _cariManager = cariManager;
-        }
-        public FrmCariSec()
+        private readonly IServiceProvider _serviceProvider;
+        public FrmCariSec(ICariService cariManager, IServiceProvider serviceProvider)
         {
             InitializeComponent();
+            _cariManager = cariManager;
+            _serviceProvider = serviceProvider;
         }
 
         private void FrmCariSec_Load(object sender, EventArgs e)
@@ -69,7 +69,9 @@ namespace UIWinForm
         {
             int result = int.Parse(label1.Text);
             label2.Text = result.ToString();
-            FrmBorclar frmBorclar = new FrmBorclar(result);
+            //FrmBorclar frmBorclar = new FrmBorclar(result);
+            var frmBorclar = _serviceProvider.GetRequiredService<FrmBorclar>();
+            frmBorclar.secilenCari = result;
 
         }
     }

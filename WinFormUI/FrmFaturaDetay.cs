@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
+using DevExpress.XtraReports.UI;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UIWinForm.Report;
 
 namespace UIWinForm
 {
@@ -74,20 +76,27 @@ namespace UIWinForm
             result._cariId = _cariId;
             result._fbId = _fbId;
             result.ShowDialog();
-
-            FrmSatis2 nakitToptanSatis = new FrmSatis2(_cariId, _fbId);
-            nakitToptanSatis.ShowDialog();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            var result = _faturaDetayManager.GetAllDetailsDto(int.Parse(secilenCari)).Data;
-            printDocument1.Print();
+            Fatura fatura = new Fatura(_fbId);
+            fatura.ShowPreviewDialog();
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FrmFaturaDetay_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            gridControl1.DataSource = null;
+            var tutar = 0;
+            label2.Text = "00";
+            var kalanTutar = 0;
+            lblOdenecekTutar.Text = "00";
         }
     }
 }

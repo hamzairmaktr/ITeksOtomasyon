@@ -2,19 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using UIWinForm;
 using Microsoft.Extensions.DependencyInjection;
 using Business.Abstract;
 using Business.Concrete;
-using Core.DataAccess.EntityFramework.Context;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Abstract;
-using Microsoft.EntityFrameworkCore;
-using Entities.Concrete;
-using System.ServiceProcess;
-using System.Configuration;
+using AnaMenu;
 
-namespace AnaMenu
+namespace UIWinForm
 {
     internal static class Program
     {
@@ -29,47 +24,51 @@ namespace AnaMenu
 
         public static IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<Context>();
-            //services.AddScoped<>
-            services.AddScoped<IBankaService, BankaManager>();
-            services.AddScoped<IBankaDal, EfBankaDal>();
-            services.AddScoped<IBorcService, BorcManager>();
-            services.AddScoped<IBorcDal, EfBorcDal>();
-            services.AddScoped<ICariService, CariManager>();
-            services.AddScoped<ICariDal, EfCariDal>();
-            services.AddScoped<IFaturaBilgiService, FaturaBilgiManager>();
-            services.AddScoped<IFaturaBilgiDal, EfFaturaBilgiDal>();
-            services.AddScoped<IFaturaDetayService, FaturaDetayManager>();
-            services.AddScoped<IFaturaDetayDal, EfFaturaDetayDal>();
-            services.AddScoped<IGiderService, GiderManager>();
-            services.AddScoped<IGiderDal, EfGiderDal>();
-            services.AddScoped<IKasaService, KasaManager>();
-            services.AddScoped<IKasaDal, EfKasaDal>();
-            services.AddScoped<IKasaTurService, KasaTurManager>();
-            services.AddScoped<IKasaTurDal, EfKasaTurDal>();
-            services.AddScoped<INotService, NotManager>();
-            services.AddScoped<INotDal, EfNotDal>();
-            services.AddScoped<IPersonelService, PersonelManager>();
-            services.AddScoped<IPersonelDal, EfPersonelDal>();
-            services.AddScoped<IUrunService, UrunManager>();
-            services.AddScoped<IUrunDal, EfUrunDal>();
+            services.AddSingleton<Context>();
+            
+            services.AddSingleton<IBankaService, BankaManager>();
+            services.AddSingleton<IBankaDal, EfBankaDal>();
+            services.AddSingleton<IBorcService, BorcManager>();
+            services.AddSingleton<IBorcDal, EfBorcDal>();
+            services.AddSingleton<ICariService, CariManager>();
+            services.AddSingleton<ICariDal, EfCariDal>();
+            services.AddSingleton<IFaturaBilgiService, FaturaBilgiManager>();
+            services.AddSingleton<IFaturaBilgiDal, EfFaturaBilgiDal>();
+            services.AddSingleton<IFaturaDetayService, FaturaDetayManager>();
+            services.AddSingleton<IFaturaDetayDal, EfFaturaDetayDal>();
+            services.AddSingleton<IGiderService, GiderManager>();
+            services.AddSingleton<IGiderDal, EfGiderDal>();
+            services.AddSingleton<IKasaService, KasaManager>();
+            services.AddSingleton<IKasaDal, EfKasaDal>();
+            services.AddSingleton<IKasaTurService, KasaTurManager>();
+            services.AddSingleton<IKasaTurDal, EfKasaTurDal>();
+            services.AddSingleton<INotService, NotManager>();
+            services.AddSingleton<INotDal, EfNotDal>();
+            services.AddSingleton<IPersonelService, PersonelManager>();
+            services.AddSingleton<IPersonelDal, EfPersonelDal>();
+            services.AddSingleton<IUrunService, UrunManager>();
+            services.AddSingleton<IUrunDal, EfUrunDal>();
 
 
-            services.AddScoped<Form1>();
-            services.AddScoped<FrmBankalar>();
-            services.AddScoped<FrmBorclar>();
-            services.AddScoped<FrmPersoneller>();
-            services.AddScoped<FrmCariler>();
-            services.AddScoped<FrmFaturalar>();
-            services.AddScoped<FrmFaturaDetay>();
-            services.AddScoped<FrmFaturaDetayEkle>();
-            services.AddScoped<FrmUrunler>();
-            services.AddScoped<FrmUrunAl>();
-            services.AddScoped<FrmSatis2>();
-            services.AddScoped<FrmCariSec>();
-            services.AddScoped<FrmBorcOde>();
-            services.AddScoped<FrmBorcTahsil>();
-            services.AddScoped<FrmBorcArti>();
+            services.AddSingleton<Form1>();
+            services.AddSingleton<FrmBankalar>();
+            services.AddSingleton<FrmBorclar>();
+            services.AddSingleton<FrmPersoneller>();
+            services.AddSingleton<FrmCariler>();
+            services.AddSingleton<FrmFaturalar>();
+            services.AddSingleton<FrmFaturaDetay>();
+            services.AddSingleton<FrmFaturaDetayEkle>();
+            services.AddSingleton<FrmUrunler>();
+            services.AddSingleton<FrmUrunAl>();
+            services.AddSingleton<FrmSatis2>();
+            services.AddSingleton<FrmCariSec>();
+            services.AddSingleton<FrmBorcOde>();
+            services.AddSingleton<FrmBorcTahsil>();
+            services.AddSingleton<FrmBorcArti>();
+            services.AddSingleton<FrmKasa>();
+            services.AddSingleton<FrmKasaTur>();
+            services.AddSingleton<FrmGider>();
+            services.AddSingleton<FrmNotlar>();
 
             ServiceProvider = services.BuildServiceProvider();
             return services.BuildServiceProvider();
@@ -84,41 +83,41 @@ namespace AnaMenu
                     //options.UseSqlServer(@"Server=.\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true;"));
                     services.AddDbContext<Context>(options =>
                         options.UseSqlServer(@"Server=.\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true;"));
-                    services.AddScoped<Context>();
-                    services.AddScoped<IBankaService, BankaManager>();
-                    services.AddScoped<IBankaDal, EfBankaDal>();
-                    services.AddScoped<IBorcService, BorcManager>();
-                    services.AddScoped<IBorcDal, EfBorcDal>();
-                    services.AddScoped<ICariService, CariManager>();
-                    services.AddScoped<ICariDal, EfCariDal>();
-                    services.AddScoped<IFaturaBilgiService, FaturaBilgiManager>();
-                    services.AddScoped<IFaturaBilgiDal, EfFaturaBilgiDal>();
-                    services.AddScoped<IFaturaDetayService, FaturaDetayManager>();
-                    services.AddScoped<IFaturaDetayDal, EfFaturaDetayDal>();
-                    services.AddScoped<IGiderService, GiderManager>();
-                    services.AddScoped<IGiderDal, EfGiderDal>();
-                    services.AddScoped<IKasaService, KasaManager>();
-                    services.AddScoped<IKasaDal, EfKasaDal>();
-                    services.AddScoped<IKasaTurService, KasaTurManager>();
-                    services.AddScoped<IKasaTurDal, EfKasaTurDal>();
-                    services.AddScoped<INotService, NotManager>();
-                    services.AddScoped<INotDal, EfNotDal>();
-                    services.AddScoped<IPersonelService, PersonelManager>();
-                    services.AddScoped<IPersonelDal, EfPersonelDal>();
-                    services.AddScoped<IUrunService, UrunManager>();
-                    services.AddScoped<IUrunDal, EfUrunDal>();
+                    services.AddSingleton<Context>();
+                    services.AddSingleton<IBankaService, BankaManager>();
+                    services.AddSingleton<IBankaDal, EfBankaDal>();
+                    services.AddSingleton<IBorcService, BorcManager>();
+                    services.AddSingleton<IBorcDal, EfBorcDal>();
+                    services.AddSingleton<ICariService, CariManager>();
+                    services.AddSingleton<ICariDal, EfCariDal>();
+                    services.AddSingleton<IFaturaBilgiService, FaturaBilgiManager>();
+                    services.AddSingleton<IFaturaBilgiDal, EfFaturaBilgiDal>();
+                    services.AddSingleton<IFaturaDetayService, FaturaDetayManager>();
+                    services.AddSingleton<IFaturaDetayDal, EfFaturaDetayDal>();
+                    services.AddSingleton<IGiderService, GiderManager>();
+                    services.AddSingleton<IGiderDal, EfGiderDal>();
+                    services.AddSingleton<IKasaService, KasaManager>();
+                    services.AddSingleton<IKasaDal, EfKasaDal>();
+                    services.AddSingleton<IKasaTurService, KasaTurManager>();
+                    services.AddSingleton<IKasaTurDal, EfKasaTurDal>();
+                    services.AddSingleton<INotService, NotManager>();
+                    services.AddSingleton<INotDal, EfNotDal>();
+                    services.AddSingleton<IPersonelService, PersonelManager>();
+                    services.AddSingleton<IPersonelDal, EfPersonelDal>();
+                    services.AddSingleton<IUrunService, UrunManager>();
+                    services.AddSingleton<IUrunDal, EfUrunDal>();
 
 
-                    services.AddScoped<Form1>();
-                    services.AddScoped<FrmBankalar>();
-                    services.AddScoped<FrmBorclar>();
-                    services.AddScoped<FrmPersoneller>();
-                    services.AddScoped<FrmCariler>();
-                    services.AddScoped<FrmFaturalar>();
-                    services.AddScoped<FrmFaturaDetay>();
-                    services.AddScoped<FrmFaturaDetayEkle>();
-                    services.AddScoped<FrmUrunler>();
-                    services.AddScoped<FrmUrunAl>();
+                    services.AddSingleton<Form1>();
+                    services.AddSingleton<FrmBankalar>();
+                    services.AddSingleton<FrmBorclar>();
+                    services.AddSingleton<FrmPersoneller>();
+                    services.AddSingleton<FrmCariler>();
+                    services.AddSingleton<FrmFaturalar>();
+                    services.AddSingleton<FrmFaturaDetay>();
+                    services.AddSingleton<FrmFaturaDetayEkle>();
+                    services.AddSingleton<FrmUrunler>();
+                    services.AddSingleton<FrmUrunAl>();
                 })
                 .Build();
         }*/

@@ -40,6 +40,10 @@ namespace DataAccess.Concrete.EntityFramework
                              UrunRenk = u.Renk,
                              UrunTur = u.KumasTur,
                              Fiyat = ft.Fiyat,
+                             Kdv = ft.Kdv,
+                             KdvFiyat = ft.KdvFiyat,
+                             KdvOran = ft.KdvOran,
+                             KdvTutar = ft.KdvTutar
                          };
             return result.ToList();
 

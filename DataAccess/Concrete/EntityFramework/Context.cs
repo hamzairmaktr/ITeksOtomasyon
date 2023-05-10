@@ -8,15 +8,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
+using Microsoft.IdentityModel.Protocols;
 
 namespace DataAccess.Concrete.EntityFramework
 {
     public class Context : DbContext, IContext
     {
-
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true;");
+            
+            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true;Connect Timeout=30;");
             optionsBuilder.EnableSensitiveDataLogging();
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.TrackAll);
             base.OnConfiguring(optionsBuilder);

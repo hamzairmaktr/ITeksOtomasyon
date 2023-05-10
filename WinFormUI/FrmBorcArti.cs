@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -16,14 +17,11 @@ namespace UIWinForm
 {
     public partial class FrmBorcArti : Form
     {
-        private readonly BorcManager _borcManager;
-        public FrmBorcArti(BorcManager borcManager)
-        {
-            _borcManager = borcManager;
-        }
-        public FrmBorcArti()
+        private readonly IBorcService _borcManager;
+        public FrmBorcArti(IBorcService borcManager)
         {
             InitializeComponent();
+            _borcManager = borcManager;
         }
 
         private void FrmBorcArti_Load(object sender, EventArgs e)

@@ -26,6 +26,7 @@ namespace UIWinForm
 
         public FrmSatis2(IKasaService kasaManager, IBorcService borcManager, IFaturaBilgiService faturaBilgiManager, ICariService cariManager)
         {
+            InitializeComponent();
             _borcManager = borcManager;
             _faturaBilgiManager = faturaBilgiManager;
             _kasaManager = kasaManager;
@@ -37,6 +38,17 @@ namespace UIWinForm
        
         public decimal kalanTutar, odenenTutar, borcaOdenen, nakitOdenen;
         private bool borcVarmi = false;
+
+
+        void OdendimiKontrol()
+        {
+            var result = _faturaBilgiManager.Get(_fbId).Data;
+            if (result.KacOdenecek == 0)
+            {
+                result.Odendimi = true;
+                _faturaBilgiManager.Update(result);
+            }
+        }
 
         void YeniBorcEkle()
         {
@@ -112,17 +124,26 @@ namespace UIWinForm
         }
         void ListeleKasa()
         {
-            lookUpEdit1.Properties.DataSource = _kasaManager.GetDetailsDto().Data;
-            lookUpEdit1.Properties.ValueMember = "Id";
-            lookUpEdit1.Properties.DisplayMember = "Name";
+            var result = _kasaManager;
+            if (result != null)
+            {
+                lookUpEdit1.Properties.DataSource = result.GetDetailsDto().Data;
+                lookUpEdit1.Properties.ValueMember = "Id";
+                lookUpEdit1.Properties.DisplayMember = "Name";
+            }
+            
         }
 
         void ListeleHesap()
         {
-            var result = _faturaBilgiManager.Get(_fbId).Data;
-            kalanTutar = result.KacOdenecek;
-            txtKalan.Text = kalanTutar.ToString();
-            txtOdenen.Text = result.KacOdendi.ToString();
+            var result = _faturaBilgiManager;
+            if (result != null)
+            {
+                kalanTutar = result.Get(_fbId).Data.KacOdenecek;
+                txtKalan.Text = kalanTutar.ToString();
+                txtOdenen.Text = result.Get(_fbId).Data.KacOdendi.ToString();
+            }
+            
         }
 
         void ListeleCari()
@@ -212,6 +233,7 @@ namespace UIWinForm
             {
                 YeniBorcEkle();
             }
+            OdendimiKontrol();
             ListeleHesap();
             ListeleBorc();
         }

@@ -21,8 +21,16 @@ namespace Entities.Concrete
         [Required]
         public decimal Kg { get; set; }
         [Required]
+        public byte KdvOran { get; set; }
+        [Required]
+        public decimal Kdv { get; set; }
+        [Required]
         public decimal Fiyat { get; set; }
         [Required]
+        public decimal KdvFiyat { get; set; }
+        [Required]
         public decimal Tutar { get; set; }
+        [Required]
+        public decimal KdvTutar { get; set; }
     }
 }

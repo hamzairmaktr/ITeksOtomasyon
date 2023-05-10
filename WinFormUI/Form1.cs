@@ -39,15 +39,12 @@ namespace AnaMenu
             frmBankalar.Show();
         }
 
-        FrmGider frmGider;
+       
         private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (frmGider == null)
-            {
-                frmGider = new FrmGider();
-                frmGider.MdiParent = this;
-                frmGider.Show();
-            }
+            var frmGider = _serviceProvider.GetService<FrmGider>();
+            frmGider.MdiParent = this;
+            frmGider.Show();
         }
 
         private void barButtonItem16_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -73,15 +70,12 @@ namespace AnaMenu
 
         }
 
-        FrmKasa frmKasa;
         private void barButtonItem17_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (frmKasa == null)
-            {
-                frmKasa = new FrmKasa();
-                frmKasa.MdiParent = this;
-                frmKasa.Show();
-            }
+
+            var frmCariler = _serviceProvider.GetService<FrmKasa>();
+            frmCariler.MdiParent = this;
+            frmCariler.Show();
         }
 
         private void barButtonItem15_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -92,15 +86,12 @@ namespace AnaMenu
 
         }
 
-        FrmNotlar frmNotlar;
+        
         private void barButtonItem12_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (frmNotlar == null)
-            {
-                frmNotlar = new FrmNotlar();
-                frmNotlar.MdiParent = this;
-                frmNotlar.Show();
-            }
+            var frmNotlar = _serviceProvider.GetService<FrmNotlar>();
+            frmNotlar.MdiParent = this;
+            frmNotlar.Show();
         }
 
         private void barButtonItem4_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

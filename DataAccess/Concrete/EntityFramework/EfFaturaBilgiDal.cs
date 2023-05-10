@@ -31,12 +31,15 @@ namespace DataAccess.Concrete.EntityFramework
                              Id = fb.Id,
                              CariName = c.Ismi,
                              PersonelName = p.AdSoyad,
-                             SiraNo = fb.SiraNo,
                              Tarih = fb.Date,
                              TeslimAlan = fb.TeslimAlan,
                              KacOdendi = fb.KacOdendi,
                              KacOdenecek = fb.KacOdenecek,
                              Tutar = fb.Tutar,
+                             FaturaTuru = fb.FaturaTuru,
+                             SeriNo= fb.SeriNo,
+                             FaturaKesildimi = fb.FaturaKesildimi,
+                             Odendimi = fb.Odendimi
                          };
             return result.ToList();
 

@@ -49,11 +49,12 @@ namespace Business.Concrete
 
         public IDataResult<List<Urun>> GetAll()
         {
-            return new SucessDataResult<List<Urun>>(_urunDal.GetAll());
+            return new SucessDataResult<List<Urun>>(_urunDal.GetAll(u=>u.Finish == false));
         }
 
         public IResult Update(Urun urun)
         {
+
             if (String.IsNullOrEmpty(urun.KumasTur))
             {
                 return new ErrorResult("Ürün türü boş bırakmayınız");
@@ -64,6 +65,11 @@ namespace Business.Concrete
             }
             else
             {
+                if (urun.TopAdet == 0 || urun.Kg == 0)
+                {
+                    urun.Finish = true;
+                    _urunDal.Update(urun);
+                }
                 _urunDal.Update(urun);
                 return new SuccessResult("Ürün başarı ile güncellendi");
             }

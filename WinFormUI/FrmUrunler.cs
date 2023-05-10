@@ -40,6 +40,7 @@ namespace UIWinForm
             txtDetay.Clear();
             txtAlisFiyat.Clear();
             txtSatisFiyat.Clear();
+            txtLotNo.Clear();
         }
 
         private void FrmUrunler_Load(object sender, EventArgs e)
@@ -58,7 +59,9 @@ namespace UIWinForm
                 Kg = decimal.Parse(txtKg.Text),
                 Renk = txtRenk.Text,
                 SatisFiyat = decimal.Parse(txtSatisFiyat.Text),
-                TopAdet = int.Parse(txtAdet.Text)
+                TopAdet = int.Parse(txtAdet.Text),
+                LotNo = txtLotNo.Text,
+                Finish = false
             };
             var result = _urunManager.Add(urun);
             if (result.Success)
@@ -85,7 +88,8 @@ namespace UIWinForm
                 Kg = decimal.Parse(txtKg.Text),
                 Renk = txtRenk.Text,
                 SatisFiyat = decimal.Parse(txtSatisFiyat.Text),
-                TopAdet = int.Parse(txtAdet.Text)
+                TopAdet = int.Parse(txtAdet.Text),
+                LotNo = txtLotNo.Text,
             };
             var result = _urunManager.Update(urun);
             if (result.Success)
@@ -127,6 +131,7 @@ namespace UIWinForm
             txtDetay.Text = selectedRow.Detay.ToString();
             txtAlisFiyat.Text = selectedRow.AlisFiyat.ToString();
             txtSatisFiyat.Text = selectedRow.SatisFiyat.ToString();
+            txtLotNo.Text = selectedRow.LotNo.ToString();
         }
 
         private void btnTemizle_Click(object sender, EventArgs e)
@@ -135,10 +140,11 @@ namespace UIWinForm
             Listele();
         }
 
-        private void btnUrunAl_Click(object sender, EventArgs e)
+
+
+        private void btnUrunSat_Click(object sender, EventArgs e)
         {
-            FrmUrunAl frmUrunAl = new FrmUrunAl();
-            frmUrunAl.ShowDialog();
+
         }
     }
 }

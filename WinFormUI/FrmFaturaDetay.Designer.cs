@@ -124,7 +124,7 @@
             simpleButton4.Name = "simpleButton4";
             simpleButton4.Size = new System.Drawing.Size(135, 37);
             simpleButton4.TabIndex = 6;
-            simpleButton4.Text = "Nakit Satış";
+            simpleButton4.Text = "Ödeme";
             simpleButton4.Click += simpleButton4_Click;
             // 
             // lblOdenecekTutar
@@ -168,6 +168,7 @@
             Name = "FrmFaturaDetay";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "FrmFaturaDetay";
+            FormClosing += FrmFaturaDetay_FormClosing;
             Load += FrmFaturaDetay_Load;
             ((System.ComponentModel.ISupportInitialize)gridControl1).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridView1).EndInit();

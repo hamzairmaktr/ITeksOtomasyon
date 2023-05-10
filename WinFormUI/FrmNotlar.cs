@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DevExpress.XtraEditors;
 using Entities.Concrete;
@@ -17,18 +18,14 @@ namespace UIWinForm
 {
     public partial class FrmNotlar : Form
     {
-        private readonly PersonelManager _personelManager;
-        private readonly NotManager _notManager;
+        private readonly IPersonelService _personelManager;
+        private readonly INotService _notManager;
 
-        public FrmNotlar(PersonelManager personelManager, NotManager notManager)
-        {
-            _notManager = notManager;
-            _personelManager = personelManager;
-        }
-
-        public FrmNotlar()
+        public FrmNotlar(IPersonelService personelManager, INotService notManager)
         {
             InitializeComponent();
+            _notManager = notManager;
+            _personelManager = personelManager;
         }
 
         private void FrmNotlar_Load(object sender, EventArgs e)
@@ -59,6 +56,7 @@ namespace UIWinForm
                 Time = DateTime.Now,
                 PersonelID = int.Parse(lookUpEdit1.EditValue.ToString()),
                 Yapildimi = chkYapildimi.Checked,
+                Onem = comboBoxEdit1.Text
             };
             var result = _notManager.Add(not);
             if (result.Success)
@@ -83,6 +81,7 @@ namespace UIWinForm
             lookUpEdit1.Text = selectedRow.PersonelName.ToString();
             chkYapildimi.Checked = selectedRow.Yapildimi;
             txtDetay.Text = selectedRow.Detay.ToString();
+            comboBoxEdit1.Text = selectedRow.Onem.ToString();
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
@@ -96,6 +95,7 @@ namespace UIWinForm
                 Time = DateTime.Now,
                 PersonelID = int.Parse(lookUpEdit1.EditValue.ToString()),
                 Yapildimi = chkYapildimi.Checked,
+                Onem = comboBoxEdit1.Text
             };
             var result = _notManager.Update(not);
             if (result.Success)

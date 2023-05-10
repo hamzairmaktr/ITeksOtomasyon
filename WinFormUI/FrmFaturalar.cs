@@ -40,17 +40,30 @@ namespace UIWinForm
             txtId.Clear();
             txtSaat.Clear();
             txtTarih.Clear();
-            txtTVeren.Clear();
             txtTAlan.Clear();
             lookCari.Clear();
             lookPersonel.Clear();
-            txtSiraNo.Clear();
+            txtSeriNo.Clear();
+
+            txtAlisId.Clear();
+            txtAlisSaat.Clear();
+            txtAlisTarih.Clear();
+            txtAlisTVeren.Clear();
+            lookAlisCari.Clear();
+            lookAlisPersonel.Clear();
+            txtAlisSeriNo.Clear();
             GetAllFaturaBilgi();
         }
 
         void GetAllFaturaBilgi()
         {
-            gridControl1.DataSource = _faturaBilgiManager.GetAllDetailsDto().Data;
+            gridControl1.DataSource = _faturaBilgiManager.GetAllDetailsDto().Data
+                .Where(f => f.FaturaTuru == "Satış")
+                .OrderByDescending(f => f.Id);
+
+            gridControl2.DataSource = _faturaBilgiManager.GetAllDetailsDto().Data
+                .Where(f => f.FaturaTuru == "Alış")
+                .OrderByDescending(f => f.Id);
         }
 
         void GetCariOzet()
@@ -58,6 +71,10 @@ namespace UIWinForm
             lookCari.Properties.DataSource = _cariManager.GetCariOzetDtos().Data;
             lookCari.Properties.DisplayMember = "Name";
             lookCari.Properties.ValueMember = "Id";
+
+            lookAlisCari.Properties.DataSource = _cariManager.GetCariOzetDtos().Data;
+            lookAlisCari.Properties.DisplayMember = "Name";
+            lookAlisCari.Properties.ValueMember = "Id";
         }
 
         void GetPersonelOzet()
@@ -65,6 +82,10 @@ namespace UIWinForm
             lookPersonel.Properties.DataSource = _personelManager.GetAll().Data;
             lookPersonel.Properties.DisplayMember = "AdSoyad";
             lookPersonel.Properties.ValueMember = "Id";
+
+            lookAlisPersonel.Properties.DataSource = _personelManager.GetAll().Data;
+            lookAlisPersonel.Properties.DisplayMember = "AdSoyad";
+            lookAlisPersonel.Properties.ValueMember = "Id";
         }
 
         private void FrmFaturalar_Load(object sender, EventArgs e)
@@ -82,11 +103,12 @@ namespace UIWinForm
                 Date = DateTime.Now,
                 Time = DateTime.Now,
                 PersonelId = int.Parse(lookPersonel.EditValue.ToString()),
-                SiraNo = txtSiraNo.Text.ToString(),
+                //SiraNo = int.Parse(txtSiraNo.Text),
                 TeslimAlan = txtTAlan.Text,
                 Tutar = 0,
                 KacOdenecek = 0,
-                KacOdendi = 0
+                KacOdendi = 0,
+                FaturaTuru = "Satış"
             };
             var result = _faturaBilgiManager.Add(faturaBilgi);
             if (result.Success)
@@ -99,6 +121,7 @@ namespace UIWinForm
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
+            var get = _faturaBilgiManager.Get(int.Parse(txtId.Text));
             FaturaBilgi faturaBilgi = new FaturaBilgi
             {
                 Id = int.Parse(txtId.Text),
@@ -106,9 +129,15 @@ namespace UIWinForm
                 Date = DateTime.Now,
                 Time = DateTime.Now,
                 PersonelId = int.Parse(lookPersonel.EditValue.ToString()),
-                SiraNo = txtSiraNo.Text.ToString(),
+                //SiraNo = int.Parse(txtSiraNo.Text),
                 TeslimAlan = txtTAlan.Text,
-                Tutar = 0
+                Tutar = get.Data.Tutar,
+                FaturaTuru = "Satış",
+                SeriNo = txtSeriNo.Text,
+                FaturaKesildimi = get.Data.FaturaKesildimi,
+                KacOdendi = get.Data.KacOdendi,
+                KacOdenecek = get.Data.KacOdenecek,
+                Odendimi = get.Data.Odendimi
             };
             var result = _faturaBilgiManager.Update(faturaBilgi);
             if (result.Success)
@@ -143,17 +172,120 @@ namespace UIWinForm
             txtTAlan.Text = selectedRow.TeslimAlan;
             lookCari.Text = selectedRow.CariName;
             lookPersonel.Text = selectedRow.PersonelName;
-            txtSiraNo.Text = selectedRow.SiraNo;
+            txtSeriNo.Text = selectedRow.SeriNo.ToString();
         }
 
         private void btnTemizle_Click(object sender, EventArgs e)
         {
             Temizle();
+
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             var a = _serviceProvider.GetService<FrmFaturaDetay>();
+            a.secilenCari = lookCari.EditValue.ToString();
+            a._cariId = int.Parse(lookCari.EditValue.ToString());
+            a._fbId = int.Parse(txtId.Text);
+            a.ShowDialog();
+        }
+
+        private void tablePanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnAlisKaydet_Click(object sender, EventArgs e)
+        {
+            FaturaBilgi faturaBilgi = new FaturaBilgi
+            {
+                CariId = int.Parse(lookAlisCari.EditValue.ToString()),
+                Date = DateTime.Now,
+                Time = DateTime.Now,
+                PersonelId = int.Parse(lookAlisPersonel.EditValue.ToString()),
+                //SiraNo = int.Parse(txtAlisSiraNo.Text),
+                TeslimAlan = txtAlisTVeren.Text,
+                Tutar = 0,
+                KacOdenecek = 0,
+                KacOdendi = 0,
+                FaturaTuru = "Alış",
+                SeriNo = txtAlisSeriNo.Text,
+                FaturaKesildimi = false,
+                Odendimi = false
+            };
+            var result = _faturaBilgiManager.Add(faturaBilgi);
+            if (result.Success)
+            {
+                MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            GetAllFaturaBilgi();
+            Temizle();
+        }
+
+        private void btnAlisGuncelle_Click(object sender, EventArgs e)
+        {
+            var get = _faturaBilgiManager.Get(int.Parse(txtAlisId.Text));
+            FaturaBilgi faturaBilgi = new FaturaBilgi
+            {
+                Id = int.Parse(txtAlisId.Text),
+                CariId = int.Parse(lookAlisCari.EditValue.ToString()),
+                Date = DateTime.Now,
+                Time = DateTime.Now,
+                PersonelId = int.Parse(lookAlisPersonel.EditValue.ToString()),
+                //SiraNo = int.Parse(txtAlisSiraNo.Text),
+                TeslimAlan = txtAlisTVeren.Text,
+                Tutar = get.Data.Tutar,
+                FaturaTuru = "Alış",
+                SeriNo = txtAlisSeriNo.Text,
+                FaturaKesildimi = get.Data.FaturaKesildimi,
+                KacOdendi = get.Data.KacOdendi,
+                KacOdenecek = get.Data.KacOdenecek,
+                Odendimi = get.Data.Odendimi
+            };
+            var result = _faturaBilgiManager.Update(faturaBilgi);
+            if (result.Success)
+            {
+                MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            GetAllFaturaBilgi();
+            Temizle();
+        }
+
+        private void btnAlisSil_Click(object sender, EventArgs e)
+        {
+            FaturaBilgi faturaBilgi = new FaturaBilgi
+            {
+                Id = int.Parse(txtAlisId.Text),
+            };
+            var result = _faturaBilgiManager.Delete(faturaBilgi);
+            if (result.Success)
+            {
+                MessageBox.Show(result.Message, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            GetAllFaturaBilgi();
+            Temizle();
+        }
+
+        private void btnAlisTemizle_Click(object sender, EventArgs e)
+        {
+            Temizle();
+        }
+
+        private void gridView2_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            var selectedRow = gridView2.GetFocusedRow() as FaturaBilgiDetailsDto;
+            txtAlisId.Text = selectedRow.Id.ToString();
+            txtAlisSaat.Text = selectedRow.Tarih.ToShortTimeString();
+            txtAlisTarih.Text = selectedRow.Tarih.ToLongDateString();
+            txtAlisTVeren.Text = selectedRow.TeslimAlan;
+            lookAlisCari.Text = selectedRow.CariName;
+            lookAlisPersonel.Text = selectedRow.PersonelName;
+            txtAlisSeriNo.Text = selectedRow.SeriNo.ToString();
+        }
+
+        private void gridView2_DoubleClick(object sender, EventArgs e)
+        {
+            var a = _serviceProvider.GetService<FrmUrunAl>();
             a.secilenCari = lookCari.EditValue.ToString();
             a._cariId = int.Parse(lookCari.EditValue.ToString());
             a._fbId = int.Parse(txtId.Text);

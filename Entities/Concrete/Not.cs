@@ -13,6 +13,8 @@ namespace Entities.Concrete
         [Key]
         public int Id { get; set; }
         [Required]
+        public string Onem { get; set; }
+        [Required]
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
         [DataType(DataType.Time)]

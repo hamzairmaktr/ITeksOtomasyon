@@ -34,7 +34,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  Detay = n.Detay,
                                  PersonelName = p.AdSoyad,
                                  Time = n.Time,
-                                 Yapildimi = n.Yapildimi
+                                 Yapildimi = n.Yapildimi,
+                                 Onem = n.Onem,
                              };
                 return result.ToList();
            

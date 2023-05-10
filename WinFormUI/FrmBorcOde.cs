@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -16,17 +17,14 @@ namespace UIWinForm
 {
     public partial class FrmBorcOde : Form
     {
-        private readonly BorcManager _borcManager;
-        private readonly KasaManager _kasaManager;
+        private readonly IBorcService _borcManager;
+        private readonly IKasaService _kasaManager;
 
-        public FrmBorcOde(BorcManager borcManager,KasaManager kasaManager)
-        {
-            _borcManager = borcManager;
-            _kasaManager = kasaManager;
-        }
-        public FrmBorcOde()
+        public FrmBorcOde(IBorcService borcManager, IKasaService kasaManager)
         {
             InitializeComponent();
+            _borcManager = borcManager;
+            _kasaManager = kasaManager;
         }
 
         private void Listele()

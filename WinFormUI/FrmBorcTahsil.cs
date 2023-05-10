@@ -1,4 +1,5 @@
 ﻿using AnaMenu;
+using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
@@ -17,19 +18,16 @@ namespace UIWinForm
 {
     public partial class FrmBorcTahsil : Form
     {
-        private readonly BorcManager _borcManager;
-        private readonly KasaManager _kasaManager;
+        private readonly IBorcService _borcManager;
+        private readonly IKasaService _kasaManager;
 
-        public FrmBorcTahsil(BorcManager borcManager,KasaManager kasaManager)
+        public FrmBorcTahsil(IBorcService borcManager, IKasaService kasaManager)
         {
+            InitializeComponent();
             _borcManager = borcManager;
             _kasaManager = kasaManager;
         }
-        public FrmBorcTahsil()
-        {
-            InitializeComponent();
-        }
-
+       
         private void FrmBorcEksi_Load(object sender, EventArgs e)
         {
             Listele();

@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -15,18 +16,15 @@ namespace UIWinForm
 {
     public partial class FrmKasaTur : Form
     {
-        private readonly KasaTurManager _kasaTurManager;
-        private readonly BankaManager _bankaManager;
-        public FrmKasaTur(KasaTurManager kasaTurManager, BankaManager bankaManager)
+        private readonly IKasaTurService _kasaTurManager;
+        private readonly IBankaService _bankaManager;
+        public FrmKasaTur(IKasaTurService kasaTurManager, IBankaService bankaManager)
         {
+            InitializeComponent();
             _kasaTurManager = kasaTurManager;
             _bankaManager = bankaManager;
         }
 
-        public FrmKasaTur()
-        {
-            InitializeComponent();
-        }
 
         void Listele()
         {

@@ -52,6 +52,8 @@
             txtTarih = new DevExpress.XtraEditors.TextEdit();
             txtId = new DevExpress.XtraEditors.TextEdit();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            label8 = new System.Windows.Forms.Label();
+            comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)gridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridControl1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tablePanel1).BeginInit();
@@ -63,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)txtTarih.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtId.Properties).BeginInit();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)comboBoxEdit1.Properties).BeginInit();
             SuspendLayout();
             // 
             // gridView1
@@ -86,6 +89,8 @@
             // tablePanel1
             // 
             tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 32.48F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 67.52F) });
+            tablePanel1.Controls.Add(comboBoxEdit1);
+            tablePanel1.Controls.Add(label8);
             tablePanel1.Controls.Add(lookUpEdit1);
             tablePanel1.Controls.Add(chkYapildimi);
             tablePanel1.Controls.Add(txtDetay);
@@ -116,14 +121,13 @@
             // lookUpEdit1
             // 
             tablePanel1.SetColumn(lookUpEdit1, 1);
-            lookUpEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            lookUpEdit1.Location = new System.Drawing.Point(109, 256);
+            lookUpEdit1.Location = new System.Drawing.Point(109, 291);
             lookUpEdit1.Name = "lookUpEdit1";
             lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             lookUpEdit1.Properties.Appearance.Options.UseFont = true;
             lookUpEdit1.Properties.AutoHeight = false;
             lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
-            tablePanel1.SetRow(lookUpEdit1, 5);
+            tablePanel1.SetRow(lookUpEdit1, 6);
             lookUpEdit1.Size = new System.Drawing.Size(195, 31);
             lookUpEdit1.TabIndex = 29;
             // 
@@ -131,12 +135,12 @@
             // 
             tablePanel1.SetColumn(chkYapildimi, 1);
             chkYapildimi.Dock = System.Windows.Forms.DockStyle.Fill;
-            chkYapildimi.Location = new System.Drawing.Point(109, 291);
+            chkYapildimi.Location = new System.Drawing.Point(109, 326);
             chkYapildimi.Name = "chkYapildimi";
             chkYapildimi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             chkYapildimi.Properties.Appearance.Options.UseFont = true;
             chkYapildimi.Properties.Caption = "Yapıldı";
-            tablePanel1.SetRow(chkYapildimi, 6);
+            tablePanel1.SetRow(chkYapildimi, 7);
             chkYapildimi.Size = new System.Drawing.Size(195, 31);
             chkYapildimi.TabIndex = 28;
             // 
@@ -145,9 +149,9 @@
             tablePanel1.SetColumn(txtDetay, 1);
             txtDetay.Dock = System.Windows.Forms.DockStyle.Fill;
             txtDetay.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            txtDetay.Location = new System.Drawing.Point(109, 326);
+            txtDetay.Location = new System.Drawing.Point(109, 361);
             txtDetay.Name = "txtDetay";
-            tablePanel1.SetRow(txtDetay, 7);
+            tablePanel1.SetRow(txtDetay, 8);
             tablePanel1.SetRowSpan(txtDetay, 2);
             txtDetay.Size = new System.Drawing.Size(195, 66);
             txtDetay.TabIndex = 27;
@@ -160,9 +164,9 @@
             tablePanel1.SetColumn(btnTemizle, 1);
             btnTemizle.Dock = System.Windows.Forms.DockStyle.Fill;
             btnTemizle.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("btnTemizle.ImageOptions.Image");
-            btnTemizle.Location = new System.Drawing.Point(109, 536);
+            btnTemizle.Location = new System.Drawing.Point(109, 571);
             btnTemizle.Name = "btnTemizle";
-            tablePanel1.SetRow(btnTemizle, 13);
+            tablePanel1.SetRow(btnTemizle, 14);
             btnTemizle.Size = new System.Drawing.Size(195, 31);
             btnTemizle.TabIndex = 20;
             btnTemizle.Text = "Temizle";
@@ -175,9 +179,9 @@
             tablePanel1.SetColumn(btnGuncelle, 1);
             btnGuncelle.Dock = System.Windows.Forms.DockStyle.Fill;
             btnGuncelle.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("btnGuncelle.ImageOptions.Image");
-            btnGuncelle.Location = new System.Drawing.Point(109, 466);
+            btnGuncelle.Location = new System.Drawing.Point(109, 501);
             btnGuncelle.Name = "btnGuncelle";
-            tablePanel1.SetRow(btnGuncelle, 11);
+            tablePanel1.SetRow(btnGuncelle, 12);
             btnGuncelle.Size = new System.Drawing.Size(195, 31);
             btnGuncelle.TabIndex = 19;
             btnGuncelle.Text = "Güncelle";
@@ -190,9 +194,9 @@
             tablePanel1.SetColumn(btnSil, 1);
             btnSil.Dock = System.Windows.Forms.DockStyle.Fill;
             btnSil.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("btnSil.ImageOptions.Image");
-            btnSil.Location = new System.Drawing.Point(109, 501);
+            btnSil.Location = new System.Drawing.Point(109, 536);
             btnSil.Name = "btnSil";
-            tablePanel1.SetRow(btnSil, 12);
+            tablePanel1.SetRow(btnSil, 13);
             btnSil.Size = new System.Drawing.Size(195, 31);
             btnSil.TabIndex = 18;
             btnSil.Text = "Sil";
@@ -205,9 +209,9 @@
             tablePanel1.SetColumn(btnKaydet, 1);
             btnKaydet.Dock = System.Windows.Forms.DockStyle.Fill;
             btnKaydet.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("btnKaydet.ImageOptions.Image");
-            btnKaydet.Location = new System.Drawing.Point(109, 431);
+            btnKaydet.Location = new System.Drawing.Point(109, 466);
             btnKaydet.Name = "btnKaydet";
-            tablePanel1.SetRow(btnKaydet, 10);
+            tablePanel1.SetRow(btnKaydet, 11);
             btnKaydet.Size = new System.Drawing.Size(195, 31);
             btnKaydet.TabIndex = 17;
             btnKaydet.Text = "Kaydet";
@@ -231,9 +235,9 @@
             tablePanel1.SetColumn(label7, 0);
             label7.Dock = System.Windows.Forms.DockStyle.Fill;
             label7.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label7.Location = new System.Drawing.Point(14, 324);
+            label7.Location = new System.Drawing.Point(14, 359);
             label7.Name = "label7";
-            tablePanel1.SetRow(label7, 7);
+            tablePanel1.SetRow(label7, 8);
             label7.Size = new System.Drawing.Size(90, 35);
             label7.TabIndex = 14;
             label7.Text = "Detay :";
@@ -245,9 +249,9 @@
             tablePanel1.SetColumn(label6, 0);
             label6.Dock = System.Windows.Forms.DockStyle.Fill;
             label6.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label6.Location = new System.Drawing.Point(14, 289);
+            label6.Location = new System.Drawing.Point(14, 324);
             label6.Name = "label6";
-            tablePanel1.SetRow(label6, 6);
+            tablePanel1.SetRow(label6, 7);
             label6.Size = new System.Drawing.Size(90, 35);
             label6.TabIndex = 13;
             label6.Text = "Yapıldımı :";
@@ -259,9 +263,9 @@
             tablePanel1.SetColumn(label5, 0);
             label5.Dock = System.Windows.Forms.DockStyle.Fill;
             label5.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label5.Location = new System.Drawing.Point(14, 254);
+            label5.Location = new System.Drawing.Point(14, 289);
             label5.Name = "label5";
-            tablePanel1.SetRow(label5, 5);
+            tablePanel1.SetRow(label5, 6);
             label5.Size = new System.Drawing.Size(90, 35);
             label5.TabIndex = 12;
             label5.Text = "Personel :";
@@ -273,9 +277,9 @@
             tablePanel1.SetColumn(label4, 0);
             label4.Dock = System.Windows.Forms.DockStyle.Fill;
             label4.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(14, 219);
+            label4.Location = new System.Drawing.Point(14, 254);
             label4.Name = "label4";
-            tablePanel1.SetRow(label4, 4);
+            tablePanel1.SetRow(label4, 5);
             label4.Size = new System.Drawing.Size(90, 35);
             label4.TabIndex = 11;
             label4.Text = "Başlık :";
@@ -342,12 +346,12 @@
             // 
             tablePanel1.SetColumn(txtBaslik, 1);
             txtBaslik.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtBaslik.Location = new System.Drawing.Point(109, 221);
+            txtBaslik.Location = new System.Drawing.Point(109, 256);
             txtBaslik.Name = "txtBaslik";
             txtBaslik.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtBaslik.Properties.Appearance.Options.UseFont = true;
             txtBaslik.Properties.AutoHeight = false;
-            tablePanel1.SetRow(txtBaslik, 4);
+            tablePanel1.SetRow(txtBaslik, 5);
             txtBaslik.Size = new System.Drawing.Size(195, 31);
             txtBaslik.TabIndex = 2;
             // 
@@ -395,6 +399,36 @@
             tableLayoutPanel1.Size = new System.Drawing.Size(1583, 804);
             tableLayoutPanel1.TabIndex = 2;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            tablePanel1.SetColumn(label8, 0);
+            label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            label8.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label8.Location = new System.Drawing.Point(14, 219);
+            label8.Name = "label8";
+            tablePanel1.SetRow(label8, 4);
+            label8.Size = new System.Drawing.Size(90, 35);
+            label8.TabIndex = 30;
+            label8.Text = "Önem :";
+            label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // comboBoxEdit1
+            // 
+            tablePanel1.SetColumn(comboBoxEdit1, 1);
+            comboBoxEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
+            comboBoxEdit1.Location = new System.Drawing.Point(109, 221);
+            comboBoxEdit1.Name = "comboBoxEdit1";
+            comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            comboBoxEdit1.Properties.Appearance.Options.UseFont = true;
+            comboBoxEdit1.Properties.AutoHeight = false;
+            comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
+            comboBoxEdit1.Properties.Items.AddRange(new object[] { "Önemli", "Günlük", "Süresiz" });
+            comboBoxEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            tablePanel1.SetRow(comboBoxEdit1, 4);
+            comboBoxEdit1.Size = new System.Drawing.Size(195, 31);
+            comboBoxEdit1.TabIndex = 31;
+            // 
             // FrmNotlar
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -416,6 +450,7 @@
             ((System.ComponentModel.ISupportInitialize)txtTarih.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtId.Properties).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)comboBoxEdit1.Properties).EndInit();
             ResumeLayout(false);
         }
 
@@ -444,5 +479,7 @@
         private DevExpress.XtraEditors.TextEdit txtTarih;
         private DevExpress.XtraEditors.CheckEdit chkYapildimi;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -2,10 +2,10 @@
 using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DevExpress.Mvvm.Native;
-using DevExpress.Mvvm.POCO;
 using Entities.Concrete;
 using Entities.DTOs;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,12 +29,8 @@ namespace UIWinForm
             _serviceProvider = serviceProvider;
         }
 
-        public static int secilenCari = 0;
+        public int secilenCari = 0;
 
-        public FrmBorclar(int result)
-        {
-            secilenCari = result;
-        }
 
         void Geciktimi()
         {
@@ -66,7 +62,7 @@ namespace UIWinForm
 
         private void btnCari_Click(object sender, EventArgs e)
         {
-            var frmCariSec = _serviceProvider.GetRequiredService<FrmCariSec>();
+            var frmCariSec = _serviceProvider.GetService<FrmCariSec>();
             frmCariSec.ShowDialog();
         }
 

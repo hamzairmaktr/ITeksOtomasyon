@@ -41,6 +41,7 @@ namespace UIWinForm
         {
             var result = _urunManager.Get(int.Parse(lookUpEdit1.EditValue.ToString())).Data;
             txtFiyat.Text = result.SatisFiyat.ToString();
+            txtKdvsizFiyat.Text = result.SatisFiyat.ToString();
         }
 
         private void FrmFaturaDetayEkle_Load(object sender, EventArgs e)
@@ -55,11 +56,15 @@ namespace UIWinForm
             FaturaDetay faturaDetay = new FaturaDetay
             {
                 FaturaId = int.Parse(txtFaturaId.Text),
-                Fiyat = decimal.Parse(txtFiyat.Text),
+                Fiyat = decimal.Parse(txtKdvsizFiyat.Text),
                 Kg = decimal.Parse(txtKg.Text),
                 TopSayisi = int.Parse(txtAdet.Text),
-                Tutar = decimal.Parse(txtTutar.Text),
-                UrunId = int.Parse(lookUpEdit1.EditValue.ToString())
+                Tutar = decimal.Parse(txtKdvsizTutar.Text),
+                UrunId = int.Parse(lookUpEdit1.EditValue.ToString()),
+                Kdv = decimal.Parse(txtKdvTl.Text),
+                KdvFiyat = decimal.Parse(txtFiyat.Text),
+                KdvTutar = decimal.Parse(txtTutar.Text),
+                KdvOran = byte.Parse(txtKdv.Text),
             };
             var result = _faturaDetayManager.Add(faturaDetay);
             if (result.Success)
@@ -69,18 +74,22 @@ namespace UIWinForm
 
             var get = _faturaBilgiManager.Get(_id).Data;
             decimal toplam = get.Tutar + decimal.Parse(txtTutar.Text);
+
             FaturaBilgi faturaBilgi = new FaturaBilgi
             {
                 Id = _id,
                 CariId = get.CariId,
                 Date = get.Date,
                 PersonelId = get.PersonelId,
-                SiraNo = get.SiraNo,
                 TeslimAlan = get.TeslimAlan,
                 Time = get.Time,
                 Tutar = toplam,
                 KacOdenecek = toplam,
-                KacOdendi = get.KacOdendi
+                KacOdendi = get.KacOdendi,
+                FaturaTuru = get.FaturaTuru,
+                FaturaKesildimi = get.FaturaKesildimi,
+                Odendimi = get.Odendimi,
+                SeriNo = get.SeriNo
             };
             _faturaBilgiManager.Update(faturaBilgi);
 
@@ -91,8 +100,6 @@ namespace UIWinForm
             get1.Kg = kg;
 
             _urunManager.Update(get1);
-
-
         }
 
         private void txtKdv_EditValueChanged(object sender, EventArgs e)
@@ -105,11 +112,22 @@ namespace UIWinForm
             decimal tutar = decimal.Parse(txtKg.Text) * toplam;
             txtTutar.Text = tutar.ToString();
 
+            txtKdvTl.Text = (decimal.Parse(txtTutar.Text) - decimal.Parse(txtKdvsizTutar.Text)).ToString();
         }
 
         private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
         {
             GetFiyat();
+        }
+
+        private void txtKg_EditValueChanged(object sender, EventArgs e)
+        {
+            decimal fiyat = decimal.Parse(txtKdvsizFiyat.Text);
+            decimal kg = decimal.Parse(txtKg.Text);
+
+            decimal toplam = fiyat * kg;
+
+            txtKdvsizTutar.Text = toplam.ToString();
         }
     }
 }

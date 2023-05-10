@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,11 @@ namespace Entities.Concrete
         [Key]
         public int Id { get; set; }
         [Required]
-        [StringLength(50)]
-        public string SiraNo { get; set; }
+        [StringLength(20)]
+        public string FaturaTuru { get; set; }
+        [Required]
+        [StringLength(6)]
+        public string SeriNo { get; set; }
         [Required]
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
@@ -34,5 +38,9 @@ namespace Entities.Concrete
         public decimal KacOdenecek { get; set; }
         [Required]
         public decimal Tutar { get; set; }
+        [Required]
+        public bool Odendimi { get; set; }
+        [Required]
+        public bool FaturaKesildimi { get; set; }
     }
 }

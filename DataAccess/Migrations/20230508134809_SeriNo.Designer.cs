@@ -4,6 +4,7 @@ using DataAccess.Concrete.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230508134809_SeriNo")]
+    partial class SeriNo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -200,9 +202,6 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("FaturaKesildimi")
-                        .HasColumnType("bit");
-
                     b.Property<string>("FaturaTuru")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -214,9 +213,6 @@ namespace DataAccess.Migrations
                     b.Property<decimal>("KacOdenecek")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<bool>("Odendimi")
-                        .HasColumnType("bit");
-
                     b.Property<int>("PersonelId")
                         .HasColumnType("int");
 
@@ -224,6 +220,11 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasMaxLength(6)
                         .HasColumnType("nvarchar(6)");
+
+                    b.Property<string>("SiraNo")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("TeslimAlan")
                         .IsRequired()
@@ -257,18 +258,6 @@ namespace DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("Fiyat")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("Kdv")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("KdvFiyat")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<byte>("KdvOran")
-                        .HasColumnType("tinyint");
-
-                    b.Property<decimal>("KdvTutar")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<decimal>("Kg")

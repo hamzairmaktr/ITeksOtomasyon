@@ -1,4 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -15,22 +16,20 @@ namespace UIWinForm
 {
     public partial class FrmGider : Form
     {
-        private readonly GiderManager _giderManager;
-        private readonly KasaManager _kasaManager;
-        private readonly PersonelManager _personelManager;
+        private readonly IGiderService _giderManager;
+        private readonly IKasaService _kasaManager;
+        private readonly IPersonelService _personelManager;
 
-        public FrmGider(GiderManager giderManager, KasaManager kasaManager, PersonelManager personelManager)
+        public FrmGider(IGiderService giderManager, IKasaService kasaManager, IPersonelService personelManager)
         {
+            InitializeComponent();
             _giderManager = giderManager;
             _kasaManager = kasaManager;
             _personelManager = personelManager;
 
         }
 
-        public FrmGider()
-        {
-            InitializeComponent();
-        }
+
 
         void GetPersonel()
         {
@@ -55,13 +54,42 @@ namespace UIWinForm
             dateTarih.Clear();
             txtNot.Clear();
             txtTutar.Clear();
-            lookUpEdit1.Clear(); 
+            lookUpEdit1.Clear();
             lookUpEdit2.Clear();
+            
         }
 
         void Listele()
         {
-            gridControl1.DataSource = _giderManager.GetAll30DayBefore().Data;
+            gridControl1.DataSource = null;
+            gridControl1.DataSource = _giderManager.GetAll30DayBefore().Data.OrderByDescending(p=>p.Id);
+        }
+
+        void TarihAralıgaGoreListele()
+        {
+            gridControl1.DataSource = null;
+
+            string tarihAralıgı = cmbTarihAraligi.Text;
+            switch (tarihAralıgı)
+            {
+                case "7 Gün":
+                    gridControl1.DataSource = _giderManager.GetAll7DayBefore().Data.OrderByDescending(p => p.Id);
+                    break;
+                case "30 Gün":
+                    gridControl1.DataSource = _giderManager.GetAll30DayBefore().Data.OrderByDescending(p => p.Id);
+                    break;
+                case "365 Gün":
+                    gridControl1.DataSource = _giderManager.GetAll365DayBefore().Data.OrderByDescending(p => p.Id);
+                    break;
+            }
+        }
+
+        void TariheGoreListele()
+        {
+            gridControl1.DataSource = null;
+
+            DateTime date = dateFiltre.DateTime;
+            gridControl1.DataSource = _giderManager.GetAllDay(date).Data.OrderByDescending(p => p.Id);
         }
 
         private void FrmGider_Load(object sender, EventArgs e)
@@ -89,7 +117,7 @@ namespace UIWinForm
                 Tur = txtTur.Text,
                 PersonelId = int.Parse(lookUpEdit2.EditValue.ToString())
             };
-            
+
 
             var get = _kasaManager.GetById(int.Parse(lookUpEdit1.EditValue.ToString()));
 
@@ -100,7 +128,7 @@ namespace UIWinForm
                 KasaTur = get.Data.KasaTur,
 
             };
-            var result = _giderManager.Add(gider,kasa);
+            var result = _giderManager.Add(gider, kasa);
             var result1 = _kasaManager.UpdateMoneyGider(kasa, gider);
             if (result.Success && result1.Success)
             {
@@ -173,6 +201,20 @@ namespace UIWinForm
                 Temizle();
                 Listele();
                 GetKasa();
+            }
+        }
+
+        private void btnFiltrele_Click(object sender, EventArgs e)
+        {
+            string filtreTur = cmbFiltreTuru.Text;
+            switch (filtreTur)
+            {
+                case "Belirli Bir Tarih":
+                    TariheGoreListele();
+                    break;
+                case "Tarih Aralığı":
+                    TarihAralıgaGoreListele();
+                    break;
             }
         }
     }
