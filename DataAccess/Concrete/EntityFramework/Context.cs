@@ -18,7 +18,7 @@ namespace DataAccess.Concrete.EntityFramework
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            
+            var str = ConfigurationManager.ConnectionStrings["conString"].ConnectionString;   
             optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true;Connect Timeout=30;");
             optionsBuilder.EnableSensitiveDataLogging();
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.TrackAll);
