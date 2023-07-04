@@ -52,7 +52,6 @@ namespace UIWinForm
             lookAlisCari.Clear();
             lookAlisPersonel.Clear();
             txtAlisSeriNo.Clear();
-            GetAllFaturaBilgi();
         }
 
         void GetAllFaturaBilgi()
@@ -88,11 +87,33 @@ namespace UIWinForm
             lookAlisPersonel.Properties.ValueMember = "Id";
         }
 
+        void GetSeriNo()
+        {
+            if (_faturaBilgiManager.GetAllDetailsDto().Data.Count > 0)
+            {
+                var result = _faturaBilgiManager.GetAllDetailsDto().Data.MaxBy(f => f.SeriNo).SeriNo;
+                int parseResult = int.Parse(result) + 1;
+                var seriNo = "A-";
+                for (int i = 0; i < 6 - parseResult.ToString().Length; i++)
+                {
+                    seriNo += "0";
+                }
+                seriNo += parseResult.ToString();
+
+                txtSeriNo.Text = seriNo.ToString();
+            }
+            else
+            {
+                txtSeriNo.Text = "A-000001";
+            }
+        }
+
         private void FrmFaturalar_Load(object sender, EventArgs e)
         {
             GetAllFaturaBilgi();
             GetCariOzet();
             GetPersonelOzet();
+            GetSeriNo();
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
@@ -108,7 +129,10 @@ namespace UIWinForm
                 Tutar = 0,
                 KacOdenecek = 0,
                 KacOdendi = 0,
-                FaturaTuru = "Satış"
+                FaturaTuru = "Satış",
+                FaturaKesildimi = false,
+                Odendimi = false,
+                SeriNo = txtSeriNo.Text,
             };
             var result = _faturaBilgiManager.Add(faturaBilgi);
             if (result.Success)
@@ -178,7 +202,7 @@ namespace UIWinForm
         private void btnTemizle_Click(object sender, EventArgs e)
         {
             Temizle();
-
+            GetSeriNo();
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
@@ -290,6 +314,14 @@ namespace UIWinForm
             a._cariId = int.Parse(lookCari.EditValue.ToString());
             a._fbId = int.Parse(txtId.Text);
             a.ShowDialog();
+        }
+
+        private void btnListele_Click(object sender, EventArgs e)
+        {
+            GetAllFaturaBilgi();
+            GetCariOzet();
+            GetPersonelOzet();
+            GetSeriNo();
         }
     }
 }

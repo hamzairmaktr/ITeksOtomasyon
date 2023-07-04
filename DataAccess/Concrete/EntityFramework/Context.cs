@@ -13,15 +13,16 @@ using Microsoft.IdentityModel.Protocols;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class Context : DbContext, IContext
+    public class Context : DbContext,IContext
     {
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var str = ConfigurationManager.ConnectionStrings["conString"].ConnectionString;   
-            optionsBuilder.UseSqlServer(@"Server=.\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true;Connect Timeout=30;");
-            optionsBuilder.EnableSensitiveDataLogging();
-            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.TrackAll);
+            var str = ConfigurationManager.ConnectionStrings["conStringLocal"].ConnectionString;
+            //optionsBuilder.UseSqlServer(str);
+            optionsBuilder.UseSqlite(str);
+            //optionsBuilder.EnableSensitiveDataLogging();
+            //optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.TrackAll);
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

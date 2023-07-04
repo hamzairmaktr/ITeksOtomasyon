@@ -5,6 +5,7 @@ using DevExpress.Mvvm.Native;
 using Entities.Concrete;
 using Entities.DTOs;
 using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -34,20 +35,29 @@ namespace UIWinForm
 
         void Geciktimi()
         {
-            SqlConnection con = new SqlConnection("Server=.\\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("update Borclar set Geciktimi=1 where DateDiff(day,TeslimTarih,GetDate())>0", con);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            using(Context context = new Context())
+            {
+                var today = DateTime.Now.Date;
+                var overdueBorclar = context.Borclar
+                    .Where(borc => DateTime.Compare(today, borc.TeslimTarih) > 0)
+                    .ToList();
+                foreach (var borc in overdueBorclar)
+                {
+                    borc.Geciktimi = true;
+                }
+                context.SaveChanges();
+            }
+           
         }
 
         void BorcBitis()
         {
-            SqlConnection con = new SqlConnection("Server=.\\SQLEXPRESS;Database=ITeksOtomasyon;Trusted_Connection=true");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("delete Borclar where KacOdenecek=0", con);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            using (Context context = new Context())
+            {
+                var silinecekKayitlar = context.Borclar.Where(borc => borc.KacOdenecek == 0).ToList();
+                context.Borclar.RemoveRange(silinecekKayitlar);
+                context.SaveChanges();
+            }
         }
 
         //Listele
