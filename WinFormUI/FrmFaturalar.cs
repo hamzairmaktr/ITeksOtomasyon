@@ -92,6 +92,11 @@ namespace UIWinForm
             if (_faturaBilgiManager.GetAllDetailsDto().Data.Count > 0)
             {
                 var result = _faturaBilgiManager.GetAllDetailsDto().Data.MaxBy(f => f.SeriNo).SeriNo;
+                bool a = result.StartsWith("A-");
+                if (a)
+                {
+                    result = result.Substring(2);
+                }
                 int parseResult = int.Parse(result) + 1;
                 var seriNo = "A-";
                 for (int i = 0; i < 6 - parseResult.ToString().Length; i++)
