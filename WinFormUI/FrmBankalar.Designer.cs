@@ -73,26 +73,29 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.43512F));
-            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.56488F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(gridControl1, 1, 0);
             tableLayoutPanel1.Controls.Add(tablePanel1, 0, 0);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.40607F));
-            tableLayoutPanel1.Size = new System.Drawing.Size(1684, 762);
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new System.Drawing.Size(1252, 732);
             tableLayoutPanel1.TabIndex = 0;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // gridControl1
             // 
             gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridControl1.Location = new System.Drawing.Point(347, 3);
+            gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            gridControl1.Location = new System.Drawing.Point(444, 4);
             gridControl1.MainView = gridView1;
+            gridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             gridControl1.Name = "gridControl1";
-            gridControl1.Size = new System.Drawing.Size(1334, 756);
+            gridControl1.Size = new System.Drawing.Size(805, 724);
             gridControl1.TabIndex = 0;
             gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] { gridView1 });
             // 
@@ -100,13 +103,15 @@
             // 
             gridView1.AppearancePrint.Row.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             gridView1.AppearancePrint.Row.Options.UseFont = true;
+            gridView1.DetailHeight = 467;
             gridView1.GridControl = gridControl1;
             gridView1.Name = "gridView1";
             gridView1.FocusedRowChanged += gridView1_FocusedRowChanged_1;
             // 
             // tablePanel1
             // 
-            tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 32.48F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 67.52F) });
+            tablePanel1.AutoScroll = true;
+            tablePanel1.Columns.AddRange(new DevExpress.Utils.Layout.TablePanelColumn[] { new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 32.48F), new DevExpress.Utils.Layout.TablePanelColumn(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 67.52F) });
             tablePanel1.Controls.Add(dateTarih);
             tablePanel1.Controls.Add(btnTemizle);
             tablePanel1.Controls.Add(btnGuncelle);
@@ -129,10 +134,11 @@
             tablePanel1.Controls.Add(txtAd);
             tablePanel1.Controls.Add(txtId);
             tablePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            tablePanel1.Location = new System.Drawing.Point(3, 3);
+            tablePanel1.Location = new System.Drawing.Point(3, 4);
+            tablePanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             tablePanel1.Name = "tablePanel1";
-            tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 14.62F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 8.22F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 5F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Relative, 26.78F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F) });
-            tablePanel1.Size = new System.Drawing.Size(338, 756);
+            tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] { new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 14.62F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 50F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 50F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 50F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 50F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 50F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 50F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 50F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 50F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 8.22F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 50F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 50F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 50F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 50F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.AutoSize, 26.78F), new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Separator, 26F) });
+            tablePanel1.Size = new System.Drawing.Size(435, 724);
             tablePanel1.TabIndex = 1;
             tablePanel1.UseSkinIndents = true;
             // 
@@ -141,7 +147,8 @@
             tablePanel1.SetColumn(dateTarih, 1);
             dateTarih.Dock = System.Windows.Forms.DockStyle.Fill;
             dateTarih.EditValue = null;
-            dateTarih.Location = new System.Drawing.Point(116, 299);
+            dateTarih.Location = new System.Drawing.Point(143, 362);
+            dateTarih.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             dateTarih.Name = "dateTarih";
             dateTarih.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dateTarih.Properties.Appearance.Options.UseFont = true;
@@ -149,7 +156,7 @@
             dateTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             dateTarih.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo) });
             tablePanel1.SetRow(dateTarih, 7);
-            dateTarih.Size = new System.Drawing.Size(209, 28);
+            dateTarih.Size = new System.Drawing.Size(276, 42);
             dateTarih.TabIndex = 21;
             // 
             // btnTemizle
@@ -159,10 +166,11 @@
             tablePanel1.SetColumn(btnTemizle, 1);
             btnTemizle.Dock = System.Windows.Forms.DockStyle.Fill;
             btnTemizle.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("btnTemizle.ImageOptions.Image");
-            btnTemizle.Location = new System.Drawing.Point(116, 512);
+            btnTemizle.Location = new System.Drawing.Point(143, 637);
+            btnTemizle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             btnTemizle.Name = "btnTemizle";
             tablePanel1.SetRow(btnTemizle, 13);
-            btnTemizle.Size = new System.Drawing.Size(209, 28);
+            btnTemizle.Size = new System.Drawing.Size(276, 42);
             btnTemizle.TabIndex = 20;
             btnTemizle.Text = "Temizle";
             btnTemizle.Click += btnTemizle_Click;
@@ -174,10 +182,11 @@
             tablePanel1.SetColumn(btnGuncelle, 1);
             btnGuncelle.Dock = System.Windows.Forms.DockStyle.Fill;
             btnGuncelle.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("btnGuncelle.ImageOptions.Image");
-            btnGuncelle.Location = new System.Drawing.Point(116, 448);
+            btnGuncelle.Location = new System.Drawing.Point(143, 537);
+            btnGuncelle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             btnGuncelle.Name = "btnGuncelle";
             tablePanel1.SetRow(btnGuncelle, 11);
-            btnGuncelle.Size = new System.Drawing.Size(209, 28);
+            btnGuncelle.Size = new System.Drawing.Size(276, 42);
             btnGuncelle.TabIndex = 19;
             btnGuncelle.Text = "Güncelle";
             btnGuncelle.Click += btnGuncelle_Click;
@@ -189,10 +198,11 @@
             tablePanel1.SetColumn(btnSil, 1);
             btnSil.Dock = System.Windows.Forms.DockStyle.Fill;
             btnSil.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("btnSil.ImageOptions.Image");
-            btnSil.Location = new System.Drawing.Point(116, 480);
+            btnSil.Location = new System.Drawing.Point(143, 587);
+            btnSil.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             btnSil.Name = "btnSil";
             tablePanel1.SetRow(btnSil, 12);
-            btnSil.Size = new System.Drawing.Size(209, 28);
+            btnSil.Size = new System.Drawing.Size(276, 42);
             btnSil.TabIndex = 18;
             btnSil.Text = "Sil";
             btnSil.Click += btnSil_Click;
@@ -204,10 +214,11 @@
             tablePanel1.SetColumn(btnKaydet, 1);
             btnKaydet.Dock = System.Windows.Forms.DockStyle.Fill;
             btnKaydet.ImageOptions.Image = (System.Drawing.Image)resources.GetObject("btnKaydet.ImageOptions.Image");
-            btnKaydet.Location = new System.Drawing.Point(116, 416);
+            btnKaydet.Location = new System.Drawing.Point(143, 487);
+            btnKaydet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             btnKaydet.Name = "btnKaydet";
             tablePanel1.SetRow(btnKaydet, 10);
-            btnKaydet.Size = new System.Drawing.Size(209, 28);
+            btnKaydet.Size = new System.Drawing.Size(276, 42);
             btnKaydet.TabIndex = 17;
             btnKaydet.Text = "Kaydet";
             btnKaydet.Click += btnKaydet_Click;
@@ -219,10 +230,10 @@
             label9.Dock = System.Windows.Forms.DockStyle.Bottom;
             label9.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label9.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            label9.Location = new System.Drawing.Point(117, 69);
+            label9.Location = new System.Drawing.Point(143, 12);
             label9.Name = "label9";
             tablePanel1.SetRow(label9, 0);
-            label9.Size = new System.Drawing.Size(207, 36);
+            label9.Size = new System.Drawing.Size(276, 46);
             label9.TabIndex = 16;
             label9.Text = "Bankalar";
             // 
@@ -232,10 +243,10 @@
             tablePanel1.SetColumn(label8, 0);
             label8.Dock = System.Windows.Forms.DockStyle.Fill;
             label8.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label8.Location = new System.Drawing.Point(14, 329);
+            label8.Location = new System.Drawing.Point(16, 408);
             label8.Name = "label8";
             tablePanel1.SetRow(label8, 8);
-            label8.Size = new System.Drawing.Size(97, 32);
+            label8.Size = new System.Drawing.Size(121, 50);
             label8.TabIndex = 15;
             label8.Text = "Hesap Turu :";
             label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -246,10 +257,10 @@
             tablePanel1.SetColumn(label7, 0);
             label7.Dock = System.Windows.Forms.DockStyle.Fill;
             label7.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label7.Location = new System.Drawing.Point(14, 297);
+            label7.Location = new System.Drawing.Point(16, 358);
             label7.Name = "label7";
             tablePanel1.SetRow(label7, 7);
-            label7.Size = new System.Drawing.Size(97, 32);
+            label7.Size = new System.Drawing.Size(121, 50);
             label7.TabIndex = 14;
             label7.Text = "Tarih :";
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -260,10 +271,10 @@
             tablePanel1.SetColumn(label6, 0);
             label6.Dock = System.Windows.Forms.DockStyle.Fill;
             label6.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label6.Location = new System.Drawing.Point(14, 265);
+            label6.Location = new System.Drawing.Point(16, 308);
             label6.Name = "label6";
             tablePanel1.SetRow(label6, 6);
-            label6.Size = new System.Drawing.Size(97, 32);
+            label6.Size = new System.Drawing.Size(121, 50);
             label6.TabIndex = 13;
             label6.Text = "Yetkili :";
             label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -274,10 +285,10 @@
             tablePanel1.SetColumn(label5, 0);
             label5.Dock = System.Windows.Forms.DockStyle.Fill;
             label5.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label5.Location = new System.Drawing.Point(14, 233);
+            label5.Location = new System.Drawing.Point(16, 258);
             label5.Name = "label5";
             tablePanel1.SetRow(label5, 5);
-            label5.Size = new System.Drawing.Size(97, 32);
+            label5.Size = new System.Drawing.Size(121, 50);
             label5.TabIndex = 12;
             label5.Text = "Hesap No :";
             label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -288,10 +299,10 @@
             tablePanel1.SetColumn(label4, 0);
             label4.Dock = System.Windows.Forms.DockStyle.Fill;
             label4.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(14, 201);
+            label4.Location = new System.Drawing.Point(16, 208);
             label4.Name = "label4";
             tablePanel1.SetRow(label4, 4);
-            label4.Size = new System.Drawing.Size(97, 32);
+            label4.Size = new System.Drawing.Size(121, 50);
             label4.TabIndex = 11;
             label4.Text = "Iban :";
             label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -302,10 +313,10 @@
             tablePanel1.SetColumn(label3, 0);
             label3.Dock = System.Windows.Forms.DockStyle.Fill;
             label3.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label3.Location = new System.Drawing.Point(14, 169);
+            label3.Location = new System.Drawing.Point(16, 158);
             label3.Name = "label3";
             tablePanel1.SetRow(label3, 3);
-            label3.Size = new System.Drawing.Size(97, 32);
+            label3.Size = new System.Drawing.Size(121, 50);
             label3.TabIndex = 10;
             label3.Text = "Sube :";
             label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -316,10 +327,10 @@
             tablePanel1.SetColumn(label2, 0);
             label2.Dock = System.Windows.Forms.DockStyle.Fill;
             label2.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label2.Location = new System.Drawing.Point(14, 137);
+            label2.Location = new System.Drawing.Point(16, 108);
             label2.Name = "label2";
             tablePanel1.SetRow(label2, 2);
-            label2.Size = new System.Drawing.Size(97, 32);
+            label2.Size = new System.Drawing.Size(121, 50);
             label2.TabIndex = 9;
             label2.Text = "Ad :";
             label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -330,10 +341,10 @@
             tablePanel1.SetColumn(label1, 0);
             label1.Dock = System.Windows.Forms.DockStyle.Fill;
             label1.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(14, 105);
+            label1.Location = new System.Drawing.Point(16, 58);
             label1.Name = "label1";
             tablePanel1.SetRow(label1, 1);
-            label1.Size = new System.Drawing.Size(97, 32);
+            label1.Size = new System.Drawing.Size(121, 50);
             label1.TabIndex = 8;
             label1.Text = "Id :";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -342,99 +353,107 @@
             // 
             tablePanel1.SetColumn(txtHesapTuru, 1);
             txtHesapTuru.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtHesapTuru.Location = new System.Drawing.Point(116, 331);
+            txtHesapTuru.Location = new System.Drawing.Point(143, 412);
+            txtHesapTuru.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             txtHesapTuru.Name = "txtHesapTuru";
             txtHesapTuru.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtHesapTuru.Properties.Appearance.Options.UseFont = true;
             txtHesapTuru.Properties.AutoHeight = false;
             tablePanel1.SetRow(txtHesapTuru, 8);
-            txtHesapTuru.Size = new System.Drawing.Size(209, 28);
+            txtHesapTuru.Size = new System.Drawing.Size(276, 42);
             txtHesapTuru.TabIndex = 7;
             // 
             // txtYetkili
             // 
             tablePanel1.SetColumn(txtYetkili, 1);
             txtYetkili.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtYetkili.Location = new System.Drawing.Point(116, 267);
+            txtYetkili.Location = new System.Drawing.Point(143, 312);
+            txtYetkili.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             txtYetkili.Name = "txtYetkili";
             txtYetkili.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtYetkili.Properties.Appearance.Options.UseFont = true;
             txtYetkili.Properties.AutoHeight = false;
             tablePanel1.SetRow(txtYetkili, 6);
-            txtYetkili.Size = new System.Drawing.Size(209, 28);
+            txtYetkili.Size = new System.Drawing.Size(276, 42);
             txtYetkili.TabIndex = 5;
             // 
             // txtHesapNo
             // 
             tablePanel1.SetColumn(txtHesapNo, 1);
             txtHesapNo.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtHesapNo.Location = new System.Drawing.Point(116, 235);
+            txtHesapNo.Location = new System.Drawing.Point(143, 262);
+            txtHesapNo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             txtHesapNo.Name = "txtHesapNo";
             txtHesapNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtHesapNo.Properties.Appearance.Options.UseFont = true;
             txtHesapNo.Properties.AutoHeight = false;
             tablePanel1.SetRow(txtHesapNo, 5);
-            txtHesapNo.Size = new System.Drawing.Size(209, 28);
+            txtHesapNo.Size = new System.Drawing.Size(276, 42);
             txtHesapNo.TabIndex = 4;
             // 
             // txtIban
             // 
             tablePanel1.SetColumn(txtIban, 1);
             txtIban.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtIban.Location = new System.Drawing.Point(116, 203);
+            txtIban.Location = new System.Drawing.Point(143, 212);
+            txtIban.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             txtIban.Name = "txtIban";
             txtIban.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtIban.Properties.Appearance.Options.UseFont = true;
             txtIban.Properties.AutoHeight = false;
             tablePanel1.SetRow(txtIban, 4);
-            txtIban.Size = new System.Drawing.Size(209, 28);
+            txtIban.Size = new System.Drawing.Size(276, 42);
             txtIban.TabIndex = 3;
             // 
             // txtSube
             // 
             tablePanel1.SetColumn(txtSube, 1);
             txtSube.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtSube.Location = new System.Drawing.Point(116, 171);
+            txtSube.Location = new System.Drawing.Point(143, 162);
+            txtSube.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             txtSube.Name = "txtSube";
             txtSube.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtSube.Properties.Appearance.Options.UseFont = true;
             txtSube.Properties.AutoHeight = false;
             tablePanel1.SetRow(txtSube, 3);
-            txtSube.Size = new System.Drawing.Size(209, 28);
+            txtSube.Size = new System.Drawing.Size(276, 42);
             txtSube.TabIndex = 2;
             // 
             // txtAd
             // 
             tablePanel1.SetColumn(txtAd, 1);
             txtAd.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtAd.Location = new System.Drawing.Point(116, 139);
+            txtAd.Location = new System.Drawing.Point(143, 112);
+            txtAd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             txtAd.Name = "txtAd";
             txtAd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtAd.Properties.Appearance.Options.UseFont = true;
             txtAd.Properties.AutoHeight = false;
             tablePanel1.SetRow(txtAd, 2);
-            txtAd.Size = new System.Drawing.Size(209, 28);
+            txtAd.Size = new System.Drawing.Size(276, 42);
             txtAd.TabIndex = 1;
             // 
             // txtId
             // 
             tablePanel1.SetColumn(txtId, 1);
             txtId.Dock = System.Windows.Forms.DockStyle.Fill;
-            txtId.Location = new System.Drawing.Point(116, 107);
+            txtId.Location = new System.Drawing.Point(143, 62);
+            txtId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             txtId.Name = "txtId";
             txtId.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             txtId.Properties.Appearance.Options.UseFont = true;
             txtId.Properties.AutoHeight = false;
             tablePanel1.SetRow(txtId, 1);
-            txtId.Size = new System.Drawing.Size(209, 28);
+            txtId.Size = new System.Drawing.Size(276, 42);
             txtId.TabIndex = 0;
             // 
             // FrmBankalar
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1684, 762);
+            ClientSize = new System.Drawing.Size(1252, 732);
             Controls.Add(tableLayoutPanel1);
+            Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             Name = "FrmBankalar";
             Text = "FrmBankalar";
             Load += FrmBankalar_Load;

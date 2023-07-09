@@ -62,9 +62,6 @@ namespace Core.DataAccess.EntityFramework
             updatedEntity.State = EntityState.Modified;
             _context.SaveChanges();
             updatedEntity.State = EntityState.Detached;
-
         }
-
-
     }
 }

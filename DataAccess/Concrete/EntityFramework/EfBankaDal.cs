@@ -13,7 +13,6 @@ namespace DataAccess.Concrete.EntityFramework
     public class EfBankaDal : EfEntityRepositoryBase<Banka, Context>, IBankaDal
     {
         private readonly Context _context;
-
         public EfBankaDal(Context context) : base(context)
         {
             this._context = context;
